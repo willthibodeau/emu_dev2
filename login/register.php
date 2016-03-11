@@ -1,7 +1,5 @@
 
 <?php 
-
-include'../model/database.php';
 include'../view/header.php';
 
 ?>
@@ -11,42 +9,48 @@ include'../view/header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-				<form name="frmRegistration" method="post" action="">
-					<table border="0" width="500" align="center" class="demo-table">
+            	<h2>Register</h2>
+				<form action="." method="post" >
+					<input type="hidden" name="action" value="register">
+					<table>
 						<tr><td>Username</td>
-						<td><input type="text" class="demoInputBox" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>"></td>
+						<td><input type="text" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>"></td>
 						</tr>
-						<tr><td>First Name</td>
+					 	<tr><td>First Name</td>
 						<td><input type="text" class="demoInputBox" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></td>
 						</tr>
 						<tr><td>Last Name</td>
-						<td><input type="text" class="demoInputBox" name="lastName" placeholder=lastname value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
-						</tr>
+						<td><input type="text" class="demoInputBox" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
+						</tr> 
 						<tr><td>Password</td>
-						<td><input type="password" class="demoInputBox" name="password" value=""></td>
-						</tr>
-						<tr><td>Confirm Password</td>
-						<td><input type="password" class="demoInputBox" name="confirm_password" value=""></td>
+						<td><input type="password" name="password" value=""></td>
+						</tr> 
+					 	<tr><td>Confirm Password</td>
+						<td><input type="password" class="demoInputBox" name="password2" value=""></td>
 						</tr>
 						<tr><td>Email</td>
 						<td><input type="text" class="demoInputBox" name="userEmail" value="<?php if(isset($_POST['userEmail'])) echo $_POST['userEmail']; ?>"></td>
 						</tr>
-						<tr><td></td>
-						<td></td>
-						</tr>
-						<tr>
-						<td><input type="checkbox" name="terms"> I accept Terms and Conditions</td>
-						</tr>
+						 
+
 					</table>
-					<div><input type="submit" name="submit" value="Register" class="btnRegister"></div>
+					<div><input type="submit"  value="Register" ></div>
 				</form>
+<p>Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.
+Matches 	
+Abc1234# | abcD$123 | A1b2&C3!
+Non-Matches 	
+abcd1234 | AbCd!@#$ | Abc 123#</p>
+				 <?php if(!empty($error)) { echo $error; } ?>
+     <?php if(!empty($message)) { echo $message; } ?>
+
 			</main>
         </article><!-- end main article -->
 
         <!-- first sidebar goes here -->
 	    <aside class="sidebar1">
 	      <h2>Sidebar 1</h2>
-	      <?php include '../view/admin_sidebar1.php'; ?>	     
+	          
 	    </aside><!-- end sidebar 1 -->
 	</div><!-- end column wrapper -->
 

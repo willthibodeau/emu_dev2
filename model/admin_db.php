@@ -39,18 +39,14 @@ function is_valid_member_login($username, $password) {
     
 }
 
-function get_admins() {
+function get_username($username) {
     global $db;
-    $query = 'SELECT * FROM users
-              ORDER BY lastName';
-    try {
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $result = $statement->fetchAll();
-        $statement->closeCursor();
-        return $result;
-    } catch (PDOException $e) {
-        display_db_error($e->getMessage());
-    }
+    $query = 'SELECT * FROM users WHERE users_username = :username';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $user = $statement->fetch();
+    $statement->closeCursor();
+    return $user;
 }
 ?>

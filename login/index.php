@@ -66,7 +66,8 @@ switch($action){
 	  	include 'register.php';
 	  	break;
 	case 'register':
-		$regex_patern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/';
+		$password_regex_patern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/';
+		$email_regex_pattern = '/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/';
 		$userName = filter_input(INPUT_POST, 'userName');
 		$firstName = filter_input(INPUT_POST, 'firstName');	
 		$lastName = filter_input(INPUT_POST, 'lastName');
@@ -75,46 +76,57 @@ switch($action){
 		$email = filter_input(INPUT_POST, 'email');
 		$terms = filter_input(INPUT_POST, 'terms');
 		$userlevel = "m";
-	
-		if(!preg_match( $regex_patern, $password)){
-            $error = "Please enter a password within the given parameters";
-            include'register.php';
-        }
-		else if ($userName == NULL || $userName == FALSE){
-			$error = "please enter a Username";
-			include'register.php';
-		}
+		$getUsers = get_users($userName);
 
-		else if($password == NULL || $password == FALSE){
-			$error = 'Please enter a password';
-			include'register.php';
-		}
+		// if(!preg_match( $password_regex_patern, $password )) {
+  //           $error = "Please enter a password within the given parameters";
+  //           include'register.php';
+  //           print_r($email);
+  //       }
 
-		else if($password != $password2) {
-			$error = 'Passwords do not match';
-			include'register.php';
-		}
+  //       else if (!preg_match( $email_regex_pattern, $email )) {
+  //       	print_r($email);
+  //       	$error = "Please enter a valid email address.";
+  //       	include'register.php';
+  //       }
 
-		else if($firstName == NULL || $firstName == FALSE) {
-			$error = 'Please enter a First Name';
-			include'register.php';
-		}
+		 // else 
+		 	if ($userName == NULL || $userName == FALSE) {
+		 	$error = "please enter a Username";
+		 	include'register.php';
+		 }
 
-		else if($lastName == NULl || $lastName == FALSE) {
-			$error = 'Please enter a Last Name';
-			include'register.php';
+		// else if($password == NULL || $password == FALSE) {
+		// 	$error = 'Please enter a password';
+		// 	include'register.php';
+		// }
 
-		}else if(get_username($username) == false){
+		// else if($password != $password2) {
+		// 	$error = 'Passwords do not match';
+		// 	include'register.php';
+		// }
+
+		// else if($firstName == NULL || $firstName == FALSE) {
+		// 	$error = 'Please enter a First Name';
+		// 	include'register.php';
+		// }
+
+		// else if($lastName == NULl || $lastName == FALSE) {
+		// 	$error = 'Please enter a Last Name';
+		// 	include'register.php';
+		// }
+
+		 else 
+		if($getUsers > 0  ) {
+			print_r($getUsers);
+			print_r($userName);
 			$error = 'Please choose another Username.';
 			include'register.php';
-
-		} else {
-			include'success.php';
 		}
 
-		
-
-		
+		else {
+			include'success.php';
+		}
 		break;
 	case 'logout':
         unset($_SESSION['admin']);
@@ -127,3 +139,6 @@ switch($action){
 }
 ?>
 
+<!-- ^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$
+Description 	
+Email validator that adheres directly to the specification for email address naming. It allows for everything from ipaddress and country-code domains, to very rare characters in the username. -->

@@ -39,18 +39,34 @@ function is_valid_member_login($username, $password) {
     
 }
 
-function get_username($username) {
+// function get_username($username) {
+//     global $db;
+//     $query = 'SELECT  FROM users WHERE users_username = :username';
+//     $statement = $db->prepare($query);
+//     $statement->bindValue(':username', $username);
+//     $statement->execute();
+//     if ($statement->rowCount() == 1) {
+//         $valid = true;
+//     } else {
+//         $valid = false;
+//     }
+//     $statement->closeCursor();
+//     return $valid;
+// }
+
+function get_users($userName) {
     global $db;
-    $query = 'SELECT * FROM users WHERE users_username = :username';
+    $query = 'SELECT COUNT(*) FROM users WHERE users_username = :username';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':username', $userName);
     $statement->execute();
-    if ($statement->rowCount() == 1) {
-        $valid = true;
-    } else {
-        $valid = false;
-    }
+    $admin = $statement->fetch();
+    $user_count = $admin[0];
     $statement->closeCursor();
-    return $valid;
+    if ($user_count > 0 ) {
+        return true;
+    } else {
+        return false;
+    }
 }
 ?>

@@ -17,33 +17,38 @@ include'../view/header.php';
 						<td><input type="text" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>"></td>
 						</tr>
 					 	<tr><td>First Name</td>
-						<td><input type="text" class="demoInputBox" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></td>
+						<td><input type="text" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></td>
 						</tr>
 						<tr><td>Last Name</td>
-						<td><input type="text" class="demoInputBox" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
+						<td><input type="text" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
 						</tr> 
 						<tr><td>Password</td>
 						<td><input type="password" name="password" value=""></td>
 						</tr> 
 					 	<tr><td>Confirm Password</td>
-						<td><input type="password" class="demoInputBox" name="password2" value=""></td>
+						<td><input type="password" name="password2" value=""></td>
 						</tr>
 						<tr><td>Email</td>
-						<td><input type="text" class="demoInputBox" name="userEmail" value="<?php if(isset($_POST['userEmail'])) echo $_POST['userEmail']; ?>"></td>
+						<td><input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"></td>
 						</tr>
+						<tr><td>Phone</td>
+						<td><input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"></td>
 						 
 
 					</table>
 					<div><input type="submit"  value="Register" ></div>
 				</form>
 <p>Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.
-Matches 	
-Abc1234# | abcD$123 | A1b2&C3!
-Non-Matches 	
-abcd1234 | AbCd!@#$ | Abc 123#</p>
+</p><p>Matches: 	
+Abc1234# | abcD$123 | A1b2&C3!</p><p>
+Non-Matches: 	
+abcd1234 | AbCd!@#$ | Abc 123#</p><br>
+<p>Email matches: asmith@mactec.com | foo12@foo.edu | bob.smith@foo.tv</p><br>
+
+<div class="error">
 				 <?php if(!empty($error)) { echo $error; } ?>
      <?php if(!empty($message)) { echo $message; } ?>
-
+</div>
 			</main>
         </article><!-- end main article -->
 

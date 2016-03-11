@@ -45,8 +45,12 @@ function get_username($username) {
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->execute();
-    $user = $statement->fetch();
+    if ($statement->rowCount() == 1) {
+        $valid = true;
+    } else {
+        $valid = false;
+    }
     $statement->closeCursor();
-    return $user;
+    return $valid;
 }
 ?>

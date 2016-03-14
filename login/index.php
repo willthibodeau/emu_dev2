@@ -85,46 +85,44 @@ switch($action){
 		$userlevel = "m";
 		$getUsers = get_users($userName);
 
-		// if(!preg_match( $password_regex_patern, $password )) {
-  //           $error = "Please enter a password within the given parameters";
-  //           include'register.php';
-  //           print_r($email);
-  //       }
+		 if(!preg_match( $password_regex_patern, $password )) {
+             $error = "Please enter a password within the given parameters";
+             include'register.php';
+             print_r($email);
+         }
 
-  //       else if (!preg_match( $email_regex_pattern, $email )) {
-  //       	print_r($email);
-  //       	$error = "Please enter a valid email address.";
-  //       	include'register.php';
-  //       }
+         else if (!preg_match( $email_regex_pattern, $email )) {
+         	print_r($email);
+         	$error = "Please enter a valid email address.";
+         	include'register.php';
+         }
 
-		 // else 
-		 	if ($userName == NULL || $userName == FALSE) {
+		 else if ($userName == NULL || $userName == FALSE) {
 		 	$error = "please enter a Username";
 		 	include'register.php';
 		 }
 
-		// else if($password == NULL || $password == FALSE) {
-		// 	$error = 'Please enter a password';
-		// 	include'register.php';
-		// }
+		 else if($password == NULL || $password == FALSE) {
+		 	$error = 'Please enter a password';
+		 	include'register.php';
+		 }
 
-		// else if($password != $password2) {
-		// 	$error = 'Passwords do not match';
-		// 	include'register.php';
-		// }
+		 else if($password != $password2) {
+			$error = 'Passwords do not match';
+		 	include'register.php';
+		 }
 
-		// else if($firstName == NULL || $firstName == FALSE) {
-		// 	$error = 'Please enter a First Name';
-		// 	include'register.php';
-		// }
+		 else if($firstName == NULL || $firstName == FALSE) {
+		 	$error = 'Please enter a First Name';
+		 	include'register.php';
+		 }
 
-		// else if($lastName == NULl || $lastName == FALSE) {
-		// 	$error = 'Please enter a Last Name';
-		// 	include'register.php';
-		// }
+		 else if($lastName == NULl || $lastName == FALSE) {
+		 	$error = 'Please enter a Last Name';
+		 	include'register.php';
+		 }
 
-		 else 
-		if($getUsers > 0  ) {
+		else if($getUsers > 0  ) {
 			print_r($getUsers);
 			print_r($userName);
 			$error = 'Please choose another Username.';
@@ -135,13 +133,15 @@ switch($action){
 			include'success.php';
 		}
 		break;
+
+		
 	case 'logout':
         unset($_SESSION['admin']);
         unset($_SESSION['member']);
         header('Location: ..' );
         break;
 	default:
-		echo 'Unknown action: ' . $action;	
+		echo 'Unknown login action: ' . $action;	
 		break;
 }
 ?>

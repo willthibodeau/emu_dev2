@@ -19,20 +19,20 @@ function is_valid_admin_login($username, $password) {
     
 }
 
-function is_valid_member_login($username, $password) {
+function is_valid_member_login($userName, $password) {
     global $db;
-    $password = sha1($username . $password);
+    $password = sha1($userName . $password);
     $query = '
         SELECT * FROM users
-        WHERE users_username = :username AND users_password = :password and users_userLevel = m';
+        WHERE users_username = :username AND users_password = :password and users_userLevel = "m"';
     $statement = $db->prepare($query);
-    $statement->bindValue(':username', $username);
+    $statement->bindValue(':username', $userName);
     $statement->bindValue(':password', $password);
     $statement->execute();
     if ($statement->rowCount() == 1) {
-        $valid = true;
+        $valid = 1;
     } else {
-        $valid = false;
+        $valid = 0;
     }
     $statement->closeCursor();
     return $valid;

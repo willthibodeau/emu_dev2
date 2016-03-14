@@ -1,8 +1,8 @@
 <?php
 
  require('../model/database_db.php');
- require('../model/admin_db.php');
- require('../model/member_db.php');
+  require('../model/admin_db.php');
+  //require('../model/member_db.php');
 
  
 
@@ -27,39 +27,46 @@ switch($action){
 		include 'login.php';
 		break;
 	case 'login':
-		$username = filter_input(INPUT_POST, 'username');
+		$userName = filter_input(INPUT_POST, 'username');
 		$password = filter_input(INPUT_POST, 'password');
-
+		$member_user = is_valid_member_login($userName, $password);
+		$admin_user = is_valid_admin_login($userName, $password);
 		
-		if ($username == NULL || $username == FALSE) {
-		 	$error = 'Please enter a valid username';
-		 	include('login.php');
+		 
+		if ($username == NULL || $userName == FALSE) {
+		  	$error = 'Please enter a valid username';
+		  	include('login.php');
 
 		} else if ($password == NULL || $password == FALSE) {
-		 	$error = 'Please enter a valid password';
-		 	include('login.php');
+		  	$error = 'Please enter a valid password';
+		  	include('login.php');
 
-		} else if (is_valid_member_login($username, $password)) {
-            $_SESSION['member'] = $username;
-            $message = 'Welcome ' . $username;
-            include 'success.php';
+		} else if ($member_user == 1) {
+             $_SESSION['member'] = $userName;
+             $message = 'Welcome ' . $userName;
+          include('success.php');
 
-		} else if (is_valid_admin_login($username, $password)){
-		 	$_SESSION['admin'] = $username;
-		 	$message = 'Welcome ' . $username;
-		 	include('../admin/admin_menu.php');
+		} 
 
-		} else {
+		 else if ($admin_user == 1) {
+		  	$_SESSION['admin'] = $userName;
+		  	$message = 'Welcome ' . $userName;
+		  	include('admin_success.php');
+
+		 } 
+		else {
+			
 		 	$error = 'Invalid username or password';
 		 	include('login.php');
 		} 
 
 	 	break;
 	case 'member_menu':
+		
 	  	include '../member/index.php';
 	  	break;
 	case 'admin_menu':
-	 	$message = 'Welcome admin ' . $username;
+	 	
 	  	include '../admin/admin_menu.php';
 	  	break;
 	case 'register_form':

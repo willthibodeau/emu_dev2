@@ -49,7 +49,7 @@ abcd1234 | AbCd!@#$ | Abc 123#</p><br>
 				 <?php if(!empty($error)) { echo $error; } ?>
      <?php if(!empty($message)) { echo $message; } ?>
 </div>
-			</main>
+	</main>
         </article><!-- end main article -->
 
         <!-- first sidebar goes here -->

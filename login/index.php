@@ -52,6 +52,7 @@ switch($action){
 		  	$_SESSION['admin'] = $userName;
 		  	$message = 'Welcome ' . $userName;
 		  	include('admin_success.php');
+		  	// header('Location: ../admin/index.php');
 
 		 } 
 		else {
@@ -67,7 +68,7 @@ switch($action){
 	  	break;
 	case 'admin_menu':
 	 	
-	  	include '../admin/admin_menu.php';
+	  	include '../admin/index.php';
 	  	break;
 	case 'register_form':
 	  	include 'register.php';

@@ -10,7 +10,7 @@ include'../view/header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-				<h2>Login is Successful!</h2>
+				<h2>Administrator Login is Successful!</h2>
 				<p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
 
 				<p>Go to the Administrators Management <a href="../admin/index.php">Page</a></p>

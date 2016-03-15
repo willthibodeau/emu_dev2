@@ -10,11 +10,12 @@ include'../view/header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-                <a href=".?action=category_list">Category Manger</a><br>
-                <a href=".?action=product_list">Product Manager</a><br>
-                <a href=".?action=image_list">Image Manager</a><br>
-                <a href=".?action=user_list">User Manager</a><br>
-                <a href=".?action=comment_list">Comment Manager</a><br>
+
+                <a href="index.php?action=category_list">Category Manger</a><br>
+                <a href="index.php?action=product_list">Product Manager</a><br>
+                <a href="index.php?action=image_list">Image Manager</a><br>
+                <a href="index.php?action=user_list">User Manager</a><br>
+                <a href="index.php?action=comment_list">Comment Manager</a><br>
             </main>
         
         

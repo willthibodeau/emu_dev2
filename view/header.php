@@ -12,14 +12,15 @@
 </head>
 
 <body>
-<div class="pageWrapper">
-<header>
-<nav class="clear">
-<ul class="dropdown">
-<li><a href="/emu_dev2/index.php">Home</a></li>
-<li><a href="/emu_dev2/login/">Login</a></li>
-
-</ul>
-</nav>
-<h1>Elite Meats Utah</h1>
-</header>
+	<div class="pageWrapper">
+		<header>
+			<nav class="clear">
+				<ul class="dropdown">
+					<li><a href="/emu_dev2/index.php">Home</a></li>
+					<li><a href="/emu_dev2/login/">Login</a></li>
+					<li><a href="/emu_dev2/product/">Products</a></li>
+					<li><a href="/emu_dev2/review/">Reviews</a></li>
+				</ul>
+			</nav>
+			<h1>Elite Meats Utah</h1>
+		</header>

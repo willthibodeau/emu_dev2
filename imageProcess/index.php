@@ -1,7 +1,10 @@
 <?php
+/* This file is straight out of Murachs */
+
 require_once 'file_util.php';  // the get_file_list function
 require_once 'image_util.php'; // the process_image function
 
+session_start();
 $image_dir = 'images';
 $image_dir_path = getcwd() . DIRECTORY_SEPARATOR . $image_dir;
 

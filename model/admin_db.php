@@ -10,9 +10,9 @@ function is_valid_admin_login($username, $password) {
     $statement->bindValue(':password', $password);
     $statement->execute();
     if ($statement->rowCount() == 1) {
-        $valid = true;
+        $valid = 1;
     } else {
-        $valid = false;
+        $valid = 0;
     }
     $statement->closeCursor();
     return $valid;

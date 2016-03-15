@@ -22,10 +22,9 @@ switch($action) {
 	    $categories = get_categories();
 	    $category_name = get_category_name($category_id);
 	    $products = get_products_by_category($category_id);
-	    $cwd = getcwd();
+	    $get_images = get_images();
 
-	    $img = get_images();
-	    print_r($img);
+	    $message = "Login is by " . $_SESSION['admin'];
 	    include('category_list.php');
 	    break;
 
@@ -87,6 +86,7 @@ switch($action) {
 	case'show_add_form':
 		$imagepaths = get_imagepath();
 	    $categories = get_categories();
+	    $get_images = get_images();
 	    include('product_add.php'); 
 	    break;
 
@@ -96,7 +96,7 @@ switch($action) {
 	    $name = filter_input(INPUT_POST, 'name');
 	    $description = filter_input(INPUT_POST, 'description');
 	    $price = filter_input(INPUT_POST, 'price');
-	    //$imagePath = filter_input(INPUT_POST, 'imagePath');
+	    $imagePath = filter_input(INPUT_POST, 'imagePath');
 	    $imagealt = filter_input(INPUT_POST, 'imagealt');
 	    if ($category_id == NULL || $category_id == FALSE || $code == NULL || 
 	            $name == NULL || $price == NULL || $price == FALSE) {
@@ -104,9 +104,10 @@ switch($action) {
 	        $categories = get_categories();
 	        include('product_add.php');
 	  	} else { 
-	       $message = "you have successfully entered". $name;
-	        add_product($category_id, $code, $name, $description, $price, $imagealt);
-	        header('Location: .?action=show_add_form'); 
+	  		print_r($price);
+	       $message = "you have successfully entered". $userName;
+	        add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
+	        header('Location: .?action=list_categories'); 
 	    }
 	    break;
 

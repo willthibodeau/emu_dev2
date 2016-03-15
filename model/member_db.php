@@ -21,17 +21,21 @@ function add_registration($customer_id, $product_code) {
     }
 }
 
-function add_member( $username, $password, $userLevel) {
+function add_member( $username, $firstName, $lastName, $password, $email, $phone, $userLevel) {
     global $db;
     $password = sha1($username . $password);
     $query = 'INSERT INTO users
-                 (users_userID, users_username, users_password, users_userLevel)
+                 (users_userID, users_username, users_firstName, users_lastName,  users_password, users_email, users_phone, users_userLevel)
               VALUES
-                 (NULL, :users_username, :users_password, :users_userLevel)';
+                 (NULL, :users_username, :users_firstName, users_lastName, :users_password, :users_email, :users_phone, :users_userLevel)';
     $statement = $db->prepare($query);
 //    $statement->bindValue(':users_userID', $userid);
     $statement->bindValue(':users_username', $username);
+    $statement->bindValue('users_firstName', $firstName);
+    $statement->bindValue('users_lastName', $lastName);
     $statement->bindValue(':users_password', $password);
+    $statement->bindValue('users_email', $email);
+    $statement->bindValue('users_phone', $phone);
     $statement->bindValue(':users_userLevel', $userLevel);
     $statement->execute();
     $statement->closeCursor();

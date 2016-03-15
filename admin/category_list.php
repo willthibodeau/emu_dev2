@@ -1,5 +1,5 @@
 <?php 
-require_once('../util/valid_admin.php');
+// require_once('../util/valid_admin.php');
 include'../view/header.php';
 ?>
 
@@ -15,12 +15,8 @@ include'../view/header.php';
                     <li><a href="../imageProcess/index.php">Image Manager</a></li>
                   
                 </ul>
-    <?php echo $cwd ; ?>
-    <?php foreach ($img as $imag) : ?>
-    <?php echo $imag[0]; ?>
-    <?php endforeach; ?>
-              
-                    <h2>Category List</h2>
+<?php echo $message ?>
+            <h2>Category List</h2>
                     <table>
                         <tr>
                             <th>Name</th>

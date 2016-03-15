@@ -40,8 +40,8 @@ include '../view/header.php';
                 
                     <label>Product Image:</label>
                     <select name="imagePath">
-                        <?php foreach( $imagepaths as $imagepath) : ?>
-                        <option value="<?php echo $imagepath['path']; ?>">
+                        <?php foreach( $get_images as $get_image) : ?>
+                        <option value="<?php echo $get_image ; ?>"><?php echo $get_image; ?>
                         </option>
                         <?php endforeach; ?>
                     </select><br>

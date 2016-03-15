@@ -34,10 +34,10 @@ function delete_product($product_id) {
     $statement->closeCursor();
 }
 
-function add_product($category_id, $code, $name, $description,  $price, $imagealt) {
+function add_product($category_id, $code, $name, $description,  $price,  $imagePath, $imagealt) {
     global $db;
     $query = 'INSERT INTO products
-                 (prod_productID, prod_categoryID, prod_prodCode, prod_productName, prod_description, prod_price, imagealt)
+                 (prod_productID, prod_categoryID, prod_prodCode, prod_productName, prod_description, prod_price,  imagealt)
               VALUES
                  (NULL, :category_id, :code, :name,:description, :price, :imagealt)';
     $statement = $db->prepare($query);
@@ -46,6 +46,7 @@ function add_product($category_id, $code, $name, $description,  $price, $imageal
     $statement->bindValue(':name', $name);
     $statement->bindValue(':description', $description);
     $statement->bindValue(':price', $price);
+    // $statement->bindValue(':imagepath', $imagePath);
     $statement->bindValue(':imagealt', $imagealt);
     $statement->execute();
     $statement->closeCursor();
@@ -64,20 +65,12 @@ function get_imagepath() {
 
 function get_images(){
 global $db;
-  $path = 'emu_dev2/imageProcess/images/';
+  $path = '../imageProcess/images/';
   $items = scandir($path);
   $files = array();
   foreach ($items as $item) {
-    $item_path = $path . DIRECTORY_SEPARATOR . $item;
-    if(if_file($item_path)){
-        $files[] = $item;
-    }
+    $item_path[] = $path .  $item;
   }
-  echo "<p>Files in $path</p>";
-  echo '<ul>';
-  foreach ($files as $file) {
-    echo '<li>' . $file . '</li>';
-  }
-  echo '</ul>';
-}
+  return $item_path;
+ }
 ?>

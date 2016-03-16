@@ -14,22 +14,22 @@ include'../view/header.php';
 					<input type="hidden" name="action" value="register">
 					<table>
 						<tr><td>Username</td>
-						<td><input type="text" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>"></td>
+						<td><input type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>" maxlength="60"></td>
 						</tr>
 					 	<tr><td>First Name</td>
-						<td><input type="text" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></td>
+						<td><input type="text" required="required" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></td>
 						</tr>
 						<tr><td>Last Name</td>
-						<td><input type="text" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
+						<td><input type="text" required="required" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></td>
 						</tr> 
 						<tr><td>Password</td>
-						<td><input type="password" name="password" value=""></td>
+						<td><input type="password" required="required" name="password" value=""></td>
 						</tr> 
 					 	<tr><td>Confirm Password</td>
-						<td><input type="password" name="password2" value=""></td>
+						<td><input type="password" required="required" name="password2" value=""></td>
 						</tr>
 						<tr><td>Email</td>
-						<td><input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"></td>
+						<td><input type="text" required="required" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"></td>
 						</tr>
 						<tr><td>Phone</td>
 						<td><input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"></td>

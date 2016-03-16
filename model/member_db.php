@@ -50,26 +50,6 @@ function get_hashed_password($username){
     return $hashedPassword;
 }
 
-// function is_valid_member_login($username, $password) {
-//     global $db;
-//     $password = sha1($username . $password);
-//     $query = '
-//         SELECT * FROM users
-//         WHERE users_username = :username AND users_password = :password AND users_userLevel = "m"';
-//     $statement = $db->prepare($query);
-//     $statement->bindValue(':username', $username);
-//     $statement->bindValue(':password', $password);
-//     $statement->execute();
-//     if ($statement->rowCount() == 1) {
-//         $valid = true;
-//     } else {
-//         $valid = false;
-//     }
-//     $statement->closeCursor();
-//     return $valid; 
-
-// }
-
 // check for existing room name
 function detect_member_name($name){
 	global $db;
@@ -82,5 +62,14 @@ function detect_member_name($name){
 		} else {
 			return false;
 		}
+}
+
+function get_comments() {
+    global $db;
+    $query = 'SELECT * FROM comments
+              ORDER BY com_commentID';          
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement;    
 }
 ?>

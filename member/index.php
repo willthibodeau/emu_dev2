@@ -1,7 +1,7 @@
 <?php 
 require('../model/database_db.php');
-require('../model/product_db.php');
-require('../model/category_db.php');
+require('../model/member_db.php');
+
 
 
 session_start();
@@ -22,10 +22,23 @@ if($action === NULL) {
 
 switch($action) {
 	case'member_menu':
-
+		$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_VALIDATE_INT);    
+	    if ($comment_id == NULL || $comment_id == FALSE) {
+	        $comment_id = 1;
+	    }
+	    $comments = get_comments();
+	    $message = "You are logged in as " . $_SESSION['member'];
 		include'member_menu.php';
 		break;
-	
+	case'add_comments':
+
+		break;
+	case'add_comment_form':
+
+		$message = "You are logged in as " . $_SESSION['member'];
+		include('add_comments.php');
+		break;
+
 	case 'logout':
         unset($_SESSION['admin']);
         unset($_SESSION['member']);

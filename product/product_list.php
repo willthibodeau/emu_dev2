@@ -8,36 +8,15 @@ include'../view/header.php';
         <main>
         <!-- main content goes here -->
             <article class="main">
-                <h2>Category_list.php</h2>
-                <ul>
-                    <li><a href="index.php?action=list_categories">Category List</a></li>
-                    <li><a href="index.php?action=show_add_form">Add Products</a></li>
-                    <li><a href="../imageProcess/index.php">Image Manager</a></li>
-                  
-                </ul>
-                <div>
-                    <?php echo $message ?>
-                    <form action="" method="post">
-                        <input type="hidden" name="action" value="logout">
-                        <input type="submit" value="Logout">
-                    </form>
-                </div>
-            <h2>Category List</h2>
+                <h2>Product Listing Page</h2>
+                
+            <h2>Categories</h2>
                     <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>&nbsp;</th>
-                        </tr>
+                        
                             <?php foreach ($categories as $category) : ?>
                         <tr>
                             <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
-                            <td>
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="action" value="delete_category" />
-                                    <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
-                                    <input type="submit" value="Delete"/>
-                                </form>
-                            </td>
+                           
                         </tr>
                             <?php endforeach; ?>
                     </table>
@@ -66,26 +45,10 @@ include'../view/header.php';
                             <td><?php echo $product['prod_price']; ?></td>
                             <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
                             <td><?php echo $product['imagealt']; ?></td>
-                             <td><form action="." method="post">
-                                <input type="hidden" name="action"
-                                       value="delete_product">
-                                <input type="hidden" name="product_id"
-                                       value="<?php echo $product['prod_productID']; ?>">
-                                <input type="hidden" name="category_id"
-                                       value="<?php echo $product['prod_categoryID']; ?>">
-                                <input type="submit" value="Delete"> 
-                                <hr>
-                            </form></td>
+                            
                         </tr>
                             <?php endforeach; ?>
-                    </table>
-                    <h2>Add Category</h2>
-                    <form id="add_category_form"action="index.php" method="post">
-                        <input type="hidden" name="action" value="add_category" />
-                        <label>Name:</label>
-                        <input type="text"  name="name" />
-                        <input type="submit" value="Add"/>
-                    </form>
+                    </table> 
             </article><!-- end main article -->
         </main>
         <!-- first sidebar goes here -->

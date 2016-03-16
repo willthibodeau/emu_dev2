@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -17,6 +20,7 @@
 			<nav class="clear">
 				<ul class="dropdown">
 					<li><a href="/emu_dev2/index.php">Home</a></li>
+					<?php $login ;?>
 					<li><a href="/emu_dev2/login/">Login</a></li>
 					<li><a href="/emu_dev2/product/">Products</a></li>
 					<li><a href="/emu_dev2/review/">Reviews</a></li>

@@ -24,7 +24,7 @@ switch($action) {
 	    $products = get_products_by_category($category_id);
 	    $get_images = get_images();
 
-	    $message = "Login is by " . $_SESSION['admin'];
+	    $message = "You are logged in as " . $_SESSION['admin'];
 	    include('category_list.php');
 	    break;
 

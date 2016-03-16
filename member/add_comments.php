@@ -10,28 +10,25 @@ include'../view/header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-				<h2>Welcome <?php echo $_SESSION['member']; ?></h2>
-				.</p>
-<?php echo $message; ?>
-				<p>What would you like to comment about?</p>
+				<h2>Welcome <?php echo $_SESSION['member']; ?> </h2>
+				<p>to the add comments page</p>
+				<?php echo $message; ?>
+				<h1>Add Comment</h1>
+		        <form action="." method="post">
+		          <input type="hidden" name="action" value="add_comments">
+		          <textarea  rows="5" cols="50" name="commentText"  value=""></textarea><br>
+		          <input type="submit" value="Submit Comments">
+		        </form>
 
-				<h3>View comments:</h3>
-				<?php foreach($comments as $comment) : ?>
-
-				<?php echo $comment['com_commentText']; ?>
-				<?php echo $comment['com_userID']; ?>
-			<?php endforeach; ?>
-
-				<form action="" method="post">
+		        <form action="" method="post">
 			        <input type="hidden" name="action" value="logout">
 			        <input type="submit" value="Logout">
 				</form>
-
-				<a href=".?action=add_comment_form">Add Comments</a>
+				
 			</main>
         </article><!-- end main article -->
 
-        <!-- first sidebar goes here -->
+          <!-- first sidebar goes here -->
 	    <aside class="sidebar1">
 	      <h2>Sidebar 1</h2>
 	          

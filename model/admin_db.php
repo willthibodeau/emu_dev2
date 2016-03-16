@@ -39,21 +39,6 @@ function is_valid_member_login($userName, $password) {
     
 }
 
-// function get_username($username) {
-//     global $db;
-//     $query = 'SELECT  FROM users WHERE users_username = :username';
-//     $statement = $db->prepare($query);
-//     $statement->bindValue(':username', $username);
-//     $statement->execute();
-//     if ($statement->rowCount() == 1) {
-//         $valid = true;
-//     } else {
-//         $valid = false;
-//     }
-//     $statement->closeCursor();
-//     return $valid;
-// }
-
 function get_users($userName) {
     global $db;
     $query = 'SELECT COUNT(*) FROM users WHERE users_username = :username';
@@ -67,6 +52,12 @@ function get_users($userName) {
         return true;
     } else {
         return false;
+    }
+}
+
+function header_login_logout(){
+    if(isset($_SESSION['admin'])) {
+        print('<li><a href="/emu_dev2/login/">Login</a></li>');
     }
 }
 ?>

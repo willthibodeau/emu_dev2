@@ -21,22 +21,22 @@ function add_registration($customer_id, $product_code) {
     }
 }
 
-function add_member( $username, $firstName, $lastName, $password, $email, $phone, $userLevel) {
+function add_member(  $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel) {
     global $db;
-    $password = sha1($username . $password);
+    $password = sha1($userName . $password);
     $query = 'INSERT INTO users
-                 (users_userID, users_username, users_firstName, users_lastName,  users_password, users_email, users_phone, users_userLevel)
+                 (users_userID, users_username, users_firstName, users_lastName, users_password, users_email, users_phone, users_userLevel )
               VALUES
-                 (NULL, :users_username, :users_firstName, users_lastName, :users_password, :users_email, :users_phone, :users_userLevel)';
+                 (NULL, :users_username, :users_firstName, :users_lastName,  :users_password, :users_email, :users_phone, :users_userLevel )';
     $statement = $db->prepare($query);
-//    $statement->bindValue(':users_userID', $userid);
-    $statement->bindValue(':users_username', $username);
-    $statement->bindValue('users_firstName', $firstName);
-    $statement->bindValue('users_lastName', $lastName);
+    // $statement->bindValue(':users_userID', $userid);
+    $statement->bindValue(':users_username', $userName);
+    $statement->bindValue(':users_firstName', $firstName);
+    $statement->bindValue(':users_lastName', $lastName);
     $statement->bindValue(':users_password', $password);
-    $statement->bindValue('users_email', $email);
-    $statement->bindValue('users_phone', $phone);
-    $statement->bindValue(':users_userLevel', $userLevel);
+    $statement->bindValue(':users_email', $email);
+    $statement->bindValue(':users_phone', $phone);
+    $statement->bindValue(':users_userLevel', $userlevel);  
     $statement->execute();
     $statement->closeCursor();
 }

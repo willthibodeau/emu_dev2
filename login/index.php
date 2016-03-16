@@ -92,8 +92,6 @@ switch($action){
 		 } 
 
 		else if($getUsers > 0  ) {
-			print_r($getUsers);
-			print_r($userName);
 			$error = 'Please choose another Username.';
 			include'register.php';
 		}
@@ -128,12 +126,15 @@ switch($action){
          	$error = "Please enter a valid email address.";
          	include'register.php';
          }
-
-		else {
-			  
-			include'success.php';
+        	else if ( $getUsers < 1) {
+		 	$member_id = add_member( $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel );
+		 	include('register_success.php');
+		 	if( $member_id < 1 ){
+		 		$error = 'Member not submitted to the database, Please try again.';
+		 	} else {
+		 		include'register_success.php';
+		 	}
 		}
-		
 		break;
 
 		

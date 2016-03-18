@@ -73,7 +73,8 @@ nav li {
 	float: left;
 	padding: 0;
 	margin: 0;
-	list-style: none;	
+	list-style: none;
+	color: white;	
 }
 nav a {
 	float: left;
@@ -89,10 +90,20 @@ nav a {
 	transition: all .5s;
 }
 nav li:last-of-type a {
-	border-right: none;	
+	border-right: none;
+
 }
+
 nav a:hover {
 	background-color: rgb(189,165,127);
+}
+.nav-admin-login {
+	color: white;
+	float: right;
+	background-color: gray;
+	padding: 10px;
+	text-align: right;
+	
 }
 aside h2 {
 	font-size: 1.3em;
@@ -227,4 +238,9 @@ form input {
 }
 .error {
     color: red;
+}
+
+.product-table th, tr, td {
+padding: 3px;
+text-align: left;
 }

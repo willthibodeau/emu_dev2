@@ -1,21 +1,14 @@
 <?php 
-
 require_once('../util/valid_admin.php');
+include'../view/admin_header.php';
 
-include'../view/header.php';
 ?>
 <div class="contentWrapper"> 
     <div class="columnWrapper">
 
         <!-- main content goes here -->
         <article class="main">
-            <main>
-                <a href=".?action=category_list">Category Manger</a><br>
-                <a href=".?action=product_list">Product Manager</a><br>
-                <a href=".?action=image_list">Image Manager</a><br>
-                <a href=".?action=user_list">User Manager</a><br>
-                <a href=".?action=comment_list">Comment Manager</a><br>
-            </main>
+           
         
         
 <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
@@ -32,15 +25,14 @@ include'../view/header.php';
 </article><!-- end main article -->
         <!-- first sidebar goes here -->
         <aside class="sidebar1">
-          <h2>Sidebar 1</h2>
+          <?php include '../view/admin_sidebar1.php'; ?>
               
         </aside><!-- end sidebar 1 -->
     </div><!-- end column wrapper -->
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
+        <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
 </div><!-- end content wrapper -->
 

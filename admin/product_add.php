@@ -1,6 +1,6 @@
 <?php 
 require_once('../util/valid_admin.php');
-include '../view/header.php'; 
+include'../view/admin_header.php';
 ?>
 <div class="contentWrapper"> 
     <div class="columnWrapper">
@@ -9,12 +9,7 @@ include '../view/header.php';
         <article class="main">
             <main>
             <h2>Add Products</h2>
-                <ul>
-                    <li><a href="index.php?action=list_categories">Category List</a></li>
-                    <li><a href="index.php?action=show_add_form">Add Products</a></li>
-                     <li><a href="../imageProcess/index.php">Image Manager</a></li>
-                  
-                </ul>
+                
             <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
 
              <h1>Add Product</h1>
@@ -71,8 +66,7 @@ include '../view/header.php';
 
         <!-- second sidebar goes here -->
         <aside class="sidebar2">
-            <h2>Sidebar 2 </h2>
-            <p>comments / testimonials</p>
+            <h2>Google Ads</h2>
         </aside><!-- end sidebar 2 -->
     </div><!-- end content wrapper -->
 <?php include '../view/footer.php'; ?>

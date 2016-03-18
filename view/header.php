@@ -1,5 +1,6 @@
 <?php 
 
+
 ?>
 <!doctype html>
 <html>
@@ -20,11 +21,20 @@
 			<nav class="clear">
 				<ul class="dropdown">
 					<li><a href="/emu_dev2/index.php">Home</a></li>
-					<?php $login ;?>
-					<li><a href="/emu_dev2/login/">Login</a></li>
+					<?php 
+					if(isset($_SESSION['admin'])) { 
+						echo'admin';
+					} else {
+						echo'<li><a href="/emu_dev2/login/">Login</a></li> ';
+					}
+
+
+					?>
+					 
 					<li><a href="/emu_dev2/product/">Products</a></li>
 					
 				</ul>
+
 			</nav>
 			<h1>Elite Meats Utah</h1>
 		</header>

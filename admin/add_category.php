@@ -1,5 +1,5 @@
 <?php 
-include '../view/header.php'; 
+include'../view/admin_header.php'; 
 require_once('../util/valid_admin.php');
 
 

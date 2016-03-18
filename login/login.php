@@ -35,16 +35,13 @@
 
     <!-- first sidebar goes here -->
     <aside class="sidebar1">
-      <h2>Sidebar 1</h2>
-      
-     <p> sidebar menu goes here<p>
+   <?php include'../view/public_sidebar.php'; ?>
     </aside><!-- end sidebar 1 -->
   </div><!-- end column wrapper -->
 
   <!-- second sidebar goes here -->
   <aside class="sidebar2">
-  <h2>Sidebar 2 </h2>
-<p>comments / testimonials
+  <h2>Google Ads</h2>
 
   </aside><!-- end sidebar 2 -->
 </div><!-- end content wrapper -->

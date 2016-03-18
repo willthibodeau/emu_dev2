@@ -15,6 +15,7 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'list_categories':
+    session_start();
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
         if ($category_id == NULL || $category_id == FALSE) {
             $category_id = 1;
@@ -24,13 +25,20 @@ switch ($action) {
         $products = get_products_by_category($category_id);
         $get_images = get_images();
 
-       
+        if(isset($_SESSION['admin'])) {
+            $set = 'You are logged in as: ';
+            $set .= $_SESSION['admin'];
+        } else {
+            $set = " ";
+        }
+        
         include('product_list.php');
         break;
-        break;
+       
     
     default:
-        # code...
+        $error = 'OOPS! Sorry, We have an error.';
+        include'../errors/error.php';
         break;
 }
 ?>

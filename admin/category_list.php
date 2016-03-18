@@ -1,6 +1,6 @@
 <?php 
 require_once('../util/valid_admin.php');
-include'../view/header.php';
+include'../view/admin_header.php';
 ?>
 
 <div class="contentWrapper"> 
@@ -8,20 +8,7 @@ include'../view/header.php';
         <main>
         <!-- main content goes here -->
             <article class="main">
-                <h2>Category_list.php</h2>
-                <ul>
-                    <li><a href="index.php?action=list_categories">Category List</a></li>
-                    <li><a href="index.php?action=show_add_form">Add Products</a></li>
-                    <li><a href="../imageProcess/index.php">Image Manager</a></li>
-                  
-                </ul>
-                <div>
-                    <?php echo $message ?>
-                    <form action="" method="post">
-                        <input type="hidden" name="action" value="logout">
-                        <input type="submit" value="Logout">
-                    </form>
-                </div>
+         
             <h2>Category List</h2>
                     <table>
                         <tr>
@@ -90,15 +77,14 @@ include'../view/header.php';
         </main>
         <!-- first sidebar goes here -->
         <aside class="sidebar1">
-          <h2>Sidebar 1</h2>
+          <?php include '../view/admin_sidebar1.php'; ?>
               
         </aside><!-- end sidebar 1 -->
     </div><!-- end column wrapper -->
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
+       <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
 
 </div><!-- end content wrapper -->

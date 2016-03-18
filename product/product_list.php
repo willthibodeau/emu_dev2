@@ -1,6 +1,11 @@
 <?php 
-// require_once('../util/valid_admin.php');
-include'../view/header.php';
+ 
+if(isset($_SESSION['admin'])) { 
+    require_once('../util/valid_admin.php');
+    include'../view/admin_header.php';
+}else if(!isset($_SESSION['admin'])){
+  include'../view/header.php';  
+}
 ?>
 
 <div class="contentWrapper"> 
@@ -10,6 +15,7 @@ include'../view/header.php';
             <article class="main">
                 <h2>Product Listing Page</h2>
                 
+               
             <h2>Categories</h2>
                     <table>
                         
@@ -22,11 +28,9 @@ include'../view/header.php';
                     </table>
 
                     <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
-                    <table>
+                    <table class="product-table">
                         <tr>
-                            <th>Product ID</th>
-                            <th>Category ID</th>
-                            <th>Product Code</th>
+                            
                             <th>Product Name</th>
                             <th>Product Description</th>
                             <th>Product Price</th>
@@ -37,9 +41,7 @@ include'../view/header.php';
 
                             <?php foreach ($products as $product) : ?>
                         <tr>
-                            <td><?php echo $product['prod_productID']; ?></td> 
-                            <td><?php echo $product['prod_categoryID']; ?></td>
-                            <td><?php echo $product['prod_prodCode']; ?></td>
+                           
                             <td><?php echo $product['prod_productName']; ?></td>
                             <td><?php echo $product['prod_description']; ?></td>
                             <td><?php echo $product['prod_price']; ?></td>

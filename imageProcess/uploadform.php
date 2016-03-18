@@ -1,6 +1,6 @@
 <?php 
 require_once('../util/valid_admin.php');
-include'../view/header.php';
+include'../view/admin_header.php';
 ?>
 
 <div class="contentWrapper"> 
@@ -11,15 +11,7 @@ include'../view/header.php';
         <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
         
             <!-- main content goes here -->
-            
-                <h2>Category_list.php</h2>
-                <ul>
-                    <li><a href="../admin/index.php?action=list_categories">Category List</a></li>
-                    <li><a href="../admin/index.php?action=show_add_form">Add Products</a></li>
-                    <li><a href="../imageProcess/index.php">Image Manager</a></li>
-                  
-                </ul>
-
+        
             <h2>Image to be uploaded</h2>
             <form id="upload_form"
                   action="." method="POST"
@@ -59,8 +51,7 @@ include'../view/header.php';
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
+        <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
 
 </div><!-- end content wrapper -->

@@ -13,7 +13,24 @@ if ($action == NULL) {
     }
 }
 
+// $action = filter_input(INPUT_POST, 'action');
+// if($action === NULL) {
+// 	$action = filter_input(INPUT_GET, 'action');
+// 	if($action === NULL) {
+// 		if(isset($_SESSION['member'])){
+// 			$action = 'list_categories';
+// 		}else if (isset($_SESSION['admin'])){
+// 			$action = 'list_categories';
+// 		}else{
+// 			$action = 'view_login';
+// 		}
+// 	}
+// }
+
 switch($action) {
+	case 'view_login':
+		include'../login/';
+		break;
 	case'list_categories':
 		$category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
 	    if ($category_id == NULL || $category_id == FALSE) {

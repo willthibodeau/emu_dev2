@@ -35,8 +35,7 @@ require_once('../util/valid_member.php');
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
+        <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
 </div><!-- end content wrapper -->
 

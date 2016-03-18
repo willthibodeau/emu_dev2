@@ -1,7 +1,6 @@
 <?php 
-// require_once('../util/valid_admin.php');
-
-include'../view/header.php';
+require_once('../util/valid_admin.php');
+include'../view/admin_header.php';
 ?>
 
 <div class="contentWrapper"> 
@@ -30,8 +29,7 @@ include'../view/header.php';
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
+        <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
 </div><!-- end content wrapper -->
 

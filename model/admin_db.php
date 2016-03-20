@@ -60,4 +60,25 @@ function header_login_logout(){
         print('<li><a href="/emu_dev2/login/">Login</a></li>');
     }
 }
+
+function delete_comments($comment_id) {
+    global $db;
+    $query = 'DELETE  FROM comments 
+              WHERE com_commentID = :comment_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':comment_id', $comment_id);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function get_user_info($user_id){
+    global $db;
+    $query = 'SELECT FROM users 
+              WHERE users_userID = :user_userID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_userID', $user_id);
+    $statement->execute();
+    $statement->closeCursor();
+    
+}
 ?>

@@ -25,6 +25,7 @@
 					<li><a href="/emu_dev2/admin/">Category List</a></li>
 					<li><a href="/emu_dev2/admin/.?action=show_add_form">Add Products</a></li>
 					<li><a href="/emu_dev2/imageProcess/">Image Manager</a></li>
+					<li><a href="/emu_dev2/admin/.?action=view_comments">Comment Manager</a></li>
 
 				</ul>
 			<div class="nav-admin-login">

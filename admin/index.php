@@ -3,6 +3,8 @@
 require('../model/database_db.php');
 require('../model/product_db.php');
 require('../model/category_db.php');
+require('../model/member_db.php');
+require('../model/admin_db.php');
 
 session_start();
 $action = filter_input(INPUT_POST, 'action');
@@ -13,19 +15,7 @@ if ($action == NULL) {
     }
 }
 
-// $action = filter_input(INPUT_POST, 'action');
-// if($action === NULL) {
-// 	$action = filter_input(INPUT_GET, 'action');
-// 	if($action === NULL) {
-// 		if(isset($_SESSION['member'])){
-// 			$action = 'list_categories';
-// 		}else if (isset($_SESSION['admin'])){
-// 			$action = 'list_categories';
-// 		}else{
-// 			$action = 'view_login';
-// 		}
-// 	}
-// }
+
 
 switch($action) {
 	case 'view_login':
@@ -36,6 +26,7 @@ switch($action) {
 	    if ($category_id == NULL || $category_id == FALSE) {
 	        $category_id = 1;
 	    }
+	    print_r($category_id);
 	    $categories = get_categories();
 	    $category_name = get_category_name($category_id);
 	    $products = get_products_by_category($category_id);
@@ -128,8 +119,34 @@ switch($action) {
 	    }
 	    break;
 
+	case'view_comments':
+		$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_VALIDATE_INT);    
+	    if ($comment_id == NULL || $comment_id == FALSE) {
+	        $comment_id = 1;
+	    }
+	    $comments = get_comments();
+	    $message = "You are logged in as " . $_SESSION['admin'];
+		include'comment_menu.php';
+		break;
+
+	case'delete_comment':
+		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);   
+	  
+		delete_comments($comment_id);
+		header('Location: .?action=view_comments');
+	    break;
+
+	case'add_comment':
+
+		break;
+
 	case'logout':
 		unset($_SESSION['admin']);
         header('Location: ..' );
         break;
+
+    default:
+		$error =  'Unknown Admin action: ' . $action;
+		include'../errors/error.php';	
+		break;
 }

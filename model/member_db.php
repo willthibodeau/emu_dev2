@@ -72,4 +72,12 @@ function get_comments() {
     $statement->execute();
     return $statement;    
 }
+
+function get_user_comments($user_id) {
+    global $db;
+    $query = 'SELECT * FROM comments WHERE com_userID = 20 ';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement;
+}
 ?>

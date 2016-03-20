@@ -8,10 +8,11 @@ include'../view/admin_header.php';
 
         <!-- main content goes here -->
         <article class="main">
+<h1>Whoops! Mission control...... It looks like we have a problem!</h1>
+<p> Please click <a href="../../index.php">Here</a></p>
 
-
-<?php if(!empty($errors)){
-	echo $errors; 
+<?php if(!empty($error)){
+	echo $error; 
 }
 
 ?>

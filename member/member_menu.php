@@ -11,13 +11,10 @@ include'../view/member_header.php';
         <article class="main">
             <main>
 				<h2>Welcome <?php echo $_SESSION['member']; ?></h2>
-			
-
-			
-
+	
 				<h3>View comments:</h3>
 				<?php foreach($comments as $comment) : ?>
-				<?php echo $comment['com_userID']; ?>
+				<?php echo $comment['com_commentID']; ?>
 				<?php echo $comment['com_commentText']; ?>
 				<?php echo $comment['com_userID']; ?><br>
 			<?php endforeach; ?>

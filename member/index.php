@@ -22,14 +22,25 @@ if($action === NULL) {
 
 switch($action) {
 	case'member_menu':
+		$user_id = $_SESSION['member']['com_userID'];
+		$user_id = get_user_id()
+
+
+	    $comments = get_user_comments($user_id);
+	    $message = "You are logged in as " . $_SESSION['member'];
+		include'member_menu.php';
+		break;
+
+		case'admin_menu':
 		$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_VALIDATE_INT);    
 	    if ($comment_id == NULL || $comment_id == FALSE) {
 	        $comment_id = 1;
 	    }
 	    $comments = get_comments();
-	    $message = "You are logged in as " . $_SESSION['member'];
-		include'member_menu.php';
+	    $message = "You are logged in as " . $_SESSION['admin'];
+		header('Location: /admin/comment_menu.php');
 		break;
+
 	case'add_comments':
 
 		break;
@@ -45,7 +56,8 @@ switch($action) {
         header('Location: ..' );
         break;
 	default:
-		echo 'Unknown action: ' . $action;	
+		$error =  'Unknown member action: ' . $action;
+		include'../errors/error.php';	
 		break;
 }
 

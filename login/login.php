@@ -35,7 +35,7 @@
 
     <!-- first sidebar goes here -->
     <aside class="sidebar1">
-   <?php include'../view/public_sidebar.php'; ?>
+  
     </aside><!-- end sidebar 1 -->
   </div><!-- end column wrapper -->
 

@@ -33,7 +33,19 @@ include'../view/admin_header.php';
 					</tr>
 						<?php endforeach; ?>
 				</table>
-				<a href=".?action=add_comment_form">Add Comments</a>
+
+				 <article class="addAdminComments">
+            <main>
+				<h2>Add Comments</h2>
+				
+		        <form action="." method="post">
+		          <input type="hidden" name="action" value="add_comments">
+		          <textarea  rows="5" cols="50" name="commentText"  value="" placeholder="Add Comments..."></textarea><br>
+		          <input type="submit" value="Submit Comments">
+		        </form>	
+			</main>
+        </article><!-- end addAdminComments article -->
+				<!-- <a href=".?action=add_comment_form">Add Comments</a> -->
 			</main>
         </article><!-- end main article -->
 

@@ -26,7 +26,7 @@ switch($action) {
 	    if ($category_id == NULL || $category_id == FALSE) {
 	        $category_id = 1;
 	    }
-	    print_r($category_id);
+	    
 	    $categories = get_categories();
 	    $category_name = get_category_name($category_id);
 	    $products = get_products_by_category($category_id);
@@ -112,7 +112,7 @@ switch($action) {
 	        $categories = get_categories();
 	        include('product_add.php');
 	  	} else { 
-	  		print_r($price);
+	  		
 	       $message = "you have successfully entered". $userName;
 	        add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
 	        header('Location: .?action=list_categories'); 

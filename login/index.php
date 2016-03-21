@@ -1,7 +1,7 @@
 <?php
 require('../model/database_db.php');
 require('../model/admin_db.php');
-require('../model/member_db.php');
+// require('../model/member_db.php');
 
 session_start();
 $action = filter_input(INPUT_POST, 'action');

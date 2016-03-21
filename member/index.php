@@ -22,11 +22,11 @@ if($action === NULL) {
 
 switch($action) {
 	case'member_menu':
-		$user_id = $_SESSION['member']['com_userID'];
-		$user_id = get_user_id()
+		// $user_id = $_SESSION['member'];
+		// $user_id = get_user_id();
 
 
-	    $comments = get_user_comments($user_id);
+	    $comments = get_comments();
 	    $message = "You are logged in as " . $_SESSION['member'];
 		include'member_menu.php';
 		break;
@@ -51,7 +51,7 @@ switch($action) {
 		break;
 
 	case 'logout':
-        unset($_SESSION['admin']);
+        // unset($_SESSION['admin']);
         unset($_SESSION['member']);
         header('Location: ..' );
         break;

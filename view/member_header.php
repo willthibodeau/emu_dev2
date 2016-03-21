@@ -28,7 +28,7 @@
 			
 
 
-         <form action="../admin/index.php" method="post">
+         <form action="../member/index.php" method="post">
                 <input type="hidden" name="action" value="logout">
                 <input type="submit" value="Logout">
             </form>

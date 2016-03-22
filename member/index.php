@@ -1,6 +1,7 @@
 <?php 
 require('../model/database_db.php');
 require('../model/member_db.php');
+require('../model/admin_db.php');
 
 
 
@@ -22,39 +23,39 @@ if($action === NULL) {
 
 switch($action) {
 	case'member_menu':
-		// $user_id = $_SESSION['member'];
-		// $user_id = get_user_id();
-
-
+		
 	    $comments = get_comments();
 	    $message = "You are logged in as " . $_SESSION['member'];
 		include'member_menu.php';
 		break;
 
-		case'admin_menu':
+	case'admin_menu':
 		$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_VALIDATE_INT);    
 	    if ($comment_id == NULL || $comment_id == FALSE) {
 	        $comment_id = 1;
 	    }
 	    $comments = get_comments();
 	    $message = "You are logged in as " . $_SESSION['admin'];
-		header('Location: /admin/comment_menu.php');
+		header('Location: /member/member_menu.php');
 		break;
 
-	case'add_comments':
-
-		break;
-	case'add_comment_form':
-
-		$message = "You are logged in as " . $_SESSION['member'];
-		include('add_comments.php');
-		break;
+	case'add_comment':
+		$userid = 1;
+		$category_name = get_member_name($userid);
+		$com_userid = filter_input(INPUT_GET, 'com_userid');;
+		$comment_text = filter_input(INPUT_GET, 'comment_text');
+      
+		add_comments($com_userid, $comment_text);
+		//include('member_menu.php');
+		header('Location:  member_menu.php');
+	    break;
 
 	case 'logout':
-        // unset($_SESSION['admin']);
+        unset($_SESSION['admin']);
         unset($_SESSION['member']);
         header('Location: ..' );
         break;
+
 	default:
 		$error =  'Unknown member action: ' . $action;
 		include'../errors/error.php';	

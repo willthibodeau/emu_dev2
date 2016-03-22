@@ -112,8 +112,6 @@ switch($action) {
 	        $categories = get_categories();
 	        include('product_add.php');
 	  	} else { 
-	  		
-	       $message = "you have successfully entered". $userName;
 	        add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
 	        header('Location: .?action=list_categories'); 
 	    }
@@ -130,15 +128,18 @@ switch($action) {
 		break;
 
 	case'delete_comment':
-		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);   
-	  
+		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
+		print_r($comment_id);
 		delete_comments($comment_id);
 		header('Location: .?action=view_comments');
 	    break;
 
 	case'add_comment':
-
-		break;
+		$com_userid = 2;
+		$comment_text = filter_input(INPUT_POST, 'comment_text');
+		add_comments($com_userid, $comment_text);
+		header('Location: .?action=view_comments');
+	    break;
 
 	case'logout':
 		unset($_SESSION['admin']);

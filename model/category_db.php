@@ -5,7 +5,7 @@ function get_categories() {
               ORDER BY cat_categoryID';          
     $statement = $db->prepare($query);
     $statement->execute();
-    return $statement;    
+    return $statement;     
 }
 
 function get_category_name($category_id) {

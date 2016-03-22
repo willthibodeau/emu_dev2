@@ -106,6 +106,7 @@ switch($action){
          	include'register.php';
          } else if ( $getUsers < 1) {
 		 	$member_id = add_member( $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel );
+		 	$firstName = $_SESSION['firstName'] ;
 		 	include('register_success.php');
 		 	if( $member_id < 1 ){
 		 		$error = 'Member not submitted to the database, Please try again.';

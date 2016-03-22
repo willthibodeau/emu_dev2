@@ -13,8 +13,9 @@ include'../view/admin_header.php';
             <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
 
              <h1>Add Product</h1>
-                <form action="." method="post" >
+                <form action="." method="post" class="formInput">
                     <input type="hidden" name="action" value="add_product">
+                    <label>Package</label>
                 <select name="category_id">
                     <?php foreach ($categories as $category) : ?>
                     <option value="<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?>
@@ -44,7 +45,7 @@ include'../view/admin_header.php';
                     <label>Product Image Alt Text:</label>
                     <input type="text" name="imagealt" ><br>
 
-                    <label>&nbsp;</label>
+                  
                     <input type="submit" value="Add Product" /><br>
                 </form>
              

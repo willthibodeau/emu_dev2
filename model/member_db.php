@@ -1,25 +1,5 @@
 <?php
-// function add_registration($customer_id, $product_code) {
-//     global $db;
-//     $date = date('Y-m-d');  // get current date in yyyy-mm-dd format
-//     $query = 'INSERT INTO registrations VALUES
-//               (:customer_id, :product_code, :date)';
-//     try {
-//         $statement = $db->prepare($query);
-//         $statement->bindValue(':customer_id', $customer_id);
-//         $statement->bindValue(':product_code', $product_code);
-//         $statement->bindValue(':date', $date);
-//         $statement->execute();
-//         $statement->closeCursor();
 
-//         // Get the last product ID that was automatically generated
-//         $id = $db->lastInsertId();
-//         return $id;
-//     } catch (PDOException $e) {
-//         $error_message = $e->getMessage();
-//         display_db_error($error_message);
-//     }
-// }
 
 function add_member(  $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel) {
     global $db;
@@ -79,5 +59,34 @@ function get_user_comments($user_id) {
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement;
+}
+
+function add_comments($com_userid, $comment_text) {
+    global $db;
+
+    print_r($com_userid, $comment_text);
+    $query = 'INSERT INTO comments
+                (com_commentID, com_userID, com_commentText)
+                VALUES
+                (NULL, :com_userid, :com_commentText)';
+$statement = $db->prepare($query);
+$statement->bindValue(':com_userid', $com_userid);
+$statement->bindValue(':com_commentText', $comment_text);
+$statement->execute();
+$statement->closeCursor();
+
+}
+
+function get_member_name($userName) {
+    global $db;
+    $query = 'SELECT * FROM users
+              WHERE users_userName = :users_username';    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':users_username', $userName);
+    $statement->execute();    
+    $category = $statement->fetch();
+    $statement->closeCursor();    
+    $category_name = $category['users_username'];
+    return $category_name;
 }
 ?>

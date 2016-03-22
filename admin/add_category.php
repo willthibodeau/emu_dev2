@@ -50,6 +50,7 @@ require_once('../util/valid_admin.php');
         <input type="hidden" name="action" value="logout">
         <input type="submit" value="Logout">
     </form>
+    
 
 </main>
 <?php include '../view/footer.php'; ?>

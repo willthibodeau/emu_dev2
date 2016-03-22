@@ -6,61 +6,60 @@ include'../view/admin_header.php';
 
 <div class="contentWrapper"> 
     <div class="columnWrapper">
+		<main>
+	        <!-- main content goes here -->
+	        <article class="main">
+	            <p>some text</p>
+					<h2>Welcome <?php echo $_SESSION['admin']; ?></h2>
+					<h3>View comments menu:</h3>
+					<table>
+						<tr>
+							<th>Comment </th>
+							<th>&nbsp;</th>
+							
+						</tr>
 
-        <!-- main content goes here -->
-        <article class="main">
-            <main>
-				<h2>Welcome <?php echo $_SESSION['admin']; ?></h2>
-				<h3>View comments:</h3>
-				<table>
-					<tr>
-						<th>Comment </th>
-						<th>&nbsp;</th>
-						
-					</tr>
-
-						<?php foreach($comments as $comment) : ?>
-					<tr>
-						<td><?php echo $comment['com_commentText']; ?><?php echo $comment['com_commentID']; ?></td>
-						
-						<td> 
-		 					<form action="" method="post">
-                                <input type="hidden" name="action" value="delete_comment" />
-                                <input type="hidden" name="comment_id" value="<?php echo $comment['com_commentID']; ?>"/>
-                                <input type="submit" value="Delete"/>
-                           </form>
-						</td>
-					</tr>
-						<?php endforeach; ?>
-				</table>
-
-				 <article class="addAdminComments">
-            <main>
-				<h2>Add Comments</h2>
-				
-		        <form action="." method="post">
-		          <input type="hidden" name="action" value="add_comments">
-		          <textarea  rows="5" cols="50" name="commentText"  value="" placeholder="Add Comments..."></textarea><br>
-		          <input type="submit" value="Submit Comments">
-		        </form>	
-			</main>
-        </article><!-- end addAdminComments article -->
-				<!-- <a href=".?action=add_comment_form">Add Comments</a> -->
-			</main>
-        </article><!-- end main article -->
+							<?php foreach($comments as $comment) : ?>
+						<tr>
+							<td><?php echo $comment['com_userID']; ?><?php echo $comment['com_commentText']; ?><?php echo $comment['com_commentID']; ?></td>
+							
+							<td> 
+			 					<form action="" method="post">
+	                                <input type="hidden" name="action" value="delete_comment" />
+	                                <input type="hidden" name="comment_id" value="<?php echo $comment['com_commentID']; ?>"/>
+	                                <input type="submit" value="Delete"/>
+	                           </form>
+							</td>
+						</tr>
+							<?php endforeach; ?>  
+					</table>
+<?php echo $userIs ; ?>
+					
+			           
+							<h2>Add Comments</h2>
+							
+					        <form action="." method="post">
+					          <input type="hidden" name="action" value="add_comment">
+					          <input type="hidden" name="com_userid" value="2">
+					           <textarea  rows="5" cols="50" name="comment_text" placeholder="Add Comments..."></textarea><br> 
+					          <input type="submit" value="Submit Comments">
+					        </form>	
+					    		
+	        </article><!-- end main article -->
+		</main>
 
         <!-- first sidebar goes here -->
-	    <aside class="sidebar1">
-	      
-	          
-	    </aside><!-- end sidebar 1 -->
-	</div><!-- end column wrapper -->
+        <aside class="sidebar1">
+          <p>sidebar 1</p>
+              
+        </aside><!-- end sidebar 1 -->
+    </div><!-- end column wrapper -->
 
     <!-- second sidebar goes here -->
     <aside class="sidebar2">
-        <h2>Google Ads</h2>
-       
+       <h2>Google Ads</h2>
     </aside><!-- end sidebar 2 -->
+
 </div><!-- end content wrapper -->
 
 <?php include'../view/footer.php'; ?>

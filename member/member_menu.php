@@ -19,8 +19,18 @@ include'../view/member_header.php';
 				<?php echo $comment['com_userID']; ?><br>
 			<?php endforeach; ?>
 
-				<a href=".?action=add_comment_form">Add Comments</a>
 			</main>
+				<h1><?php echo $category_name; ?></h1>
+		       <h2>Add Comments</h2>
+							
+			        <form action="." method="post">
+				          <input type="hidden" name="action" value="add_comment">
+				          <input type="hidden" name="com_userid" value="2">
+				           <textarea  rows="5" cols="50" name="comment_text" placeholder="Add Comments..."></textarea><br> 
+				          <input type="submit" value="Submit Comments">
+			        </form>	
+
+		    
         </article><!-- end main article -->
 
         <!-- first sidebar goes here -->

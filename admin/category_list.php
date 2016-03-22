@@ -9,7 +9,7 @@ include'../view/admin_header.php';
         <!-- main content goes here -->
             <article class="main">
          
-            <h2>Category List</h2>
+                <h2>Category List</h2>
                     <table>
                         <tr>
                             <th>Name</th>

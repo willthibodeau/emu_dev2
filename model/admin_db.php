@@ -55,11 +55,6 @@ function get_users($userName) {
     }
 }
 
-function header_login_logout(){
-    if(isset($_SESSION['admin'])) {
-        print('<li><a href="/emu_dev2/login/">Login</a></li>');
-    }
-}
 
 function delete_comments($comment_id) {
     global $db;
@@ -71,14 +66,15 @@ function delete_comments($comment_id) {
     $statement->closeCursor();
 }
 
-function get_user_info($user_id){
+function get_user_info(){
     global $db;
     $query = 'SELECT FROM users 
-              WHERE users_userID = :user_userID';
+              ';
     $statement = $db->prepare($query);
-    $statement->bindValue(':user_userID', $user_id);
-    $statement->execute();
-    $statement->closeCursor();
     
+    $statement->execute();
+   
+    $statement->closeCursor();
+     
 }
 ?>

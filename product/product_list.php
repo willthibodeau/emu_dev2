@@ -17,37 +17,31 @@ if(isset($_SESSION['admin'])) {
                 
                
             <h2>Categories</h2>
-                    <table>
-                        
+                   
+                        <div class="productCategories">
+                         <ul> 
                             <?php foreach ($categories as $category) : ?>
-                        <tr>
-                            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
-                           
-                        </tr>
-                            <?php endforeach; ?>
-                    </table>
-
-                    <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
-                    <table class="product-table">
-                        <tr>
                             
-                            <th>Product Name</th>
-                            <th>Product Description</th>
-                            <th>Product Price</th>
-                            <th>Product Image</th>
-                            <th>Product Image Alt Text</th>
-                            <th>&nbsp;</th> 
+                                <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a>  
+                                </li>
+                                              
+                            <?php endforeach; ?>
+                            </ul> 
+                        </div>
+                    <h2> <?php echo $category_name; ?> </h2> 
+                    <table class="productTable">
+                        <tr> 
+                            <th>Quantity</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Image</th>  
                         </tr>
-
                             <?php foreach ($products as $product) : ?>
                         <tr>
-                           
                             <td><?php echo $product['prod_productName']; ?></td>
                             <td><?php echo $product['prod_description']; ?></td>
                             <td><?php echo $product['prod_price']; ?></td>
-                            <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
-                            <td><?php echo $product['imagealt']; ?></td>
-                            
+                            <td ><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>" class="productImage"></td>
                         </tr>
                             <?php endforeach; ?>
                     </table> 

@@ -21,14 +21,15 @@ function get_category_name($category_id) {
     return $category_name;
 }
 
-function add_category($name){
+function add_category($name, $price){
 	global $db;
 	$query = 'INSERT INTO categories
-                 (cat_categoryID, cat_categoryName)
+                 (cat_categoryID, cat_categoryName, cat_price)
               VALUES
-                 (null, :name)';
+                 (null, :name, :cat_price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':name', $name);
+    $statement->bindValue(':cat_price', $price);
     $statement->execute();
     $statement->closeCursor();
 }
@@ -43,7 +44,7 @@ function delete_category($category_id) {
     $statement->closeCursor();
 }
 
-  function detect_category_name($name){
+  function detect_category_name($name, $price){
   	global $db;
   	$query = "SELECT cat_categoryName FROM categories 
               WHERE cat_categoryName = '$name'"; 	
@@ -52,7 +53,7 @@ function delete_category($category_id) {
 	if($abc = $statement->fetch()){
      $error = "The Category Name you entered is already in the database, please try another name.";
 	} else {
-     add_category($name);        
+     add_category($name, $price);        
 	}
 }
 
@@ -68,5 +69,19 @@ function update_category($category_id, $category_name) {
     $statement->closeCursor();
 }
 
+function get_first_row(){
+  global $db;
+  $query = 'SELECT cat_categoryID
+            FROM categories
+            LIMIT 1';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $categories = $statement->fetchAll();
+  $statement->closeCursor();
+
+  foreach($categories as $category){ 
+  return $category['cat_categoryID'];
+  }
+}
 
 ?>

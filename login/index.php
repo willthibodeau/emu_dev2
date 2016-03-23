@@ -40,12 +40,30 @@ switch($action){
 		  	include('login.php');
 
 		} else if ($member_user == 1) {
-            $_SESSION['member'] = $userName;
-            $message = 'Welcome ' . $userName;
-          	include('success.php');
+
+			$users = get_user_info($userName);
+			if(!empty($users)) {
+				foreach ($users as $user){
+					$_SESSION['member_firstName'] = $user['users_firstName'];
+					$_SESSION['member_userName'] = $user['users_username'];
+					$_SESSION['member_id'] = $user['users_userID'];
+					print_r($_SESSION['member_id']);
+				}
+			}
+            $_SESSION['member'] = $users;
+          	include('member_success.php');
 
 		} else if ($admin_user == 1) {
+
+			$users = get_user_info($userName);
+			if(!empty($users)) {
+				foreach ($users as $user){
+					$userid = $user['users_userID'];
+					$userfirstName = $user['users_firstName'];
+				}
+			}
 		  	$_SESSION['admin'] = $userName;
+
 		  	$message = 'Welcome ' . $userName;
 		  	include('admin_success.php');
 

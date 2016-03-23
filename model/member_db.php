@@ -44,11 +44,13 @@ function detect_member_name($name){
 		}
 }
 
-function get_comments() {
+function get_comments($member_id) {
+    print_r($member_id);
     global $db;
     $query = 'SELECT * FROM comments
-              ORDER BY com_commentID';          
+              WHERE com_userID = :member_id';          
     $statement = $db->prepare($query);
+    $statement->bindValue(':member_id', $member_id);
     $statement->execute();
     return $statement;    
 }
@@ -64,7 +66,7 @@ function get_user_comments($user_id) {
 function add_comments($com_userid, $comment_text) {
     global $db;
 
-    print_r($com_userid, $comment_text);
+   
     $query = 'INSERT INTO comments
                 (com_commentID, com_userID, com_commentText)
                 VALUES

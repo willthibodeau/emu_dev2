@@ -17,7 +17,9 @@ switch ($action) {
     session_start();
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
         if ($category_id == NULL || $category_id == FALSE) {
-            $category_id = 1;
+             
+            $category_id = get_first_row();
+            
         }
         $categories = get_categories();
         $category_name = get_category_name($category_id);

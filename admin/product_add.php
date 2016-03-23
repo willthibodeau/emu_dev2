@@ -25,7 +25,7 @@ include'../view/admin_header.php';
                     <label>Product Code:</label>
                     <input type="text" name="code" ><br>
 
-                    <label>Product Name:</label>
+                    <label>Product Quantity:</label>
                     <input type="text" name="name" ><br>
 
                     <label>Product Description:</label>

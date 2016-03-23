@@ -13,11 +13,13 @@ include'../view/admin_header.php';
                     <table>
                         <tr>
                             <th>Name</th>
+                            <th>Price</th>
                             <th>&nbsp;</th>
                         </tr>
                             <?php foreach ($categories as $category) : ?>
                         <tr>
                             <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+                            <td><?php echo $category['cat_price']; ?></td>
                             <td>
                                 <form action="index.php" method="post">
                                     <input type="hidden" name="action" value="delete_category" />
@@ -68,11 +70,17 @@ include'../view/admin_header.php';
                     </table>
                     <h2>Add Category</h2>
                     <form id="add_category_form"action="index.php" method="post">
-                        <input type="hidden" name="action" value="add_category" />
-                        <label>Name:</label>
-                        <input type="text"  name="name" />
-                        <input type="submit" value="Add"/>
+                        <input type="hidden" name="action" value="add_category" >
+                        <label>Category Name:</label>
+                        <input type="text"  name="name" ><br>
+                        <label>Category Price</label>
+                        <input type="text" name="cat_catprice"><br>
+                        <input type="submit" value="Add Category">
                     </form>
+
+                    <?php if(!empty($error)){
+                        echo $error;
+                    } ?>
             </article><!-- end main article -->
         </main>
         <!-- first sidebar goes here -->

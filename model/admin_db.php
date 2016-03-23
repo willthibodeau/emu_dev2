@@ -55,6 +55,16 @@ function get_users($userName) {
     }
 }
 
+function get_comment() {
+    
+    global $db;
+    $query = 'SELECT * FROM comments
+              ';          
+    $statement = $db->prepare($query);
+   
+    $statement->execute();
+    return $statement;    
+}
 
 function delete_comments($comment_id) {
     global $db;
@@ -66,15 +76,17 @@ function delete_comments($comment_id) {
     $statement->closeCursor();
 }
 
-function get_user_info(){
+function get_user_info($userName){
     global $db;
-    $query = 'SELECT FROM users 
-              ';
+    $query = 'SELECT * FROM users 
+              WHERE users_username = :users_username';
     $statement = $db->prepare($query);
-    
-    $statement->execute();
+    $statement->bindValue(':users_username', $userName);
+    $statement->execute();    
+    $users_firstName = $statement->fetchAll();
+    $statement->closeCursor();    
    
-    $statement->closeCursor();
-     
+    return $users_firstName;
+   
 }
 ?>

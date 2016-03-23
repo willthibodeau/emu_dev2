@@ -250,9 +250,9 @@ form input {
 }
 
 .productCategories li {
-	 background-color: white;
+	 background-color: #ffe1bf;
     color: black;
-    border: 2px solid gray;
+    border: 2px solid #b17d14;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -292,3 +292,4 @@ td .productImage {
 .formInput input {
 	height: 25px;
 }
+

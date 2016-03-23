@@ -11,7 +11,10 @@ include'../view/member_header.php';
         <article class="main">
             <main>
 				<h2>Member Login is Successful!</h2>
-				<p>You are logged in as <?php echo $_SESSION['member']; ?>.</p>
+				<p>You are logged in as <?php echo $_SESSION['member_userName']; ?>.</p>
+				<p>Welcome  <?php echo $_SESSION['member_firstName']; ?>.</p>  
+
+
 
 				<p>Go to the Member Management <a href="../member/index.php">Page</a></p>
 				<form action="" method="post">

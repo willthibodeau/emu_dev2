@@ -24,7 +24,7 @@ switch($action) {
 	case'list_categories':
 		$category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
 	    if ($category_id == NULL || $category_id == FALSE) {
-	        $category_id = 1;
+	       $category_id = get_first_row();
 	    }
 	    
 	    $categories = get_categories();
@@ -38,12 +38,19 @@ switch($action) {
 
 	case'add_category':
 		$name = filter_input(INPUT_POST, 'name');
+		$price = filter_input(INPUT_POST, 'cat_catprice');
+		
 	    // Validate inputs
 	    if ($name == NULL) {
 	        $error = "Name cannot be empty, Please check name and try again.";
 	        header('Location: .?action=list_categories');
+	    } else if ( $price == NULL) {
+	    	$error = "Price cannot be empty, Please check price and try again.";
+	      
+	        header('Location: .?action=list_categories');
 	    } else {
-	        $detectRoomName = detect_category_name($name);
+	        $detectRoomName = detect_category_name($name, $price);
+	        // include('category_list.php');
 	        header('Location: .?action=list_categories');  // display the Category List page
 	    }
 	    break;
@@ -95,6 +102,7 @@ switch($action) {
 		$imagepaths = get_imagepath();
 	    $categories = get_categories();
 	    $get_images = get_images();
+	    
 	    include('product_add.php'); 
 	    break;
 
@@ -110,7 +118,8 @@ switch($action) {
 	            $name == NULL || $price == NULL || $price == FALSE) {
 	        $error = "Invalid product data. Check all fields and try again.";
 	        $categories = get_categories();
-	        include('product_add.php');
+	        header('Location: .?action=show_add_form');
+	        
 	  	} else { 
 	        add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
 	        header('Location: .?action=list_categories'); 
@@ -118,18 +127,15 @@ switch($action) {
 	    break;
 
 	case'view_comments':
-		$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_VALIDATE_INT);    
-	    if ($comment_id == NULL || $comment_id == FALSE) {
-	        $comment_id = 1;
-	    }
-	    $comments = get_comments();
+		
+	    $comments = get_comment();
 	    $message = "You are logged in as " . $_SESSION['admin'];
 		include'comment_menu.php';
 		break;
 
 	case'delete_comment':
 		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
-		print_r($comment_id);
+		
 		delete_comments($comment_id);
 		header('Location: .?action=view_comments');
 	    break;

@@ -24,7 +24,7 @@
 					<li><a href=".?action=add_comment_form">Add Comments</a></li>
 				</ul>
 			<div class="nav-admin-login">
-				<p>You are logged in as a member and your username is: <?php echo $_SESSION['member']; ?>.</p>
+				<p>You are logged in as: <?php echo $_SESSION['member_firstName']; ?>.</p>
 			
 
 

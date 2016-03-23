@@ -33,7 +33,7 @@ include'../view/admin_header.php';
 						</tr>
 							<?php endforeach; ?>  
 					</table>
-<?php echo $userIs ; ?>
+
 					
 			           
 							<h2>Add Comments</h2>

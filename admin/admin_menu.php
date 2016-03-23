@@ -11,7 +11,7 @@ include'../view/admin_header.php';
            
         
         
-<p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
+<p>You are logged in as  an admin<?php echo $_SESSION['admin']; ?>.</p>
 <p>Error is:<?php if(!empty($error)) { echo $error; } ?>
     <p>Message is : <?php if(!empty($message)) { echo $message; } ?>
 

@@ -10,17 +10,29 @@ include'../view/member_header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-				<h2>Welcome <?php echo $_SESSION['member']; ?></h2>
-	
-				<h3>View comments:</h3>
-				<?php foreach($comments as $comment) : ?>
-				<?php echo $comment['com_commentID']; ?>
-				<?php echo $comment['com_commentText']; ?>
-				<?php echo $comment['com_userID']; ?><br>
-			<?php endforeach; ?>
-
+				<h2>Welcome <?php echo $_SESSION['member_firstName']; ?></h2>
+				<p>FirstName : <?php echo $firstName; ?></p>
+				<table>
+					<tr>	
+						<th>
+							<td>View comments</td>
+						</th>
+					</tr>
+						<?php foreach($comments as $comment) : ?>
+					<tr>
+						<td><?php echo $comment['com_commentText']; ?></td>
+						<td>
+							<form action="" method="post">
+                                <input type="hidden" name="action" value="delete_comment" />
+                                <input type="hidden" name="comment_id" value="<?php echo $comment['com_commentID']; ?>">
+                                <input type="submit" value="Delete">
+                           </form>
+	                    </td>
+	                </tr>
+					<?php endforeach; ?>
+				</table>
 			</main>
-				<h1><?php echo $category_name; ?></h1>
+				
 		       <h2>Add Comments</h2>
 							
 			        <form action="." method="post">

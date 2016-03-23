@@ -19,13 +19,21 @@ if($action === NULL) {
 		}
 	}
 }
-
+// get the comments from the userid
+	$members = $_SESSION['member'];
+	print_r($members);
+	if(!empty($members)) {
+		foreach($members as $member) {
+			$firstName = $member['users_firstName'];
+			$member_id = $member['users_userID'];
+		}
+	}
 
 switch($action) {
 	case'member_menu':
-		
-	    $comments = get_comments();
-	    $message = "You are logged in as " . $_SESSION['member'];
+	// print_r($member_id);
+	    $comments = get_comments($member_id);
+	    
 		include'member_menu.php';
 		break;
 
@@ -40,15 +48,19 @@ switch($action) {
 		break;
 
 	case'add_comment':
-		$userid = 1;
-		$category_name = get_member_name($userid);
-		$com_userid = filter_input(INPUT_GET, 'com_userid');;
-		$comment_text = filter_input(INPUT_GET, 'comment_text');
-      
-		add_comments($com_userid, $comment_text);
-		//include('member_menu.php');
+		$comment_text = filter_input(INPUT_POST, 'comment_text');
+		add_comments($member_id, $comment_text);
 		header('Location:  member_menu.php');
 	    break;
+
+	case'delete_comment':
+		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
+		
+		delete_comments($comment_id);
+		header('Location: .?action=view_comments');
+	    break;
+
+		break;
 
 	case 'logout':
         unset($_SESSION['admin']);

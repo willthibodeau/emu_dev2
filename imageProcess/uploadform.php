@@ -7,12 +7,12 @@ include'../view/admin_header.php';
     <div class="columnWrapper">
         <main>
             <article class="main">
-        <h1>Image Manager</h1>
-        <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
+        <h2>Image Manager</h2>
+        
         
             <!-- main content goes here -->
         
-            <h2>Image to be uploaded</h2>
+            <h3>Please select an image to upload.</h3>
             <form id="upload_form"
                   action="." method="POST"
                   enctype="multipart/form-data">
@@ -20,7 +20,7 @@ include'../view/admin_header.php';
                 <input type="file" name="file1"><br>
                 <input id="upload_button" type="submit" value="Upload">
             </form>
-            <h2>Images in the directory</h2>
+            <h3>Images in the directory</h3>
             <?php if (count($files) == 0) : ?>
                 <p>No images uploaded.</p>
             <?php else: ?>

@@ -11,12 +11,13 @@ include'../view/member_header.php';
         <article class="main">
             <main>
 				<h2>Welcome <?php echo $_SESSION['member_firstName']; ?></h2>
-				<p>FirstName : <?php echo $firstName; ?></p>
+				<?php $datetime; ?>
 				<table>
 					<tr>	
 						<th>
-							<td>View comments</td>
+							View comments
 						</th>
+						<th>&nbsp;</th>
 					</tr>
 						<?php foreach($comments as $comment) : ?>
 					<tr>

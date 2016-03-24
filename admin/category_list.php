@@ -10,27 +10,29 @@ include'../view/admin_header.php';
             <article class="main">
          
                 <h2>Category List</h2>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                            <?php foreach ($categories as $category) : ?>
-                        <tr>
-                            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
-                            <td><?php echo $category['cat_price']; ?></td>
-                            <td>
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="action" value="delete_category" />
-                                    <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
-                                    <input type="submit" value="Delete"/>
-                                </form>
-                            </td>
-                        </tr>
-                            <?php endforeach; ?>
-                    </table>
-
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                                <?php foreach ($categories as $category) : ?>
+                            <tr>
+                                <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+                                <td><?php echo $category['cat_price']; ?></td>
+                                <td>
+                                    <form action="index.php" method="post">
+                                        <input type="hidden" name="action" value="delete_category" />
+                                        <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
+                                        <input type="submit" value="Delete"/>
+                                    </form>
+                                </td>
+                            </tr>
+                                <?php endforeach; ?>
+                        </table>
+                        <p>NOTE: You cannot delete a category with products in it.</p>
+                    </div>
                     <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
                     <table>
                         <tr>
@@ -63,7 +65,7 @@ include'../view/admin_header.php';
                                 <input type="hidden" name="category_id"
                                        value="<?php echo $product['prod_categoryID']; ?>">
                                 <input type="submit" value="Delete"> 
-                                <hr>
+                               
                             </form></td>
                         </tr>
                             <?php endforeach; ?>

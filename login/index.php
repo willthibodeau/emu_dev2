@@ -1,7 +1,7 @@
 <?php
 require('../model/database_db.php');
 require('../model/admin_db.php');
-// require('../model/member_db.php');
+require('../model/member_db.php');
 
 session_start();
 $action = filter_input(INPUT_POST, 'action');
@@ -47,7 +47,6 @@ switch($action){
 					$_SESSION['member_firstName'] = $user['users_firstName'];
 					$_SESSION['member_userName'] = $user['users_username'];
 					$_SESSION['member_id'] = $user['users_userID'];
-					print_r($_SESSION['member_id']);
 				}
 			}
             $_SESSION['member'] = $users;
@@ -58,13 +57,13 @@ switch($action){
 			$users = get_user_info($userName);
 			if(!empty($users)) {
 				foreach ($users as $user){
-					$userid = $user['users_userID'];
-					$userfirstName = $user['users_firstName'];
+					$_SESSION['admin_firstName'] = $user['users_firstName'];
+					$_SESSION['admin_userName'] = $user['users_username'];
+					$_SESSION['admin_id'] = $user['users_userID'];
+					
 				}
 			}
-		  	$_SESSION['admin'] = $userName;
-
-		  	$message = 'Welcome ' . $userName;
+            $_SESSION['admin'] = $users;
 		  	include('admin_success.php');
 
 		} else {	
@@ -124,16 +123,9 @@ switch($action){
          	include'register.php';
          } else if ( $getUsers < 1) {
 		 	$member_id = add_member( $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel );
-		 	$firstName = $_SESSION['firstName'] ;
-		 	include('register_success.php');
-		 	if( $member_id < 1 ){
-		 		$error = 'Member not submitted to the database, Please try again.';
-		 	} else {
-		 		include'register_success.php';
-		 	}
+		 	include'success.php';
 		}
 		break;
-
 		
 	case 'logout':
         unset($_SESSION['admin']);

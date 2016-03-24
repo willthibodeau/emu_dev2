@@ -5,7 +5,7 @@
     
 ?>
 <h2>Login Status1</h2>
-    <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
+    <p>You are logged in as <?php echo $_SESSION['admin_firstName']; ?>.</p>
 
 <h3>Edit </h3>
 <a href="?action=list_categories">Edit Categories</a><br>

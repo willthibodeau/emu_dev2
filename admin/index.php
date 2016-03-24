@@ -15,7 +15,14 @@ if ($action == NULL) {
     }
 }
 
+$admins = $_SESSION['admin'];
 
+	if(!empty($admins)) {
+		foreach($admins as $admin) {
+			$firstName = $admin['users_firstName'];
+			$member_id = $admin['users_userID'];
+		}
+	}
 
 switch($action) {
 	case 'view_login':
@@ -32,7 +39,7 @@ switch($action) {
 	    $products = get_products_by_category($category_id);
 	    $get_images = get_images();
 
-	    $message = "You are logged in as " . $_SESSION['admin'];
+	    
 	    include('category_list.php');
 	    break;
 
@@ -127,9 +134,10 @@ switch($action) {
 	    break;
 
 	case'view_comments':
-		
-	    $comments = get_comment();
-	    $message = "You are logged in as " . $_SESSION['admin'];
+
+
+	    // $comments = get_comment();
+		$comments = comment_data();
 		include'comment_menu.php';
 		break;
 

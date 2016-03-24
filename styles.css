@@ -281,15 +281,17 @@ td .productImage {
 	width: 200px;
 	display: inline-block;
 	padding: 3px;
+	text-align: right;
 
 }
 
 .formInput select {
-	margin-left: 5px;
+	margin: 5px;
 	height: 25px;
 }
 
 .formInput input {
 	height: 25px;
 }
+
 

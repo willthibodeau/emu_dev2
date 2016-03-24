@@ -1,4 +1,10 @@
 <?php include 'view/header.php'; ?>
+<?php if(!empty($_SESSION['admin'])) {
+  header('Location: ./login/index.php');
+} else if (!empty($_SESSION['member'])){
+  header('Location: ./login/index.php');
+}
+?>
 
 <div class="contentWrapper"> 
   <div class="columnWrapper">

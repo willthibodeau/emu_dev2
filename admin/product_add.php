@@ -9,13 +9,9 @@ include'../view/admin_header.php';
         <article class="main">
             <main>
             <h2>Add Products</h2>
-                
-            <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
-
-             <h1>Add Product</h1>
                 <form action="." method="post" class="formInput">
                     <input type="hidden" name="action" value="add_product">
-                    <label>Package</label>
+                    <label>Package Name:</label>
                 <select name="category_id">
                     <?php foreach ($categories as $category) : ?>
                     <option value="<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?>

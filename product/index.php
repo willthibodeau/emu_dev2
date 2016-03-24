@@ -26,13 +26,6 @@ switch ($action) {
         $products = get_products_by_category($category_id);
         $get_images = get_images();
 
-        if(isset($_SESSION['admin'])) {
-            $set = 'You are logged in as: ';
-            $set .= $_SESSION['admin'];
-        } else {
-            $set = " ";
-        }
-        
         include('product_list.php');
         break;
        

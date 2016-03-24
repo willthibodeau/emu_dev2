@@ -19,21 +19,22 @@ if($action === NULL) {
 		}
 	}
 }
-// get the comments from the userid
+
 	$members = $_SESSION['member'];
-	print_r($members);
+	
 	if(!empty($members)) {
 		foreach($members as $member) {
 			$firstName = $member['users_firstName'];
 			$member_id = $member['users_userID'];
 		}
 	}
-
+	
+// get the comments from the userid
 switch($action) {
 	case'member_menu':
 	// print_r($member_id);
 	    $comments = get_comments($member_id);
-	    
+	    $datetime = date('d.m.y h:i:s');;
 		include'member_menu.php';
 		break;
 

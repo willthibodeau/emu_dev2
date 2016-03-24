@@ -56,14 +56,23 @@ function get_users($userName) {
 }
 
 function get_comment() {
-    
     global $db;
-    $query = 'SELECT * FROM comments
-              ';          
+    $query = 'SELECT * FROM comments';          
     $statement = $db->prepare($query);
-   
     $statement->execute();
     return $statement;    
+}
+
+function get_comment_user($com_userID) {
+    global $db;
+    $query = 'SELECT users_firstName from users
+            WHERE users_userID = :com_userID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':com_userID', $com_userID);
+    $statement->execute();
+    $users_name = $statement->fetchAll();
+    $statement->closeCursor();
+    return $users_name;
 }
 
 function delete_comments($comment_id) {
@@ -88,5 +97,25 @@ function get_user_info($userName){
    
     return $users_firstName;
    
+}
+
+function comment_data() {
+    global $db;
+    $query = 'select users.users_firstName, comments.com_commentText, comments.com_commentID from users join comments on users.users_userID = comments.com_userID order by users.users_userID ';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $data = $statement->fetchAll();
+    $statement->closeCursor();
+    return $data;
+}
+
+function specific_user_comment_data($userID) {
+    global $db;
+    $query = 'select users.users_firstName, comments.com_commentText, comments.com_commentID from users join comments on users.users_userID = comments.com_userID order by users.users_userID ';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $data = $statement->fetchAll();
+    $statement->closeCursor();
+    return $data;
 }
 ?>

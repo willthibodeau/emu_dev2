@@ -24,6 +24,7 @@
             <input type="hidden" name="action" value="register_form">
             <input type="submit" value="Resister Here">
         </form> 
+        <p>Abc1234#</p>
 
         <div class="error">
           <?php if(!empty($error)) { echo $error; } ?>

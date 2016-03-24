@@ -23,7 +23,7 @@
 					<li><a href="/emu_dev2/index.php">Home</a></li>
 					<?php 
 					if(isset($_SESSION['admin'])) { 
-						echo'admin';
+						echo ' ';
 					} else {
 						echo'<li><a href="/emu_dev2/login/">Login</a></li> ';
 					}

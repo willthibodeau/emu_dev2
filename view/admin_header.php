@@ -29,7 +29,7 @@
 
 				</ul>
 			<div class="nav-admin-login">
-				<p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
+				<p>You are <?php echo $_SESSION['admin_firstName'] ; ?> logged in as <?php echo $_SESSION['admin_userName']; ?>.</p>
 			
 
 

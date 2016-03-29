@@ -1,22 +1,29 @@
 <?php
-require('../model/database_db.php');
-require('../model/admin_db.php');
-require('../model/member_db.php');
 
 session_start();
-$action = filter_input(INPUT_POST, 'action');
-if($action === NULL) {
-	$action = filter_input(INPUT_GET, 'action');
-	if($action === NULL) {
-		if(isset($_SESSION['member'])){
-			$action = 'member_menu';
-		}else if (isset($_SESSION['admin'])){
-			$action = 'admin_menu';
-		}else{
-			$action = 'view_login';
-		}
-	}
-}
+
+if(!isset($_SESSION['admin']) || (!isset($_SESSION['member']))) {
+$action = 'view_login';
+};
+
+   require('../model/database_db.php');
+   require('../model/admin_db.php');
+   require('../model/member_db.php');
+
+
+// $action = filter_input(INPUT_POST, 'action');
+// if($action === NULL) {
+// 	$action = filter_input(INPUT_GET, 'action');
+// 	if($action === NULL) {
+// 		if(isset($_SESSION['member'])){
+// 			$action = 'member_menu';
+// 		}else if (isset($_SESSION['admin'])){
+// 			$action = 'admin_menu';
+// 		}else{
+// 			$action = 'login';
+// 		}
+// 	}
+// }
 
 $error = array();
 $message = array();
@@ -64,6 +71,7 @@ switch($action){
 				}
 			}
             $_SESSION['admin'] = $users;
+
 		  	include('admin_success.php');
 
 		} else {	

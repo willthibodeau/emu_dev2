@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['admin']) || (!isset($_SESSION['member']))) {
-header('Location: loginError.php');
-};
-
  require('../model/database_db.php');
  require('../model/product_db.php');
  require('../model/category_db.php');
@@ -19,7 +15,7 @@ header('Location: loginError.php');
  		if(isset($_SESSION['member'])){
  			$action = 'member_menu';
  		}else if (isset($_SESSION['admin'])){
- 			$action = 'admin_menu';
+ 			$action = 'list_categories';
  		}else{
  			$action = '../login/index.php';
  		}
@@ -67,15 +63,14 @@ header('Location: loginError.php');
 		
 // 	       Validate inputs
    	    if ($name == NULL) {
-   	        $error = "Name cannot be empty, Please check name and try again.";
+   	         $error = "Name cannot be empty, Please check name and try again.";
    	        header('Location: .?action=list_categories');
    	    } else if ( $price == NULL) {
-   	    	$error = "Price cannot be empty, Please check price and try again.";
+   	    	   $error = "Price cannot be empty, Please check price and try again.";
 	      
    	        header('Location: .?action=list_categories');
    	    } else {
-   	        $detectRoomName = detect_category_name($name, $price);
-   	        // include('category_list.php');
+   	        $detectName = detect_category_name($name, $price);
    	        header('Location: .?action=list_categories');  // display the Category List page
    	    }
    	    break;

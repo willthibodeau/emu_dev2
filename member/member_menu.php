@@ -33,6 +33,7 @@ include'../view/member_header.php';
 					<?php endforeach; ?>
 				</table>
 			</main>
+			<?php if(!empty($message)){ echo $message;} ?>
 				
 		       <h2>Add Comments</h2>
 							

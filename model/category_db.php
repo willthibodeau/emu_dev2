@@ -52,7 +52,8 @@ function delete_category($category_id) {
   	$statement->execute();
 	if($abc = $statement->fetch()){
      $error = "The Category Name you entered is already in the database, please try another name.";
-	} else {
+	
+  } else {
      add_category($name, $price);        
 	}
 }

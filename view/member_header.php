@@ -21,7 +21,7 @@
 			<nav class="clear">
 				<ul class="dropdown">
 					<li><a href="/emu_dev2/member/">Member Home</a></li>
-					<li><a href=".?action=add_comment_form">Add Comments</a></li>
+					
 				</ul>
 			<div class="nav-admin-login">
 				<p>You are logged in as: <?php echo $_SESSION['member_firstName']; ?>.</p>

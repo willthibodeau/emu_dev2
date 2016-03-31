@@ -45,7 +45,7 @@ function detect_member_name($name){
 }
 
 function get_comments($member_id) {
-    print_r($member_id);
+   
     global $db;
     $query = 'SELECT * FROM comments
               WHERE com_userID = :member_id';          

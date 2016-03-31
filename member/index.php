@@ -1,11 +1,13 @@
 <?php 
+session_start();
+
 require('../model/database_db.php');
 require('../model/member_db.php');
 require('../model/admin_db.php');
 
 
 
-session_start();
+
 $action = filter_input(INPUT_POST, 'action');
 if($action === NULL) {
 	$action = filter_input(INPUT_GET, 'action');
@@ -19,7 +21,6 @@ if($action === NULL) {
 		}
 	}
 }
-
 	$members = $_SESSION['member'];
 	
 	if(!empty($members)) {
@@ -34,6 +35,7 @@ switch($action) {
 	case'member_menu':
 	// print_r($member_id);
 	    $comments = get_comments($member_id);
+
 	    $datetime = date('d.m.y h:i:s');;
 		include'member_menu.php';
 		break;
@@ -45,23 +47,26 @@ switch($action) {
 	    }
 	    $comments = get_comments();
 	    $message = "You are logged in as " . $_SESSION['admin'];
-		header('Location: /member/member_menu.php');
+		header('Location: member_menu.php');
 		break;
 
 	case'add_comment':
 		$comment_text = filter_input(INPUT_POST, 'comment_text');
-		add_comments($member_id, $comment_text);
-		header('Location:  member_menu.php');
+		if($comment_text == NULl || $comment_text == FALSE) {
+			$error = "Please enter a review.";
+			include'../errors/error.php';
+		} else {
+			add_comments($member_id, $comment_text);
+		}
+		
+		header('Location: .?action=member_menu');
 	    break;
 
 	case'delete_comment':
 		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
-		
 		delete_comments($comment_id);
-		header('Location: .?action=view_comments');
+		header('Location: .?action=member_menu');
 	    break;
-
-		break;
 
 	case 'logout':
         unset($_SESSION['admin']);

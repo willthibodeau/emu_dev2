@@ -56,8 +56,6 @@ include'../view/admin_header.php';
         <!-- first sidebar goes here -->
         <aside class="sidebar1">
           <h2>Sidebar 1</h2>
-          <?php include '../view/admin_sidebar1.php'; ?>
-         
         </aside><!-- end sidebar 1 -->
         </div><!-- end column wrapper -->
 

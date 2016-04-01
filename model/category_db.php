@@ -44,18 +44,16 @@ function delete_category($category_id) {
     $statement->closeCursor();
 }
 
-  function detect_category_name($name, $price){
+  function detect_category_name($name){
   	global $db;
   	$query = "SELECT cat_categoryName FROM categories 
-              WHERE cat_categoryName = '$name'"; 	
+              WHERE cat_categoryName = :name"; 	
     $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
   	$statement->execute();
-	if($abc = $statement->fetch()){
-     $error = "The Category Name you entered is already in the database, please try another name.";
-	
-  } else {
-     add_category($name, $price);        
-	}
+    $testValue = $statement->fetch();
+    $statement->closeCursor();
+    return $testValue;
 }
 
 // update category not working

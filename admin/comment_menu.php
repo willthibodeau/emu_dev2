@@ -9,17 +9,19 @@ include'../view/admin_header.php';
 		<main>
 	        <!-- main content goes here -->
 	        <article class="main">
-
-
+			<h3>Search Comments by User Name</h3>
+			<form action="" method="post">
+				<input type="hidden" name="action" value="search">
+				<input type="text" name="search_names" value=" " placeholder="search">
+				<input type="submit" value="Search">
+			</form>
 				<h3>View comments menu:</h3>
 				<table>
 					<tr>
-						<th>Comment </th>
-						
-						<th>User Name</th>
+						<th>User Name</th>		
+						<th>Comment</th>
 						<th>&nbsp;</th>
 					</tr>
-
 						<?php foreach($comments as $comment=>$value) : ?>
 					<tr>
 						<td><?php echo $value['users_firstName']; ?>
@@ -27,11 +29,9 @@ include'../view/admin_header.php';
 						<td>
 							<?php echo $value['com_commentText']; ?>
 						</td>
-						
 						<td> 
 		 					<form action="" method="post">
                                 <input type="hidden" name="action" value="delete_comment" />
-
                                 <input type="hidden" name="comment_id" value="<?php echo $value['com_commentID']; ?>">
                                 <input type="submit" value="Delete "/>
                            	</form>

@@ -86,6 +86,33 @@ function delete_comments($comment_id) {
     $statement->closeCursor();
 }
 
+function find_userID_by_name($name){
+    global $db;
+    $query = "SELECT users_userID
+                from users 
+                where users_username = '$name'";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $id = $statement->fetchAll();
+    $statement->closeCursor();
+    foreach($id as $key=>$value){ 
+        return$value[0];
+    }
+}
+    
+function search_comments($id) {
+    global $db;
+    $query = 'SELECT com_commentText FROM comments
+                WHERE com_userID = :id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id', $id);
+    $statement->execute();
+    $comment_text = $statement->fetchAll();
+    $statement->closeCursor();
+    return $comment_text;
+
+}
+
 function get_user_info($userName){
     global $db;
     $query = 'SELECT * FROM users 

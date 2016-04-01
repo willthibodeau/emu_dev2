@@ -8,8 +8,11 @@ include'../view/admin_header.php';
         <main>
         <!-- main content goes here -->
             <article class="main">
-                <p>Error is:<?php if(!empty($error)) { echo $error; } ?>
-    <p>Message is : <?php if(!empty($message)) { echo $message; } ?>
+                <div class="error">
+                    <?php if(!empty($error)){
+                        echo $error;
+                    } ?>
+                </div>
          
                 <h2>Category List</h2>
                     <div>
@@ -82,9 +85,7 @@ include'../view/admin_header.php';
                         <input type="submit" value="Add Category">
                     </form>
 
-                    <?php if(!empty($error)){
-                        echo $error;
-                    } ?>
+                    
             </article><!-- end main article -->
         </main>
         <!-- first sidebar goes here -->

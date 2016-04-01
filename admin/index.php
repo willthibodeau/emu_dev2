@@ -60,19 +60,30 @@ session_start();
  	case'add_category':
    		$name = filter_input(INPUT_POST, 'name');
    		$price = filter_input(INPUT_POST, 'cat_catprice');
-		
+
+         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
+         if ($category_id == NULL || $category_id == FALSE) {
+            $category_id = get_first_row();
+         }
+   		$categories = get_categories();
+         $category_name = get_category_name($category_id);
+         $products = get_products_by_category($category_id);
 // 	       Validate inputs
    	    if ($name == NULL) {
    	         $error = "Name cannot be empty, Please check name and try again.";
-   	        header('Location: .?action=list_categories');
+   	        include'category_list.php';
+              // header('Location: .?action=list_categories');
    	    } else if ( $price == NULL) {
    	    	   $error = "Price cannot be empty, Please check price and try again.";
 	      
-   	        header('Location: .?action=list_categories');
-   	    } else {
-   	        $detectName = detect_category_name($name, $price);
+   	        include'category_list.php';
+   	    } else if(detect_category_name($name) == false){
+   	         add_category($name, $price);
    	        header('Location: .?action=list_categories');  // display the Category List page
-   	    }
+   	    } else {
+            $error = 'name is already used';
+            include'category_list.php';
+          }
    	    break;
 
    	case'delete_category':
@@ -122,7 +133,6 @@ session_start();
  		$imagepaths = get_imagepath();
  	    $categories = get_categories();
  	    $get_images = get_images();
-	    
  	    include('product_add.php'); 
  	    break;
 
@@ -139,7 +149,6 @@ session_start();
    	        $error = "Invalid product data. Check all fields and try again.";
    	        $categories = get_categories();
    	        header('Location: .?action=show_add_form');
-	        
    	  	} else { 
    	        add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
    	        header('Location: .?action=list_categories'); 
@@ -147,16 +156,12 @@ session_start();
    	    break;
 
    	case'view_comments':
-
-
-   	       $comments = get_comment();
    		$comments = comment_data();
    		include'comment_menu.php';
    		break;
 
    	case'delete_comment':
    		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
-		
    		delete_comments($comment_id);
    		header('Location: .?action=view_comments');
    	    break;
@@ -168,6 +173,22 @@ session_start();
    		header('Location: .?action=view_comments');
    	    break;
 
+      case'search':
+
+         $name = filter_input(INPUT_POST, 'search_names');
+         $ids = find_userID_by_name($name);
+         if(!empty($ids)){
+            $comment_text = search_comments($ids);
+            include'search_results.php';
+         } else {
+            $message = $name . " Name is not in the database";
+            include'search_results.php';
+         }
+         
+          
+         
+         break;
+
    	case'logout':
    		unset($_SESSION['admin']);
            header('Location: ..' );
@@ -175,6 +196,6 @@ session_start();
 
      default:
  		$error =  'Unknown Admin action: ' . $action;
- 		include'loginError.php';	
+ 		include'../errors/error.php';	
 		break;
  }

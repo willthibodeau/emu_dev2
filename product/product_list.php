@@ -1,5 +1,4 @@
 <?php 
- 
 if(isset($_SESSION['admin'])) { 
     require_once('../util/valid_admin.php');
     include'../view/admin_header.php';

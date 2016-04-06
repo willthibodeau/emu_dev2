@@ -8,22 +8,7 @@ session_start();
  require('../model/admin_db.php');
 
 
- $action = filter_input(INPUT_POST, 'action');
- if($action === NULL) {
- 	$action = filter_input(INPUT_GET, 'action');
- 	if($action === NULL) {
- 		if(isset($_SESSION['member'])){
- 			$action = 'member_menu';
- 		}else if (isset($_SESSION['admin'])){
- 			$action = 'list_categories';
- 		}else{
- 			$action = '../login/index.php';
- 		}
- 	}
- }
-
-
- $action = filter_input(INPUT_POST, 'action');
+$action = filter_input(INPUT_POST, 'action');
  if ($action == NULL) {
      $action = filter_input(INPUT_GET, 'action');
      if ($action == NULL) {
@@ -31,14 +16,14 @@ session_start();
      }
  }
 
- $admins = $_SESSION['admin'];
+ // $admins = $_SESSION['admin'];
 
- 	if(!empty($admins)) {
- 		foreach($admins as $admin) {
- 			$firstName = $admin['users_firstName'];
- 			$member_id = $admin['users_userID'];
- 		}
- 	} 
+ // 	if(!empty($admins)) {
+ // 		foreach($admins as $admin) {
+ // 			$firstName = $admin['users_firstName'];
+ // 			$member_id = $admin['users_userID'];
+ // 		}
+ // 	} 
 
  switch($action) {
  	case 'view_login':
@@ -79,6 +64,7 @@ session_start();
    	        include'category_list.php';
    	    } else if(detect_category_name($name) == false){
    	         add_category($name, $price);
+               //include'category_list.php';
    	        header('Location: .?action=list_categories');  // display the Category List page
    	    } else {
             $error = 'name is already used';
@@ -89,7 +75,8 @@ session_start();
    	case'delete_category':
    		$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
    	    delete_category($category_id);
-   	    header('Location: .?action=list_categories');      // display the Category List page
+   	     // include'../../index.php';
+          header('Location: .?action=list_categories');      // display the Category List page
    	    break;
 
    	case'update_category':
@@ -184,14 +171,12 @@ session_start();
             $message = $name . " Name is not in the database";
             include'search_results.php';
          }
-         
-          
-         
          break;
 
    	case'logout':
    		unset($_SESSION['admin']);
-           header('Location: ..' );
+           // include'../login/index.php';
+           header('Location: ../../index.php');
            break;
 
      default:

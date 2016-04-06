@@ -1,26 +1,16 @@
 <?php 
 session_start();
-
 require('../model/database_db.php');
 require('../model/member_db.php');
 require('../model/admin_db.php');
 
-
-
-
 $action = filter_input(INPUT_POST, 'action');
-if($action === NULL) {
-	$action = filter_input(INPUT_GET, 'action');
-	if($action === NULL) {
-		if(isset($_SESSION['member'])){
-			$action = 'member_menu';
-		}else if (isset($_SESSION['admin'])){
-			$action = 'admin_menu';
-		}else{
-			$action = 'view_login';
-		}
-	}
-}
+ if ($action == NULL) {
+     $action = filter_input(INPUT_GET, 'action');
+     if ($action == NULL) {
+         $action = 'member_menu';
+     }
+ }
 	$members = $_SESSION['member'];
 	
 	if(!empty($members)) {
@@ -33,10 +23,8 @@ if($action === NULL) {
 // get the comments from the userid
 switch($action) {
 	case'member_menu':
-	// print_r($member_id);
+	
 	    $comments = get_comments($member_id);
-
-	    $datetime = date('d.m.y h:i:s');;
 		include'member_menu.php';
 		break;
 
@@ -69,9 +57,8 @@ switch($action) {
 	    break;
 
 	case 'logout':
-        unset($_SESSION['admin']);
         unset($_SESSION['member']);
-        header('Location: ..' );
+        header('Location: ../../index.php');
         break;
 
 	default:

@@ -1,4 +1,3 @@
-
 <?php
 function is_valid_admin_login($username, $password) {
     global $db;

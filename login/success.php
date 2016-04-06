@@ -1,10 +1,6 @@
 <?php 
-
 include'../view/header.php'; 
-
-
 ?>
-
 <div class="contentWrapper"> 
     <div class="columnWrapper">
 

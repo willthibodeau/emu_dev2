@@ -13,6 +13,15 @@ include'../view/admin_header.php';
                         echo $error;
                     } ?>
                 </div>
+                <h2>Add Category</h2>
+                    <form id="add_category_form"action="index.php" method="post">
+                        <input type="hidden" name="action" value="add_category" >
+                        <label>Category Name:</label>
+                        <input type="text"  name="name" ><br>
+                        <label>Category Price</label>
+                        <input type="text" name="cat_catprice"><br>
+                        <input type="submit" value="Add Category">
+                    </form>
          
                 <h2>Category List</h2>
                     <div>
@@ -75,17 +84,7 @@ include'../view/admin_header.php';
                         </tr>
                             <?php endforeach; ?>
                     </table>
-                    <h2>Add Category</h2>
-                    <form id="add_category_form"action="index.php" method="post">
-                        <input type="hidden" name="action" value="add_category" >
-                        <label>Category Name:</label>
-                        <input type="text"  name="name" ><br>
-                        <label>Category Price</label>
-                        <input type="text" name="cat_catprice"><br>
-                        <input type="submit" value="Add Category">
-                    </form>
-
-                    
+                   
             </article><!-- end main article -->
         </main>
         <!-- first sidebar goes here -->

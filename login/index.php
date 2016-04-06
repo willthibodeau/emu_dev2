@@ -5,19 +5,13 @@ session_start();
    require('../model/admin_db.php');
    require('../model/member_db.php');
 
-   $action = filter_input(INPUT_POST, 'action');
-   if($action === NULL) {
-   	$action = filter_input(INPUT_GET, 'action');
-	   	if($action === NULL) {
-	   		if(isset($_SESSION['member'])){
-	   			$action = 'member_menu';
-	   		}else if (isset($_SESSION['admin'])){
-	   			$action = 'admin_menu';
-	   		}else{
-	   			$action = 'login';
-	   		}
-	 	}
-	}
+  $action = filter_input(INPUT_POST, 'action');
+ if ($action == NULL) {
+     $action = filter_input(INPUT_GET, 'action');
+     if ($action == NULL) {
+         $action = 'view_login';
+     }
+ }
 
 $error = array();
 $message = array();
@@ -133,7 +127,8 @@ switch($action){
 	case 'logout':
         unset($_SESSION['admin']);
         unset($_SESSION['member']);
-        header('Location: ..' );
+        include'../../index.php';
+        // header('Location: ..' );
         break;
 
 	default:

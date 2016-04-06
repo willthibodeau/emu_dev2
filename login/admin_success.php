@@ -13,10 +13,7 @@ include'../view/admin_header.php';
 				<p>You are logged in as <?php echo $_SESSION['admin_firstName']; ?>.</p>
 
 				<p>Go to the Administrators Management <a href="../admin/index.php">Page</a></p>
-				<form action="" method="post">
-			        <input type="hidden" name="action" value="logout">
-			        <input type="submit" value="Logout">
-				</form>
+				
 			</main>
         </article><!-- end main article -->
 

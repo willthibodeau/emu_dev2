@@ -1,9 +1,7 @@
 <?php 
 require_once('../util/valid_member.php');
-
 include'../view/member_header.php';
 ?>
-
 <div class="contentWrapper"> 
     <div class="columnWrapper">
 

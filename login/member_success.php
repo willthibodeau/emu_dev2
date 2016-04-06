@@ -17,10 +17,7 @@ include'../view/member_header.php';
 
 
 				<p>Go to the Member Management <a href="../member/index.php">Page</a></p>
-				<form action="" method="post">
-			        <input type="hidden" name="action" value="logout">
-			        <input type="submit" value="Logout">
-				</form>
+				
 			</main>
         </article><!-- end main article -->
 

@@ -1,6 +1,4 @@
 <?php
-
-
 function add_member(  $userName,  $firstName , $lastName, $password, $email, $phone, $userlevel) {
     global $db;
     $password = sha1($userName . $password);

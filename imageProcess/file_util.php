@@ -1,4 +1,6 @@
 <?php
+
+// this file is straight from the book
 function get_file_list($path) {
     $files = array();
     if (!is_dir($path)) { return $files; }

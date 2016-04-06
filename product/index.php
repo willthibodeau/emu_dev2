@@ -16,20 +16,16 @@ switch ($action) {
     case 'list_categories':
     session_start();
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
-        if ($category_id == NULL || $category_id == FALSE) {
-             
+        if ($category_id == NULL || $category_id == FALSE) { 
             $category_id = get_first_row();
-            
         }
         $categories = get_categories();
         $category_name = get_category_name($category_id);
         $products = get_products_by_category($category_id);
         $get_images = get_images();
-
         include('product_list.php');
         break;
        
-    
     default:
         $error = 'OOPS! Sorry, We have an error.';
         include'../errors/error.php';

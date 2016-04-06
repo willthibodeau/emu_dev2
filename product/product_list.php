@@ -13,24 +13,17 @@ if(isset($_SESSION['admin'])) {
         <!-- main content goes here -->
             <article class="main">
                 <h2>Packages</h2><br>
-                
-               
-            
-                   
-                        <div class="productCategories">
-                         <ul> 
+                    <div class="productCategories">
+                        <ul> 
                             <?php foreach ($categories as $category) : ?>
                             
-                                <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br><?php echo $category['cat_price']; ?></a>  
-                                </li>
+                            <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br><?php echo $category['cat_price']; ?></a>  
+                            </li>
                                               
                             <?php endforeach; ?>
-                            </ul> 
-                        </div>
-                        
-                    <h2> <?php echo $category_name; ?> </h2> 
-
-
+                        </ul> 
+                    </div>
+                    <h2><?php echo $category_name; ?> </h2> 
                     <table class="productTable">
                         <tr> 
                             <th>Quantity</th>
@@ -51,8 +44,7 @@ if(isset($_SESSION['admin'])) {
         </main>
         <!-- first sidebar goes here -->
         <aside class="sidebar1">
-          <h2>Sidebar 1</h2>
-              
+          <h2>Sidebar 1</h2>   
         </aside><!-- end sidebar 1 -->
     </div><!-- end column wrapper -->
 
@@ -61,7 +53,6 @@ if(isset($_SESSION['admin'])) {
         <h2>Sidebar 2 </h2>
         <p>comments / testimonials</p>
     </aside><!-- end sidebar 2 -->
-
 </div><!-- end content wrapper -->
 
 <?php include'../view/footer.php'; ?>

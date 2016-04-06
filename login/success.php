@@ -7,19 +7,15 @@ include'../view/header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
-
-<h2>Success.php</h2>
-
-<p>Thank you for registering. Your information is:</p>
-<p>Username:<?php echo $userName; ?></p>
-<p>First Name:<?php echo $firstName; ?></p>
-<p>Last Name: <?php echo $lastName; ?></p>
-<p>Email Address : <?php echo $email; ?></p>
-<p>Phone: <?php echo $phone; ?></p>
-
-<a href="login.php"><button>Login</button></a>
-
-</main>
+                <h2>Success.php</h2>
+                <p>Thank you for registering. Your information is:</p>
+                <p>Username:<?php echo $userName; ?></p>
+                <p>First Name:<?php echo $firstName; ?></p>
+                <p>Last Name: <?php echo $lastName; ?></p>
+                <p>Email Address : <?php echo $email; ?></p>
+                <p>Phone: <?php echo $phone; ?></p>
+                <a href="login.php"><button>Login</button></a>
+            </main>
         </article><!-- end main article -->
 
         <!-- first sidebar goes here -->

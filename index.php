@@ -11,8 +11,13 @@
 
     <!-- main content goes here -->
     <article class="main">
-      <h2>Article Title</h2>
-      <p>main content goes here</p>
+      <h2>Elite Meats Utah</h2>
+      <h4>Home of the best prices on Meats and Seafood in Salt Lake City</h4>
+      <p>We are a family friendly supplier of meat and seafood for all occasions. 
+        If you are looking for delicious steaks or seafood we are the best choice.<img src="./imageProcess/images/tbone_100.jpg" alt="seafood"> 
+        Check out our fine selection of Steaks, Chopped Steaks, Chicken and Seafood
+        for all your favorite meal choices.
+        
     </article><!-- end main article -->
 
     <!-- first sidebar goes here -->

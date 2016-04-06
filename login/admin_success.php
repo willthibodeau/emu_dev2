@@ -2,7 +2,6 @@
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>
-
 <div class="contentWrapper"> 
     <div class="columnWrapper">
 
@@ -11,9 +10,7 @@ include'../view/admin_header.php';
             <main>
 				<h2>Administrator Login is Successful!</h2>
 				<p>You are logged in as <?php echo $_SESSION['admin_firstName']; ?>.</p>
-
-				<p>Go to the Administrators Management <a href="../admin/index.php">Page</a></p>
-				
+				<p>Go to the Administrators Management <a href="../admin/index.php">Page</a></p>	
 			</main>
         </article><!-- end main article -->
 

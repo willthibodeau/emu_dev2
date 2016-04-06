@@ -8,6 +8,8 @@ include'../view/admin_header.php';
         <!-- main content goes here -->
         <article class="main">
             <main>
+
+            <!-- Allow the administrator to add products -->
             <h2>Add Products</h2>
                 <form action="." method="post" class="formInput">
                     <input type="hidden" name="action" value="add_product">

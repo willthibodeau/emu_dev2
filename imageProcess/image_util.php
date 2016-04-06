@@ -1,4 +1,6 @@
 <?php
+
+// this file is straight from the book
 function process_image($dir, $filename) {
     // Set up the variables
     $dir = $dir . DIRECTORY_SEPARATOR;

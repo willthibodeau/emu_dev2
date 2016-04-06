@@ -1,2 +1,5 @@
+<?php
+include('../util/valid_admin.php'); 
+?>
 <h2>Member Sidebar</h2>
-<p>Check here daily for discounts</p>
+    <p>You are logged in as <?php echo $_SESSION['admin_firstName']; ?>.</p>

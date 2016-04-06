@@ -5,14 +5,13 @@ require('../model/member_db.php');
 require('../model/admin_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
- if ($action == NULL) {
-     $action = filter_input(INPUT_GET, 'action');
-     if ($action == NULL) {
-         $action = 'member_menu';
-     }
- }
+if ($action == NULL) {
+    $action = filter_input(INPUT_GET, 'action');
+    if ($action == NULL) {
+        $action = 'member_menu';
+    }
+}
 	$members = $_SESSION['member'];
-	
 	if(!empty($members)) {
 		foreach($members as $member) {
 			$firstName = $member['users_firstName'];
@@ -23,7 +22,6 @@ $action = filter_input(INPUT_POST, 'action');
 // get the comments from the userid
 switch($action) {
 	case'member_menu':
-	
 	    $comments = get_comments($member_id);
 		include'member_menu.php';
 		break;
@@ -46,7 +44,6 @@ switch($action) {
 		} else {
 			add_comments($member_id, $comment_text);
 		}
-		
 		header('Location: .?action=member_menu');
 	    break;
 

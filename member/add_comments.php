@@ -10,19 +10,17 @@ include'../view/member_header.php';
         <article class="main">
             <main>
 				<h2>Add Comments</h2>
-				
 		        <form action="." method="post">
-		          <input type="hidden" name="action" value="add_comments">
-		          <textarea  rows="5" cols="50" name="commentText"  value="" placeholder="Add Comments..."></textarea><br>
-		          <input type="submit" value="Submit Comments">
+		          	<input type="hidden" name="action" value="add_comments">
+		          	<textarea  rows="5" cols="50" name="commentText"  value="" placeholder="Add Comments..."></textarea><br>
+		          	<input type="submit" value="Submit Comments">
 		        </form>	
 			</main>
         </article><!-- end main article -->
 
           <!-- first sidebar goes here -->
 	    <aside class="sidebar1">
-	    
-	          
+	     
 	    </aside><!-- end sidebar 1 -->
 	</div><!-- end column wrapper -->
 

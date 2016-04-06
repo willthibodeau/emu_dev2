@@ -1,8 +1,9 @@
 <?php
 function get_categories() {
     global $db;
-    $query = 'SELECT * FROM categories
-              ORDER BY cat_categoryID';          
+    $query = 
+    ' SELECT * FROM categories
+      ORDER BY cat_categoryID';          
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement;     
@@ -10,8 +11,9 @@ function get_categories() {
 
 function get_category_name($category_id) {
     global $db;
-    $query = 'SELECT * FROM categories
-              WHERE cat_categoryID = :category_id';    
+    $query = 
+    ' SELECT * FROM categories
+      WHERE cat_categoryID = :category_id';    
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->execute();    
@@ -23,10 +25,11 @@ function get_category_name($category_id) {
 
 function add_category($name, $price){
 	global $db;
-	$query = 'INSERT INTO categories
-                 (cat_categoryID, cat_categoryName, cat_price)
-              VALUES
-                 (null, :name, :cat_price)';
+	$query = 
+  ' INSERT INTO categories
+      (cat_categoryID, cat_categoryName, cat_price)
+    VALUES
+      (null, :name, :cat_price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':cat_price', $price);
@@ -36,8 +39,9 @@ function add_category($name, $price){
 
 function delete_category($category_id) {
     global $db;
-    $query = 'DELETE FROM categories 
-              WHERE cat_categoryID = :category_id';
+    $query = 
+    ' DELETE FROM categories 
+      WHERE cat_categoryID = :category_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->execute();
@@ -46,8 +50,10 @@ function delete_category($category_id) {
 
   function detect_category_name($name){
   	global $db;
-  	$query = "SELECT cat_categoryName FROM categories 
-              WHERE cat_categoryName = :name"; 	
+  	$query = 
+    ' SELECT cat_categoryName 
+      FROM categories 
+      WHERE cat_categoryName = :name'; 	
     $statement = $db->prepare($query);
     $statement->bindValue(':name', $name);
   	$statement->execute();
@@ -59,8 +65,10 @@ function delete_category($category_id) {
 // update category not working
 function update_category($category_id, $category_name) {
     global $db;
-    
-    $query = 'UPDATE categories SET cat_categoryName = :category_name WHERE cat_categoryID = :category_id';
+    $query = 
+    ' UPDATE categories 
+      SET cat_categoryName = :category_name 
+      WHERE cat_categoryID = :category_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':category_name', $category_name);
     $statement->bindValue(':category_id', $category_id);
@@ -70,14 +78,14 @@ function update_category($category_id, $category_name) {
 
 function get_first_row(){
   global $db;
-  $query = 'SELECT cat_categoryID
-            FROM categories
-            LIMIT 1';
+  $query = 
+  ' SELECT cat_categoryID
+    FROM categories
+    LIMIT 1';
   $statement = $db->prepare($query);
   $statement->execute();
   $categories = $statement->fetchAll();
   $statement->closeCursor();
-
   foreach($categories as $category){ 
   return $category['cat_categoryID'];
   }

@@ -11,7 +11,7 @@ include'../view/admin_header.php';
         
         
             <!-- main content goes here -->
-        
+            <!-- content is straight from the book file -->
             <h3>Please select an image to upload.</h3>
             <form id="upload_form"
                   action="." method="POST"

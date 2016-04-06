@@ -32,23 +32,22 @@ include'../view/header.php';
 						</tr>
 						<tr><td>Phone</td>
 						<td><input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"></td>
-						 
-
 					</table>
-					<div><input type="submit"  value="Register" ></div>
+					<div>
+						<input type="submit"  value="Register" >
+					</div>
 				</form>
-<p>Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.
-</p><p>Matches: 	
-Abc1234# | abcD$123 | A1b2&C3!</p><p>
-Non-Matches: 	
-abcd1234 | AbCd!@#$ | Abc 123#</p><br>
-<p>Email matches: asmith@mactec.com | foo12@foo.edu | bob.smith@foo.tv</p><br>
-
-<div class="error">
-				 <?php if(!empty($error)) { echo $error; } ?>
-     <?php if(!empty($message)) { echo $message; } ?>
-</div>
-	</main>
+				<p>Password should be between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, 
+					and one special character, but cannot contain whitespace.</p>
+				<p>Matches could include: 	
+					Abc1234# | abcD$123 | A1b2&C3!</p>
+				<p>Non-Matches would be like: abcd1234 | AbCd!@#$ | Abc 123#</p><br>
+				<p>Email matches could be like: asmith@mactec.com | foo12@foo.edu | bob.smith@foo.tv</p><br>
+				<div class="error">
+					<?php if(!empty($error)) { echo $error; } ?>
+				    <?php if(!empty($message)) { echo $message; } ?>
+				</div>
+			</main>
         </article><!-- end main article -->
 
         <!-- first sidebar goes here -->

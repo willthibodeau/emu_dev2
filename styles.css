@@ -27,7 +27,26 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	font-family: 'Comfortaa', cursive;
+
 } 
+
+tr:nth-of-type(odd) {
+	background: #eee;
+}
+
+th {
+	background: #333;
+	color: white;
+	font-weight: bold;
+}
+
+td, th {
+	padding: 6px;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+
+
 /* end reset browser styles */
 
 .clear:after {
@@ -38,6 +57,9 @@ table {
 
 .clear {
 	zoom: 1;	
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 body {
@@ -129,6 +151,11 @@ aside p, aside li {
 	font-size: 2em;
 	margin-top: 10px;
 	font-family: 'Cinzel', serif;	
+	width: 80%;
+	margin: 10px auto;
+	display: block;
+  	padding-left: 24px;
+  position: relative;
 }
 .main h3 {
 	font-size: 1.5em;
@@ -171,7 +198,7 @@ footer a {
   	padding: 0 20px 0 10px;
 }
 .main {
-  	float: right;
+  	/*float: right;*/
   	width: 75%;
   	padding: 0 20px;
   	/*border-left: dashed 1px rgb(153,153,153);*/
@@ -206,6 +233,44 @@ img.right {
 }
 
 @media (min-width: 481px) and (max-width:768px) {
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	tr {
+		border: 1px solid #ccc;
+	}
+	td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+	td:before {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Quantity"; }
+	td:nth-of-type(2):before { content: "Description"; }
+	td:nth-of-type(3):before { content: "price"; }
+	td:nth-of-type(4):before { content: "image"; }
+	
+}
+
+
 	.sidebar2 {
 	    float: none;
 		width: auto;
@@ -217,17 +282,19 @@ img.right {
 		 width: auto;	  
 	}
 	.main {
-		border-right: none;  
+		border-right: none; 
+		margin-top: 200px; 
 	}
 }
 
 @media (max-width: 480px) {
-	.columnWrapper, .main, .sidebar1, .sidebar2 {
+	.columnWrapper, .sidebar1, .sidebar2 {
 		float: none;
 		width: auto;  
 	} 	
 	.main {
 		border: none;
+		padding-top: 100px;
 	}
 	.sidebar1, .sidebar2 {
 		border-top: 2px solid black;
@@ -238,7 +305,8 @@ img.right {
 		font-size: 2.1em;  
 	}
 	nav {
-		text-align: center;  
+		text-align: center; 
+		margin-top: 0px; 
 	}
 	nav li {
 		float: none;  
@@ -253,6 +321,11 @@ img.right {
 		overflow-x: auto;
 		display:block;
 	}
+	.indexHeader {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
 }
 
 
@@ -260,9 +333,9 @@ img.right {
 form {
     margin: 5px;
 }
-form input {
+/*form input {
     margin: 5px;
-}
+}*/
 .error {
     color: red;
 }
@@ -304,7 +377,7 @@ tbody {
 
 .productTable {
 	width: 80%;
-	margin: 0 auto;
+	margin: 0 auto 100px;
 
 }
 .productTable tr {
@@ -385,4 +458,45 @@ td .productImage {
 	position: fixed;
 	z-index: 100;
 	width: 100%;
+}
+
+ul a{
+    text-decoration: none;
+    color: #FFF;
+    text-align: left;
+    background-color: #BCB8C2;
+    padding: 10px 16px;
+    border-radius: 2px;
+    opacity: 0.8;
+    font-size: 16px;
+    display: inline-block;
+    margin: 4px;
+    line-height: 1;
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+tbody th {
+	padding: 5px;
+}
+
+.nav-admin-login p {
+	display: inline-block;
+	margin: 5px;
+}
+
+.nav-admin-login form {
+	display: inline-block;
+	margin: 5px;
+}
+
+form#add_category_form label  {
+	display: inline-block;
+	width: 200px;
+}
+
+form#add_category_form input  {
+	margin: 3px;
+	width: 200px;
 }

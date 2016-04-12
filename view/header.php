@@ -26,7 +26,7 @@
 		<header class="indexHeader">
 			<nav class="clear">
 				<ul >
-					<li><a href="../index.php">Home</a></li>
+					<li><a href="/emu_dev2/index.php">Home</a></li>
 					<li><a href="/emu_dev2/login/">Login</a></li>
 					<li><a href="/emu_dev2/product/">Products</a></li>
 				</ul>

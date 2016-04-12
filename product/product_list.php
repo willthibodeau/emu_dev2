@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])) {
     <!-- <div class="columnWrapper"> --> -->
         <main>
         <!-- main content goes here -->
-            <article >
+            <article class="main" >
                 <h2>Packages</h2><br>
                     <div class="productCategories">
                     

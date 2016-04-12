@@ -42,18 +42,19 @@ table {
 
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background-image: url("/elitemeatsutah/imageProcess/images/seafood.jpg") ;
+	
 }
 
 
 header {
-	background-color:rgb(93,43,78); 
-	background: url("img/wood.jpg") ; 
+	/*background-color:rgb(93,43,78); 
+	background: url("img/wood.jpg") ;*/ 
 	padding-bottom: 30px;
 }
 
 header h1 {
 	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 3px 3px 6px black;
 	font-size: 3em;	
 	color: white;
 	font-weight: bold;
@@ -65,7 +66,7 @@ header h1 {
 
 nav {
 	background-color: rgb(25,25,25);
-	border: 1px solid rgba(255,255,255,.5);	
+	/*border: 1px solid rgba(255,255,255,.5);	*/
 	border-left: none;
 	border-right: none;
 }
@@ -87,7 +88,7 @@ nav a {
 	font-weight: normal;
 	text-decoration: none;
 	padding: 10px;
-	border-right: 1px dashed rgba(255,255,255,.75);
+	/*border-right: 1px dashed rgba(255,255,255,.75);*/
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	-o-transition: all .5s;
@@ -108,6 +109,9 @@ nav a:hover {
 	padding: 10px;
 	text-align: right;
 	
+}
+.nav-admin-login form {
+	float: right;
 }
 aside h2 {
 	font-size: 1.3em;
@@ -134,12 +138,19 @@ aside p, aside li {
 	margin-bottom: 15px;
 	font-family: 'Comfortaa', cursive;	
 }
+article.main{
+	
+	margin: 100px auto;
+}
 footer {
 	margin-top: 15px;
 	font-size: .8em;	
 	padding: 10px 10px 30px 10px;
 	background-color: black;
 	color: rgb(204,204,204);
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
 }
 footer a {
 	color: white;	
@@ -162,13 +173,10 @@ footer a {
 .main {
   	float: right;
   	width: 75%;
-  	height: 80vh;
   	padding: 0 20px;
-  	border-left: dashed 1px rgb(153,153,153);
-  	border-right: dashed 1px rgb(153,153,153);
-  	background-image: url('./imageProcess/images/chicken.jpg') ;
-	background-size: 760px 760px;
-	background-repeat: no-repeat;
+  	/*border-left: dashed 1px rgb(153,153,153);*/
+  	/*border-right: dashed 1px rgb(153,153,153);*/
+  	
 }
 .sidebar2 {
   	float: right;
@@ -227,7 +235,7 @@ img.right {
 		padding-top: 10px;
 	}
 	header h1 {
-		font-size: 1.1em;  
+		font-size: 2.1em;  
 	}
 	nav {
 		text-align: center;  
@@ -236,12 +244,18 @@ img.right {
 		float: none;  
 		display: inline-block;
 	}
-	  nav a {
+	nav a {
 		float: none;  
 		display: inline-block;
 		border: none;
 	}
+	table {
+		overflow-x: auto;
+		display:block;
+	}
 }
+
+
 
 form {
     margin: 5px;
@@ -253,13 +267,22 @@ form input {
     color: red;
 }
 
-.product-table th, tr, td {
+.product-table th, td {
 	padding: 3px;
 	text-align: center;
 	border: 1px solid black;
 }
 
-.productCategories li {
+.product-table tr {
+	border: 2px solid black;
+	margin: 2px;
+}
+
+tbody {
+	margin-bottom: 50px;
+}
+
+/*.productCategories li {
 	 background-color: #ffe1bf;
     color: black;
     border: 2px solid #b17d14;
@@ -270,14 +293,22 @@ form input {
     border-radius: 50%;
 
 }
-
-.productCategories li a {
-	text-decoration: none;
+*/
+.productCategories h2 {
+	width: 80%;
+	margin: 10px auto;
+	display: block;
+  	padding-left: 24px;
+  position: relative;
 }
 
 .productTable {
-	width: 100%;
+	width: 80%;
+	margin: 0 auto;
 
+}
+.productTable tr {
+	margin: 10px;
 }
 
 td .productImage {
@@ -304,10 +335,54 @@ td .productImage {
 	height: 25px;
 }
 
-#awcc1459869223898 {
-	width: 100px;
-	float: right;
-	
-	
+/*start of nav*/
+.fixed {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
 }
 
+.menu {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  /*background-color: #16a085;*/
+  position: relative;
+
+}
+
+.menu li {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #C88D57;
+  margin: 3px;
+
+}
+
+.menu a {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.indexHeader {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
+ .indexHeader h1 {
+ 	display: none;
+ }
+
+.clear li {
+	margin: 5px;
+} 
+
+.notIndexHeader {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}

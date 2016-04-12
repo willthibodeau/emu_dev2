@@ -20,3 +20,5 @@ include'../view/admin_header.php';
 
 <?php endforeach; ?>
 
+<?php include '../view/footer.php'; ?>
+

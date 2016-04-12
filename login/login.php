@@ -1,13 +1,13 @@
 <?php include '../view/header.php'; ?>
 
 <div class="contentWrapper"> 
-  <div class="columnWrapper">
+  <!-- <div class="columnWrapper"> -->
 
     <!-- main content goes here -->
     <article class="main">
      
-     <main>
-        <h1>Login Page</h1>
+     
+        <h2>Login Page</h2>
         <form action="." method="post">
           <input type="hidden" name="action" value="login">
           <label>Username:</label>
@@ -30,21 +30,10 @@
           <?php if(!empty($error)) { echo $error; } ?>
           <?php if(!empty($message)) { echo $message; } ?>
         </div>  
-    </main>
+    
     
     </article><!-- end main article -->
 
-    <!-- first sidebar goes here -->
-    <aside class="sidebar1">
-  
-    </aside><!-- end sidebar 1 -->
-  </div><!-- end column wrapper -->
-
-  <!-- second sidebar goes here -->
-  <aside class="sidebar2">
-  <h2>Google Ads</h2>
-
-  </aside><!-- end sidebar 2 -->
 </div><!-- end content wrapper -->
 
 <?php include '../view/footer.php'; ?>

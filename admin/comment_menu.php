@@ -4,7 +4,7 @@ include'../view/admin_header.php';
 ?>
 
 <div class="contentWrapper"> 
-    <div class="columnWrapper">
+    
 		<main>
 	        <!-- main content goes here -->
 	        <article class="main">
@@ -52,16 +52,6 @@ include'../view/admin_header.php';
 	        </article><!-- end main article -->
 		</main>
 
-        <!-- first sidebar goes here -->
-        <aside class="sidebar1">
-          	<p>sidebar 1</p>  
-        </aside><!-- end sidebar 1 -->
-    </div><!-- end column wrapper -->
-
-    <!-- second sidebar goes here -->
-    <aside class="sidebar2">
-       <h2>Google Ads</h2>
-    </aside><!-- end sidebar 2 -->
 
 </div><!-- end content wrapper -->
 

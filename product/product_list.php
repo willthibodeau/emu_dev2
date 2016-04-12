@@ -7,14 +7,15 @@ if(isset($_SESSION['admin'])) {
 }
 ?>
 
-<div class="contentWrapper"> 
-    <div class="columnWrapper">
+ <div class="contentWrapper"> 
+    <!-- <div class="columnWrapper"> --> -->
         <main>
         <!-- main content goes here -->
-            <article class="main">
+            <article >
                 <h2>Packages</h2><br>
                     <div class="productCategories">
-                        <ul> 
+                    
+                        <ul class="menu"> 
                             <?php foreach ($categories as $category) : ?>
                             
                             <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br><?php echo $category['cat_price']; ?></a>  
@@ -22,8 +23,10 @@ if(isset($_SESSION['admin'])) {
                                               
                             <?php endforeach; ?>
                         </ul> 
-                    </div>
-                    <h2><?php echo $category_name; ?> </h2> 
+                        
+                    
+                    <h2><?php echo $category_name; ?> </h2>
+                     </div>
                     <table class="productTable">
                         <tr> 
                             <th>Quantity</th>
@@ -43,16 +46,10 @@ if(isset($_SESSION['admin'])) {
             </article><!-- end main article -->
         </main>
         <!-- first sidebar goes here -->
-        <aside class="sidebar1">
-          <h2>Sidebar 1</h2>   
-        </aside><!-- end sidebar 1 -->
-    </div><!-- end column wrapper -->
+       
+  
 
-    <!-- second sidebar goes here -->
-    <aside class="sidebar2">
-        <h2>Sidebar 2 </h2>
-        <p>comments / testimonials</p>
-    </aside><!-- end sidebar 2 -->
+   
 </div><!-- end content wrapper -->
 
 <?php include'../view/footer.php'; ?>

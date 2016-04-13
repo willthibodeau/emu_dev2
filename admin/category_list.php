@@ -30,48 +30,52 @@ include'../view/admin_header.php';
      
                 <!-- display the category list in a table format-->
                 <h2>Category List</h2>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                        <?php foreach ($categories as $category) : ?>
-                    <tr>
-                        <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
-                        <td><?php echo $category['cat_price']; ?></td>
-                        <td>
-                            <form action="index.php" method="post">
-                                <input type="hidden" name="action" value="delete_category" />
-                                <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
-                                <input type="submit" value="Delete"/>
-                            </form>
-                        </td>
-                    </tr>
-                        <?php endforeach; ?>
+                <table class="adminTable1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                            <?php foreach ($categories as $category) : ?>
+                    </thead>
+                    
+                        <tr>
+                            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+                            <td><?php echo $category['cat_price']; ?></td>
+                            <td>
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="action" value="delete_category" />
+                                    <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
+                                    <input type="submit" value="Delete"/>
+                                </form>
+                            </td>
+                        </tr>
+                            <?php endforeach; ?>
+                    
                 </table>
                 <p>NOTE: You cannot delete a category with products in it.</p>
 
                 <!-- display the products in a table format -->
                 <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
-                <table>
+                <table class="adminTable2">
+                    <thead>
+                        <tr>
+                            <th>Product Code</th>
+                            <th>Product Quantity</th>
+                            <th>Product Description</th>
+                            <th>Product Price</th>
+                            <th>Product Image</th>
+                            <th>Product Image Alt Text</th>
+                            <th>&nbsp;</th> 
+                        </tr>
+                            <?php foreach ($products as $product) : ?>
+                    </thead>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Category ID</th>
-                        <th>Product Code</th>
-                        <th>Product Name</th>
-                        <th>Product Description</th>
-                        <th>Product Price</th>
-                        <th>Product Image</th>
-                        <th>Product Image Alt Text</th>
-                        <th>&nbsp;</th> 
-                    </tr>
-                        <?php foreach ($products as $product) : ?>
-                    <tr>
-                        <td><?php echo $product['prod_productID']; ?></td> 
-                        <td><?php echo $product['prod_categoryID']; ?></td>
+<!--                         <td><?php echo $product['prod_productID']; ?></td> 
+                        <td><?php echo $product['prod_categoryID']; ?></td> -->
                         <td><?php echo $product['prod_prodCode']; ?></td>
-                        <td><?php echo $product['prod_productName']; ?></td>
+                        <td><?php echo $product['prod_productQuantity']; ?></td>
                         <td><?php echo $product['prod_description']; ?></td>
                         <td><?php echo $product['prod_price']; ?></td>
                         <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>

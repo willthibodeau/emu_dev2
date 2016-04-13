@@ -31,7 +31,7 @@ table {
 } 
 
 tr:nth-of-type(odd) {
-	background: #eee;
+	background: #CCCACA;
 }
 
 th {
@@ -232,11 +232,11 @@ img.right {
 	margin: 0 0 10px 10px;
 }
 
-@media (min-width: 481px) and (max-width:768px) {
-	table, thead, tbody, th, td, tr {
-		display: block;
-	}
+@media screen and (min-width: 481px) and (max-width:768px) {
 
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
 	thead tr {
 		position: absolute;
 		top: -9999px;
@@ -260,17 +260,71 @@ img.right {
 		white-space: nowrap;
 	}
 
+	.productTable th, td {
+		text-align: right;
+	}
+
 	/*
 	Label the data
 	*/
-	td:nth-of-type(1):before { content: "Quantity"; }
-	td:nth-of-type(2):before { content: "Description"; }
-	td:nth-of-type(3):before { content: "price"; }
-	td:nth-of-type(4):before { content: "image"; }
+	td:nth-of-type(1):before { 
+		content: "Quantity";
+		text-align: left; 
+	}
+	td:nth-of-type(2):before { 
+		content: "Description";
+		text-align: left;
+	}
+	td:nth-of-type(3):before { 
+		content: "Price"; 
+		text-align: left;
+	}
+	td:nth-of-type(4):before { 
+		content: "Image"; 
+		text-align: left;
+	}
+
+	.adminTable1 td:nth-of-type(1):before  {
+		content: "Name";
+		text-align: left; 
+	}
+	.adminTable1 td:nth-of-type(2):before  {
+		content: "Price";
+		text-align: left; 
+	}
+	.adminTable1 td:nth-of-type(3):before  {
+		content: " ";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(1):before  {
+		content: "ID";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(2):before  {
+		content: "Quantity";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(3):before  {
+		content: "Name";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(4):before  {
+		content: "Price";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(5):before  {
+		content: "Image";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(6):before  {
+		content: "Image Alt Text";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(7):before  {
+		content: " ";
+		text-align: left; 
+	}
 	
-}
-
-
 	.sidebar2 {
 	    float: none;
 		width: auto;
@@ -285,9 +339,24 @@ img.right {
 		border-right: none; 
 		margin-top: 200px; 
 	}
+	article.main {
+		width: 90%;
+		padding: 0;
+		margin-top: 300px;
+	}
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
+	.productTable {
+		width: 100% !important;
+		margin: 0;
+		padding: 0;
+	}
+	article.main {
+		width: 100%;
+		padding: 0;
+		margin-top: 300px;
+	}
 	.columnWrapper, .sidebar1, .sidebar2 {
 		float: none;
 		width: auto;  
@@ -317,32 +386,117 @@ img.right {
 		display: inline-block;
 		border: none;
 	}
-	table {
-		overflow-x: auto;
-		display:block;
-	}
+	
 	.indexHeader {
 	position: fixed;
 	z-index: 100;
 	width: 100%;
-}
+	}
+
+	/*table design */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	tr {
+		border: 1px solid #ccc;
+	}
+	td {
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+	td:before {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	.productTable th, td {
+		text-align: right;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { 
+		content: "Quantity";
+		text-align: left; 
+	}
+	td:nth-of-type(2):before { 
+		content: "Description";
+		text-align: left;
+	}
+	td:nth-of-type(3):before { 
+		content: "Price"; 
+		text-align: left;
+	}
+	td:nth-of-type(4):before { 
+		content: "Image"; 
+		text-align: left;
+	}
+	.adminTable1 td:nth-of-type(1):before  {
+		content: "Name";
+		text-align: left; 
+	}
+	.adminTable1 td:nth-of-type(2):before  {
+		content: "Price";
+		text-align: left; 
+	}
+	.adminTable1 td:nth-of-type(3):before  {
+		content: " ";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(1):before  {
+		content: "ID";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(2):before  {
+		content: "Quantity";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(3):before  {
+		content: "Name";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(4):before  {
+		content: "Price";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(5):before  {
+		content: "Image";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(6):before  {
+		content: "Image Alt Text";
+		text-align: left; 
+	}
+	.adminTable2 td:nth-of-type(7):before  {
+		content: " ";
+		text-align: left; 
+	}
 }
 
-
+/*end max width 480*/
 
 form {
     margin: 5px;
 }
-/*form input {
-    margin: 5px;
-}*/
+
 .error {
     color: red;
 }
 
 .product-table th, td {
-	padding: 3px;
-	text-align: center;
+	padding: 3px 8px;
 	border: 1px solid black;
 }
 
@@ -355,18 +509,6 @@ tbody {
 	margin-bottom: 50px;
 }
 
-/*.productCategories li {
-	 background-color: #ffe1bf;
-    color: black;
-    border: 2px solid #b17d14;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 50%;
-
-}
-*/
 .productCategories h2 {
 	width: 80%;
 	margin: 10px auto;
@@ -385,7 +527,9 @@ tbody {
 }
 
 td .productImage {
-	box-shadow: 10px 10px 5px gray;
+-webkit-box-shadow: 0px 0px 23px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 23px 3px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 23px 3px rgba(0,0,0,0.75);
 	margin: 10px ;
 	border-radius: 5px;
 }

@@ -41,7 +41,7 @@ function add_product($category_id, $code, $name, $description,  $price,  $imageP
   global $db;
   $query = 
   ' INSERT INTO products
-      (prod_productID, prod_categoryID, prod_prodCode, prod_productName, prod_description, prod_price, imagepath,  imagealt)
+      (prod_productID, prod_categoryID, prod_prodCode, prod_productQuantity, prod_description, prod_price, imagepath,  imagealt)
     VALUES
       (NULL, :category_id, :code, :name,:description, :price, :imagepath, :imagealt)';
   $statement = $db->prepare($query);

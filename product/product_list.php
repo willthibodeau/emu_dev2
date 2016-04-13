@@ -28,20 +28,24 @@ if(isset($_SESSION['admin'])) {
                     <h2><?php echo $category_name; ?> </h2>
                      </div>
                     <table class="productTable">
-                        <tr> 
-                            <th>Quantity</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Image</th>  
-                        </tr>
-                            <?php foreach ($products as $product) : ?>
-                        <tr>
-                            <td><?php echo $product['prod_productName']; ?></td>
-                            <td><?php echo $product['prod_description']; ?></td>
-                            <td><?php echo $product['prod_price']; ?></td>
-                            <td ><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>" class="productImage"></td>
-                        </tr>
-                            <?php endforeach; ?>
+                        <thead>
+                            <tr> 
+                                <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Image</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php foreach ($products as $product) : ?>
+                            <tr>
+                                <td><?php echo $product['prod_productQuantity']; ?></td>
+                                <td><?php echo $product['prod_description']; ?></td>
+                                <td><?php echo $product['prod_price']; ?></td>
+                                <td ><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>" class="productImage"></td>
+                            </tr>
+                                <?php endforeach; ?>
+                        </tbody>
                     </table> 
             </article><!-- end main article -->
         </main>

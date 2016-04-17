@@ -13,7 +13,7 @@ include'../view/admin_header.php';
             <p>Message is : <?php if(!empty($message)) { echo $message; } ?>
             <form action="" method="post">
                 <input type="hidden" name="action" value="logout">
-                <input type="submit" value="Logout">
+                <input class="button" type="submit" value="Logout">
             </form>
         </article><!-- end main article -->
 

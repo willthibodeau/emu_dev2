@@ -2,12 +2,7 @@
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>
-<div class="contentWrapper"> 
-    <div class="columnWrapper">
-
-        <!-- main content goes here -->
-        <article class="main">
-            <main>
+<div class="main-content">
 
 <h2>search results.php</h2>
 
@@ -19,6 +14,7 @@ include'../view/admin_header.php';
 	<?php echo $value['com_commentText']; ?><br>
 
 <?php endforeach; ?>
+</div><!-- end main content -->
 
 <?php include '../view/footer.php'; ?>
 

@@ -265,7 +265,7 @@ img.right {
 	}
 
 	/*
-	Label the data
+	Label the table data
 	*/
 	td:nth-of-type(1):before { 
 		content: "Quantity";

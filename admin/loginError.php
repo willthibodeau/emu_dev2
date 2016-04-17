@@ -1,11 +1,11 @@
 <?php 
 include'../view/header.php';
 ?>
-<div class="contentWrapper"> 
+<div class="main-content">
    
 
         <!-- main content goes here -->
-        <article class="main">
+        
 			<h2>Login error</h2>
 			<?php 
 				if(!empty($error)){
@@ -14,6 +14,6 @@ include'../view/header.php';
 					echo'Return to home.';
 				}
 			?>
-        </article><!-- end main article -->
+</div>     
 
 <?php include'../view/footer.php'; ?>

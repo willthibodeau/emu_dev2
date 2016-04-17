@@ -2,13 +2,8 @@
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>
+<div class="main-content">
 
-<div class="contentWrapper"> 
-    
-        <main>
-
-            <!-- main content goes here -->
-            <article class="main">
 
                 <!-- display any errors -->
                 <div class="error">
@@ -16,20 +11,21 @@ include'../view/admin_header.php';
                         echo $error;
                     } ?>
                 </div>
-
+                <h1>Administrator Home</h1>
                 <!-- allow the administrator to add a category and price -->
                 <h2>Add Category</h2>
-                <form id="add_category_form"action="index.php" method="post">
+                <form class="formInput" id="add_category_form"action="index.php" method="post">
                     <input type="hidden" name="action" value="add_category" >
-                    <label>Category Name:</label>
-                    <input type="text"  name="name" ><br>
-                    <label>Category Price</label>
-                    <input type="text" name="cat_catprice"><br>
-                    <input type="submit" value="Add Category">
+                    <label for="name">Category Name:</label>
+                    <input type="text"  name="name" id="name"><br>
+                    <label for="price">Category Price:</label>
+                    <input type="text" name="cat_catprice" id="price"><br>
+                    <input class="button" type="submit" value="Add Category">
                 </form>
      
                 <!-- display the category list in a table format-->
                 <h2>Category List</h2>
+                <div class="formInput">
                 <table class="adminTable1">
                     <thead>
                         <tr>
@@ -41,23 +37,26 @@ include'../view/admin_header.php';
                     </thead>
                     
                         <tr>
-                            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+                            <td><a class="button" href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
                             <td><?php echo $category['cat_price']; ?></td>
                             <td>
                                 <form action="index.php" method="post">
                                     <input type="hidden" name="action" value="delete_category" />
                                     <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
-                                    <input type="submit" value="Delete"/>
+                                    <input class="button-delete" type="submit" value="Delete"/>
                                 </form>
                             </td>
                         </tr>
                             <?php endforeach; ?>
                     
                 </table>
-                <p>NOTE: You cannot delete a category with products in it.</p>
 
+                <p>NOTE: You cannot delete a category with products in it.</p>
+                </div>
                 <!-- display the products in a table format -->
-                <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
+                <h2>Products</h2>
+                <div class="formInput">
+                <p> <?php echo $category_name; ?>:</p> 
                 <table class="adminTable2">
                     <thead>
                         <tr>
@@ -88,16 +87,12 @@ include'../view/admin_header.php';
                                        value="<?php echo $product['prod_productID']; ?>">
                                 <input type="hidden" name="category_id"
                                        value="<?php echo $product['prod_categoryID']; ?>">
-                                <input type="submit" value="Delete"> 
+                                <input class="button-delete" type="submit" value="Delete"> 
                             </form>
                         </td>
                     </tr>
                         <?php endforeach; ?>
                 </table>
-            </article><!-- end main article -->
-        </main>
-       
-
-</div><!-- end content wrapper -->
-
+ </div><!-- end formInput div -->
+</div><!-- end main content -->
 <?php include'../view/footer.php'; ?>

@@ -8,7 +8,7 @@ if(isset($_SESSION['admin'])) {
 ?>
 <div class="product-page">
                 <h2>Packages</h2><br>
-                
+                   
                     <nav class="prod">
                         <ul > 
                             <?php foreach ($categories as $category) : ?>

@@ -7,10 +7,10 @@ if(isset($_SESSION['admin'])) {
 }
 ?>
 <div class="product-page">
-                <h2>Packages</h2><br>
+                <h2>Packages</h2>
                    
                     <nav class="prod">
-                        <ul > 
+                        <ul class="formInput"> 
                             <?php foreach ($categories as $category) : ?>
                             
                             <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br><?php echo $category['cat_price']; ?></a>  
@@ -20,8 +20,9 @@ if(isset($_SESSION['admin'])) {
                         </ul> 
                      </nav>   
                     <div class="prod">
+                        
                         <h2><?php echo $category_name; ?> </h2>
-                         
+                         <div class="formInput">
                         <table class="adminTable1">
                             <thead>
                                 <tr class="prod-list"> 
@@ -42,6 +43,7 @@ if(isset($_SESSION['admin'])) {
                                     <?php endforeach; ?>
                             </tbody>
                         </table>
+                    </div>
                     </div><!-- end prod-prod --> 
 </div><!-- end product-page -->        
        

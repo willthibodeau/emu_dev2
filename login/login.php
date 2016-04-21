@@ -4,6 +4,10 @@
      
      
         <h2>Login Page</h2>
+        <div class="error">
+          <?php if(!empty($error)) { echo $error; } ?>
+          <?php if(!empty($message)) { echo $message; } ?>
+        </div> 
         <form action="." method="post" class="formInput">
           <input type="hidden" name="action" value="login">
           
@@ -22,13 +26,6 @@
             <button class="button" type="submit" value="Resister Here">Register</button>
         </form> 
         <p>Abc1234#</p>
-
-        <div class="error">
-          <?php if(!empty($error)) { echo $error; } ?>
-          <?php if(!empty($message)) { echo $message; } ?>
-        </div>  
-    
-    
 </div><!-- end main content --> 
 
 <?php include '../view/footer.php'; ?>

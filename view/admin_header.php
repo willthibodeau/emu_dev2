@@ -35,10 +35,10 @@
 			<p>You are <?php echo $_SESSION['admin_firstName'] ; ?> logged in as <?php echo $_SESSION['admin_userName']; ?>.</p>
 	 		<form action="/elitemeatsutah/admin/index.php" method="post">
 	            <input type="hidden" name="action" value="logout">
-	            <input type="submit" value="Logout">
+	            <input class="button" type="submit" value="Logout">
 	        </form>
 	    </div>
 	</header>
-	
+	<!-- tree /f /a > c:wireFrame.txt -->
 
 		

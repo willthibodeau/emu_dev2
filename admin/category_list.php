@@ -55,7 +55,7 @@ include'../view/admin_header.php';
                 </div>
                 <!-- display the products in a table format -->
                 <h2>Products</h2>
-                <div class="formInput">
+                <!-- <div class="formInput"> -->
                 <p> <?php echo $category_name; ?>:</p> 
                 <table class="adminTable2">
                     <thead>

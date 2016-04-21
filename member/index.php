@@ -55,7 +55,7 @@ switch($action) {
 
 	case 'logout':
         unset($_SESSION['member']);
-        header('Location: ../../index.php');
+        header('Location: ../index.php');
         break;
 
 	default:

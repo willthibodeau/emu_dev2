@@ -23,7 +23,7 @@
 		<input type="checkbox" id="button">
 		<label for="button" onclick></label>
 		<ul >
-			<li><a href="/member/">Member Home</a></li>
+			<li><a href="../member/">Member Home</a></li>
 		</ul>
 	</nav>
 	<header class="publicHeader">
@@ -36,3 +36,6 @@
             </form>
         </div>
 	</header>
+
+
+<!-- tree /f /a > c:wireFrame.txt -->

@@ -51,7 +51,7 @@
 		<h2>Contact Us</h2>
 		<p><a href="tel:1-828-275-7744">Phone (828) 275-7744</a></p>
 		<p class="noShow"><a href="sms:1-828-275-7744">Text </a></p>
-		<p class="noShow"><a href="mailto:Wilfredrthibodeau@gmail.com?Subject=Hellow" target="_top">Email</a></p>
+		<p class="noShow"><a href="mailto:Wilfredrthibodeau@gmail.com?Subject=Hello" target="_top">Email</a></p>
 			<div id="map">map text</div>
 	</div><!-- end slider 3 -->
 

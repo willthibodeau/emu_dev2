@@ -36,6 +36,7 @@ include'../view/member_header.php';
 			        <textarea  rows="5" cols="50" name="comment_text" placeholder="Add Comments..."></textarea><br> 
 			        <input class="button" type="submit" value="Submit Comments">
 		        </form>	
-     
+</div>  
+</div>
 
 <?php include'../view/footer.php'; ?>

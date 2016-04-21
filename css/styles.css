@@ -17,11 +17,13 @@ vertical-align: baseline;
 /*end reset*/
 .footer {
   padding: 20px;
-vertical-align: text-top;
+  vertical-align: text-top;
+  width: 100%;
+  overflow: auto;
 
 }
 .footer h4 {
-font-size: .75em;
+  font-size: .75em;
 }
 .footer p {
   font-size: .5em;
@@ -45,8 +47,8 @@ font-size: .75em;
   min-width: 200px;
 }
 .main-content {
-    padding: 10px;
-    margin-bottom: 100px;
+  padding: 10px;
+  margin-bottom: 100px;
   }
 .animation {
   display: inline-block;
@@ -208,8 +210,8 @@ nav[role="custom-dropdown"] label {
   background-color: gray;
   padding: 5px;
   text-align: right;
-  max-width: 200px;
-  font-size: 14px;
+  
+
   
 }
 .add-category-form {
@@ -374,6 +376,8 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     margin-bottom: 100px;
   }
 
+
+
 /*start general styles/////////////////////////////////////*/
 
 @media screen and ( min-width: 769px )  {
@@ -455,7 +459,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     border-radius: 15px;
   }
   footer {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     background-color: tan;
     width: 80%;
@@ -473,6 +477,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     font-size: 45px;
     color: white;
     padding: 40px;
+    display:inline-block;
   }
   body {
     width: 80%;
@@ -530,6 +535,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
 /*end general styles */
 /*////////////////////////////////////////////////////////////////////*/
 @media screen and ( min-width: 481px ) and ( max-width: 768px ) {
+
     .fish1 {
     width: 155px;
     height: 155px;
@@ -625,16 +631,17 @@ border: 5px solid white;
   }
 
   .publicHeader {
-    
+    display: inline-block;
     background-image: url(../img/wood.jpg);
-    height: 75px;
+    overflow: auto;
+    width: 100%
   }
   .publicHeader h1 {
     font-family: 'Vidaloka', serif;
     font-size: 45px;
     color: white;
     padding: 20px;
-    display: inline-block;
+    
   }
 
   nav[role="custom-dropdown"] ul {
@@ -971,7 +978,7 @@ border: 5px solid white;
     text-decoration: none;
     display: inline-block;
     list-style-type: none;
-    min-width: 200px;
+    min-width: 100%;
   }
 
   .prod a:hover, .prod a:active {

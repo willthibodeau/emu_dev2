@@ -58,6 +58,14 @@ switch($action) {
 		$orders_orderNumber = 8;
 		$orders_userid = $_SESSION['member_id'];
 		$carts = get_cart($orders_userid, $orders_orderNumber);
+
+		$sum = 0;
+		$total = 0;
+		foreach ($carts as $cart ){
+			$sum = ($cart[1] - ($cart[1] * $cart[2]));
+			$total += $sum;
+		}
+
 		$categories = get_categories();
 		include('cart.php');
 		break;
@@ -66,8 +74,8 @@ switch($action) {
 		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
 		$orders_quantity = filter_input(INPUT_POST, 'quantity');
 		$orders_orderNumber = 8;
-print_r($orders_userid);
 		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity, $orders_orderNumber);
+		
 		$carts = get_cart($orders_userid);
 		header("Location: .?action=view_cart");
 		break;

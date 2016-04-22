@@ -35,6 +35,7 @@ switch($action) {
  	case'add_category':
  		$name = filter_input(INPUT_POST, 'name');
  		$price = filter_input(INPUT_POST, 'cat_catprice');
+    $discount = filter_input(INPUT_POST, 'discount');
 
     $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
     if ($category_id == NULL || $category_id == FALSE) {
@@ -54,7 +55,7 @@ switch($action) {
       include'category_list.php';
 
     } else if(detect_category_name($name) == false){
-      add_category($name, $price);
+      add_category($name, $price, $discount);
       header('Location: .?action=list_categories');  // display the Category List page
     
     } else {

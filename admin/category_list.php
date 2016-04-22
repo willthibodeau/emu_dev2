@@ -18,6 +18,8 @@ include'../view/admin_header.php';
         <input type="text"  name="name" id="name"><br>
         <label for="price">Category Price:</label>
         <input type="text" name="cat_catprice" id="price"><br>
+        <label for="discount">Discount Percent: </label>
+        <input type="text" name="discount" id="discount"><br>
         <input class="button" type="submit" value="Add Category">
     </form>
     <!-- display the category list in a table format-->

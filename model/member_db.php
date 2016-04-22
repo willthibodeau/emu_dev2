@@ -61,41 +61,57 @@ function add_comments($com_userid, $comment_text) {
     $statement->closeCursor();
 }
 
-function add_to_cart($orders_userid, $orders_categoryid, $orders_quantity, $orders_orderNumber) {
+function add_to_cart($orders_userid, $orders_categoryid, $orders_quantity) {
     global $db;
     $query = 
     '   INSERT INTO orders
-            (orders_orderID, orders_userID, orders_categoryID, orders_quantity, orders_orderNumber)
+            (orders_orderID, orders_userID, orders_categoryID, orders_quantity)
         VALUES
-            (NULL, :orders_userid, :orders_categoryid, :orders_quantity, :orders_orderNumber)';
+            (NULL, :orders_userid, :orders_categoryid, :orders_quantity)';
     $statement = $db->prepare($query);
     $statement->bindValue(':orders_userid', $orders_userid);
     $statement->bindValue(':orders_categoryid', $orders_categoryid);
     $statement->bindValue(':orders_quantity', $orders_quantity);
-    $statement->bindValue(':orders_orderNumber', $orders_orderNumber);
     $statement->execute();
     $statement->closeCursor();
 
 }
 
-function get_cart($user_id, $order_number) {
+function get_cart($user_id) {
     global $db;
 
     $query = 
-    '   SELECT categories.cat_categoryName, categories.cat_price, orders.orders_quantity
+    '   SELECT categories.cat_categoryName, categories.cat_price, categories.cat_discount, orders.orders_quantity
         FROM categories
         INNER JOIN orders
         ON categories.cat_categoryID=orders.orders_categoryID
-        WHERE orders.orders_userID = :user_id and orders.orders_orderNumber = :order_number';
+        WHERE orders.orders_userID = :user_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':user_id', $user_id);
-    $statement->bindValue(':order_number', $order_number);
     $statement->execute();
-    return $statement;
+    $carts = $statement->fetchAll();
+    $statement->closeCursor();
+    return $carts;
+   
 }
 
 function delete_from_cart() {
 
 }
+
+// function get_cat_price($cat_categoryID) {
+//     global $db;
+//     $query =
+//     '   SELECT cat_price
+//         FROM categories
+//         WHERE cat_categoryID = :cat_categoryID';
+//     $statement = $db->prepare($query);
+//     $statement->bindValue(':cat_categoryID', $cat_categoryID);
+//     $statement->execute();
+//     $prices = $statement->fetchAll();
+//     $statement->closeCursor();
+//     foreach ($prices as $price) {
+//         echo $price[0];
+//     }
 
 ?>

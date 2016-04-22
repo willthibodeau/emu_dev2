@@ -23,16 +23,17 @@ function get_category_name($category_id) {
     return $category_name;
 }
 
-function add_category($name, $price){
+function add_category($name, $price, $discount){
 	global $db;
 	$query = 
   ' INSERT INTO categories
-      (cat_categoryID, cat_categoryName, cat_price)
+      (cat_categoryID, cat_categoryName, cat_price, cat_discount)
     VALUES
-      (null, :name, :cat_price)';
+      (null, :name, :cat_price, :cat_discount)';
     $statement = $db->prepare($query);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':cat_price', $price);
+    $statement->bindValue(':cat_discount', $discount);
     $statement->execute();
     $statement->closeCursor();
 }

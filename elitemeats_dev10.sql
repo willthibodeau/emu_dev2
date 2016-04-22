@@ -149,3 +149,6 @@ ALTER TABLE `comments`
 -- 
 ALTER TABLE `products`
   ADD CONSTRAINT `fk_products` FOREIGN KEY (`prod_categoryID`) REFERENCES `categories` (`cat_categoryID`);
+
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`orders_userID`) REFERENCES `users` (`users_userID`);

@@ -24,6 +24,8 @@
 		<label for="button" onclick></label>
 		<ul >
 			<li><a href="../member/">Member Home</a></li>
+			<li><a href="../member/.?action=view_cart">Cart</a></li>
+			<li><a href="../product/">Products</a></li>
 		</ul>
 	</nav>
 	<header class="publicHeader">

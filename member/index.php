@@ -3,6 +3,7 @@ session_start();
 require('../model/database_db.php');
 require('../model/member_db.php');
 require('../model/admin_db.php');
+require('../model/category_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -52,6 +53,29 @@ switch($action) {
 		delete_comments($comment_id);
 		header('Location: .?action=member_menu');
 	    break;
+
+	case'view_cart':
+		$orders_orderNumber = 8;
+		$orders_userid = $_SESSION['member_id'];
+		$carts = get_cart($orders_userid, $orders_orderNumber);
+		$categories = get_categories();
+		include('cart.php');
+		break;
+	case'add_order':
+		$orders_userid = $_SESSION['member_id'];
+		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
+		$orders_quantity = filter_input(INPUT_POST, 'quantity');
+		$orders_orderNumber = 8;
+print_r($orders_userid);
+		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity, $orders_orderNumber);
+		$carts = get_cart($orders_userid);
+		header("Location: .?action=view_cart");
+		break;
+
+	case'delete_order':
+
+
+		break;
 
 	case 'logout':
         unset($_SESSION['member']);

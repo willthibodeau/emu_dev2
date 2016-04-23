@@ -379,11 +379,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
  display: inline-block;
  width: 150px;
 }
-.main-content h2 {
-  width: 20%;
-  display: inline-block;
-  text-align: right;
-}
+
 
 /*start general styles/////////////////////////////////////*/
 

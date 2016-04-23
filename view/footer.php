@@ -17,7 +17,7 @@
 	    <div class="footer3">
 			<h4>Site Info</h4>
 			<p>Site designed by Will</p>
-			<!-- <a href="https://icons8.com">Icon pack by Icons8</a> -->
+			<h4><a href="../employment.php" class="button">Employment Opportunities</a></h4>
 	    </div><!-- end footer3 -->
 	</footer>
 

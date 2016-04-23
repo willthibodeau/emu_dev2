@@ -2,8 +2,10 @@
 if(isset($_SESSION['admin'])) { 
     require_once('../util/valid_admin.php');
     include'../view/admin_header.php';
-}else if(!isset($_SESSION['admin'])){
-  include'../view/header.php';  
+}else if(isset($_SESSION['member'])){
+  include'../view/member_header.php';  
+}else{
+    include'../view/header.php';
 }
 ?>
 <div class="product-page">

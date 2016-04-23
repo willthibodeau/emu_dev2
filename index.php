@@ -7,7 +7,7 @@
 ?>
 <div class="main-content">
 	<div class="slider1">
-
+<h1><a href="/login/.?action=register">Register</a></h1><p>now to receive a discount on your purchase.</p>
 		<h2>Our Products</h2>
 		<div class="animation text1">
 			<a class="button" href="./product/">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('../model/database_db.php');
 require('../model/product_db.php');
 require('../model/category_db.php');
@@ -14,7 +15,7 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'list_categories':
-    session_start();
+    
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
         if ($category_id == NULL || $category_id == FALSE) { 
             $category_id = get_first_row();

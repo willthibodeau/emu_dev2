@@ -3,8 +3,8 @@
 include'../view/header.php';
 ?>
 <div class="main-content">
-	<h1>Member Cart</h1>
-				<h2>Welcome <?php echo $_SESSION['user_id']; ?></h2>
+	<h1>User Cart</h1>
+				<!-- <h2>Welcome <?php echo $_SESSION['user_id']; ?></h2> -->
 				<h2 class="total">Your Total: $<?php  echo $total; ?></h2>
 
 				<form action="." method="post" class="formInput">

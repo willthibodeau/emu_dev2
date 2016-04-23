@@ -57,12 +57,12 @@ switch($action) {
 	case'view_cart':
 		$orders_orderNumber = 8;
 		$orders_userid = $_SESSION['member_id'];
-		$carts = get_cart($orders_userid, $orders_orderNumber);
+		$carts = get_cart($orders_userid);
 
 		$sum = 0;
 		$total = 0;
 		foreach ($carts as $cart ){
-			$sum = ($cart[1] - ($cart[1] * $cart[2]));
+			$sum = ($cart[3] * ($cart[1] - ($cart[1] * $cart[2])));
 			$total += $sum;
 		}
 
@@ -74,15 +74,16 @@ switch($action) {
 		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
 		$orders_quantity = filter_input(INPUT_POST, 'quantity');
 		$orders_orderNumber = 8;
-		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity, $orders_orderNumber);
+		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity);
 		
 		$carts = get_cart($orders_userid);
 		header("Location: .?action=view_cart");
 		break;
 
 	case'delete_order':
-
-
+		$orderid = filter_input(INPUT_POST, 'orders_orderID', FILTER_VALIDATE_INT);
+		delete_order($orderid);
+		header('Location: .?action=view_cart');
 		break;
 
 	case 'logout':

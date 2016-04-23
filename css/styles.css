@@ -375,8 +375,15 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     padding: 10px;
     margin-bottom: 100px;
   }
-
-
+.total {
+ display: inline-block;
+ width: 150px;
+}
+.main-content h2 {
+  width: 20%;
+  display: inline-block;
+  text-align: right;
+}
 
 /*start general styles/////////////////////////////////////*/
 
@@ -456,7 +463,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     height: 100vh;
     overflow: auto;
     background-color: #fff;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
   }
   footer {
     /*position: absolute;*/

@@ -81,7 +81,7 @@ function get_cart($user_id) {
     global $db;
 
     $query = 
-    '   SELECT categories.cat_categoryName, categories.cat_price, categories.cat_discount, orders.orders_quantity
+    '   SELECT categories.cat_categoryName, categories.cat_price, categories.cat_discount, orders.orders_quantity, orders.orders_orderID
         FROM categories
         INNER JOIN orders
         ON categories.cat_categoryID=orders.orders_categoryID
@@ -95,23 +95,16 @@ function get_cart($user_id) {
    
 }
 
-function delete_from_cart() {
-
+function delete_order($orderid) {
+    global $db;
+    $query =
+    '   DELETE FROM    orders
+        WHERE orders_orderID = :orders_orderID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':orders_orderID', $orderid);
+        $statement->execute();
+        $statement->closeCursor();
 }
 
-// function get_cat_price($cat_categoryID) {
-//     global $db;
-//     $query =
-//     '   SELECT cat_price
-//         FROM categories
-//         WHERE cat_categoryID = :cat_categoryID';
-//     $statement = $db->prepare($query);
-//     $statement->bindValue(':cat_categoryID', $cat_categoryID);
-//     $statement->execute();
-//     $prices = $statement->fetchAll();
-//     $statement->closeCursor();
-//     foreach ($prices as $price) {
-//         echo $price[0];
-//     }
 
 ?>

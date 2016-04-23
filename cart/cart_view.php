@@ -1,10 +1,10 @@
 <?php 
-require_once('../util/valid_member.php');
-include'../view/member_header.php';
+
+include'../view/header.php';
 ?>
 <div class="main-content">
 	<h1>Member Cart</h1>
-				<h2>Welcome <?php echo $_SESSION['member_firstName']; ?></h2>
+				<h2>Welcome <?php echo $_SESSION['user_id']; ?></h2>
 				<h2 class="total">Your Total: $<?php  echo $total; ?></h2>
 
 				<form action="." method="post" class="formInput">
@@ -33,10 +33,10 @@ include'../view/member_header.php';
                 <tr>
                     <th>Package Name</th>
                     <th>Retail Price</th>
-                    <th>Discount</th>
-                    <th>Your Price</th>
+                    
+                   
                     <th>Quantity</th>
-                    <th>Subtotal</th>
+                   
                     <th>&nbsp;</th>
                 </tr>
                     <?php foreach ($carts as $cart) : ?>
@@ -45,10 +45,10 @@ include'../view/member_header.php';
                 <tr>
                     <td><?php echo $cart[0]; ?></td>
                     <td><?php echo $cart[1]; ?></td>
-                    <td><?php echo ($cart[1] * $cart[2]); ?></td>
-                    <td><?php $sum = ($cart[1] - ($cart[1] * $cart[2])) ; echo $sum; ?></td>
+                    
+                    
                     <td><?php echo $cart[3]; ?></td>
-                    <td><?php echo $sum * $cart[3]; ?></td>
+                    
                     <td>
                         <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_order" />

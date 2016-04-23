@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elite Meats Utah</title>
-<link href="../css/styles.css" rel="stylesheet">
-<link href="../img/favicon.png" rel="icon" type="image/png" />
+<link href="/elitemeatsutah/css/styles.css" rel="stylesheet">
+<link href="/elitemeatsutah/img/favicon.png" rel="icon" type="image/png" />
 <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
@@ -26,10 +26,10 @@
 		<input type="checkbox" id="button">
 		<label for="button" onclick></label>
 		<ul>
-			<li ><a  href="../index.php">Home</a></li>
-			<li><a href="/login/">Login</a></li>
-			<li><a href="/product/">Products</a></li>
-			<li><a href="/cart/">Cart</a></li>
+			<li><a href="/elitemeatsutah/index.php">Home</a></li>
+			<li><a href="/elitemeatsutah/login/">Login</a></li>
+			<li><a href="/elitemeatsutah/product/">Products</a></li>
+			<li><a href="/elitemeatsutah/cart/">Cart</a></li>
 		</ul>
 	</nav>
 

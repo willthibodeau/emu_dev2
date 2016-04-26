@@ -84,14 +84,15 @@ function find_userID_by_name($name){
     $query = 
     "   SELECT users_userID
         FROM users 
-        WHERE users_username = '$name'";
+        WHERE users_username = :name";
     $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
     $statement->execute();
-    $id = $statement->fetchAll();
     $statement->closeCursor();
-    foreach($id as $key=>$value){ 
-        return$value[0];
-    }
+    // foreach($id as $key=>$value){ 
+    //     return$value[0];
+    // }
+   
 }
     
 function search_comments($id) {

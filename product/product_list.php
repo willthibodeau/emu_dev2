@@ -25,7 +25,7 @@ if(isset($_SESSION['admin'])) {
                         
                         <h2><?php echo $category_name; ?> </h2>
                          <div class="formInput">
-                        <table>
+                        <table class="adminTable1">
                             <thead>
                                 <tr class="prod-list"> 
                                     <th>Quantity</th>

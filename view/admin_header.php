@@ -24,7 +24,7 @@
 			<li><a href="/elitemeatsutah/admin/">Admin Home</a></li>
 			<li><a href="/elitemeatsutah/product/">Products</a></li>
 			<li><a href="/elitemeatsutah/admin/.?action=show_add_form">Add Products</a></li>
-			<li><a href="/elitemeatsutah/imageProcess/">Image Manager</a></li>
+			<li><a href="/elitemeatsutah/elitemeatsutah/imageProcess/">Image Manager</a></li>
 			<li><a href="/elitemeatsutah/admin/.?action=view_comments">Comment Manager</a></li>
 		</ul>
 		

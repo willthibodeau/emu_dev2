@@ -5,7 +5,7 @@ include'../view/admin_header.php';
 <div class="main-content">
 
         <div class="error">
-          <?php if(!empty($error)) { echo htmlspecialchars($error); } ?>
+          <?php if(!empty($error)) { echo $error; } ?>
         </div> 
 
             <!-- Allow the administrator to add products -->
@@ -15,7 +15,7 @@ include'../view/admin_header.php';
                     <label for="package">Package Name:</label>
                 <select name="category_id">
                     <?php foreach ($categories as $category) : ?>
-                    <option value="<?php echo $category['cat_categoryID']; ?>" id="package"><?php echo htmlspecialchars($category['cat_categoryName']); ?>
+                    <option value="<?php echo $category['cat_categoryID']; ?>" id="package"><?php echo $category['cat_categoryName']; ?>
                     </option> 
                     <?php endforeach; ?>
                 </select><br>
@@ -34,7 +34,7 @@ include'../view/admin_header.php';
                     <label for="imagePath">Product Image:</label>
                     <select name="imagePath">
                         <?php foreach( $get_images as $get_image) : ?>
-                        <option value="<?php echo $get_image ; ?>" id="imagePath"><?php echo htmlspecialchars($get_image); ?>
+                        <option value="<?php echo $get_image ; ?>" id="imagePath"><?php echo $get_image; ?>
                         </option>
                         <?php endforeach; ?>
                     </select><br>

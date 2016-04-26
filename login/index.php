@@ -87,6 +87,19 @@ switch($action){
 		$phone = filter_input(INPUT_POST, 'phone');
 		$userlevel = "m";
 		$getUsers = get_users($userName);
+		
+//$curl = curl_init();
+//curl_setopt_array($curl, [
+	//CURLOPT_RETURNTRANSFER => 1,
+	//CURROPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
+	//CURLOPT_POST => 1,
+	//CURLOPT_POSTFIELDS => [
+	//	'secret' => '6LfiWR4TAAAAAFQmcb8_rJUQzd-4CMGR7Dd681iT',
+	//	'response' => '$_POST['g-recatcha-response'],
+//	],
+//]);
+
+$response = json_decode(curl_exec($curl));
 
 		if ($userName == NULL || $userName == FALSE) {
 		 	$error = "please enter a Username";

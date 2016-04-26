@@ -31,10 +31,11 @@ include'../view/header.php';
 		    
 		<label>Phone</label>
 	    <input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>">    
-		
+		<div class="g-recaptcha" data-sitekey="6LfiWR4TAAAAANiSruoNPf4-A2laqrasSujQ3vLC"></div>
 		<div>
 			<button class="button" type="submit"  value="Register" >Register</button>
 		</div>
+
 	</form>
 	<div class="formInput">
 		<p>Password should be between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, 

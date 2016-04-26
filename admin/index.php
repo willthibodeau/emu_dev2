@@ -155,7 +155,9 @@ switch($action) {
 
   case'search':
     $name = filter_input(INPUT_POST, 'search_names');
+    print_r($name);
     $ids = find_userID_by_name($name);
+    print_r($ids);
     if(!empty($ids)){
       $comment_text = search_comments($ids);
       include'search_results.php';

@@ -15,7 +15,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 vertical-align: baseline;
 }
 /*end reset*/
-
+.g-recaptcha {
+margin-bottom: 10px;
+}
 .footer {
   padding: 20px;
   vertical-align: text-top;
@@ -55,7 +57,7 @@ vertical-align: baseline;
   display: inline-block;
   width: 32%;
   height: 200px;
-  box-sizing: border-box;
+  box-xizing: border-box;
   text-align: center;
   vertical-align: text-top;
   padding: 10px;
@@ -98,9 +100,22 @@ vertical-align: baseline;
   display: inline-block;
   border: 5px solid white;
   border-radius: 50%;
-  box-shadow: 8px 8px 18px rgba(0,0,0,.5); 
-}
+  box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  animation-name: fishMove;
+  animation-duration: .5s;
+  /*position: fixed;*/
 
+}
+@keyframes /*fishMove*/ {
+  from{ 
+    transform: rotate(0) scale(.5);
+    left: -100px;
+  }
+  to{ 
+    transform: rotate(-720deg) scale(1);
+    left: 0;
+  }
+}
 .fish2 {
   width: 175px;
   height: 175px;
@@ -215,7 +230,7 @@ body {
   box-shadow: 0px 0px 20px -4px rgba(0,0,0,1);
 }
 
-@keyframes bugfix {
+@-webkit-keyframes bugfix {
   from {
     padding: 0;
   }
@@ -276,6 +291,7 @@ input[type=text], input[type=password] {
 }
 
 label {
+  
   cursor: pointer;
   user-select: none;
 }
@@ -356,7 +372,6 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 40px;
-    width: 100%;
 }
 
 .main-content {
@@ -417,7 +432,6 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 40px;
-    min-width: 100%;
   }
   .main-content {
     padding: 10px;
@@ -430,12 +444,9 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     -moz-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.38);
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.45);
   }
-  td, th {
+  td {
     padding: 3px;
-    text-align: left;
   }
-  
-   
   body::after {
     content: "";
     background: url(../img/wood.jpg);
@@ -496,7 +507,6 @@ nav[role="custom-dropdown"] ul > li:hover > a {
   }
   .prod li {
     list-style-type: none;
-    display: inline-block;
   }
   .prod-nav {
     background-color: blue;
@@ -513,7 +523,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
   }
   .prod {
       float: left;
-      width: 100%;
+      width: 45%;
       height: 100%;
       margin: 10px;   
   }
@@ -527,23 +537,11 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     margin-left: 15px;
   }
 }
-.adminCatListTable1 {
-  width: 100%;
-}
-.adminCatListTable1 a {
-  width: 200px;
-}
-.adminTable2 {
- /* max-width: 768px;*/
-  /*overflow: none; */
-}
 
 /*end general styles */
 /*////////////////////////////////////////////////////////////////////*/
 @media screen and ( min-width: 481px ) and ( max-width: 768px ) {
-.adminCatListTable1 a {
-  max-width: 100%;
-}
+
     .fish1 {
     width: 155px;
     height: 155px;
@@ -619,7 +617,7 @@ border: 5px solid white;
   .animation {
   display: inline-block;
   width: 30%;
-  box-sizing: border-box;
+  box-xizing: border-box;
   text-align: center;
   padding: 10px;
   vertical-align: text-top;
@@ -731,7 +729,6 @@ border: 5px solid white;
 
   .prod li {
     list-style-type: none;
-    display: inline-block;
   }
 
     .product-page {
@@ -782,17 +779,34 @@ border: 5px solid white;
   /*
   Label the table data
   */
- .adminCatListTable1 td:nth-of-type(1):before { 
-    content: "Description";
+  td:nth-of-type(1):before { 
+    content: "Quantity";
     text-align: left; 
   }
-  .adminCatListTable1 td:nth-of-type(2):before { 
-    content: "Price";
+  td:nth-of-type(2):before { 
+    content: "Description";
     text-align: left;
   }
- .adminCatListTable1 td:nth-of-type(3):before { 
-    content: " "; 
+  td:nth-of-type(3):before { 
+    content: "Price"; 
     text-align: left;
+  }
+  td:nth-of-type(4):before { 
+    content: "Image"; 
+    text-align: left;
+  }
+
+  .adminTable1 td:nth-of-type(1):before  {
+    content: "Quantity";
+    text-align: left; 
+  }
+  .adminTable1 td:nth-of-type(2):before  {
+    content: "Name";
+    text-align: left; 
+  }
+  .adminTable1 td:nth-of-type(3):before  {
+    content: "Price";
+    text-align: left; 
   }
   .adminTable2 td:nth-of-type(1):before  {
     content: "ID";
@@ -822,8 +836,6 @@ border: 5px solid white;
     content: " ";
     text-align: left; 
   }
-
-  
 } 
 
 /*end medium*/
@@ -831,50 +843,6 @@ border: 5px solid white;
 /*////////////////////////////////////////////////*/
 /* small screens */
 @media screen and (max-width: 480px) {
-
-  .adminCatListTable1 a {
-     max-width: 100%;
-}
-  .adminCatListTable1 td:nth-of-type(1):before { 
-    content: "Description";
-    text-align: left; 
-  }
-  .adminCatListTable1 td:nth-of-type(2):before { 
-    content: "Price";
-    text-align: left;
-  }
- .adminCatListTable1 td:nth-of-type(3):before { 
-    content: " "; 
-    text-align: left;
-  }
-  .adminTable2 td:nth-of-type(1):before  {
-    content: "ID";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(2):before  {
-    content: "Quantity";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(3):before  {
-    content: "Name";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(4):before  {
-    content: "Price";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(5):before  {
-    content: "Image";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(6):before  {
-    content: "Image Alt Text";
-    text-align: left; 
-  }
-  .adminTable2 td:nth-of-type(7):before  {
-    content: " ";
-    text-align: left; 
-  }
   .slider3 a {
     pointer-events: visible;
     text-decoration: none;
@@ -901,7 +869,7 @@ border: 5px solid white;
   .animation {
   display: inline-block;
   width: 100%;
-  box-sizing: border-box;
+  box-xizing: border-box;
   text-align: center;
   padding: 10px;
   vertical-align: text-top;
@@ -1016,7 +984,7 @@ border: 5px solid white;
     text-decoration: none;
     display: inline-block;
     list-style-type: none;
-    min-width: 200px;
+    min-width: 100%;
   }
 
   .prod a:hover, .prod a:active {
@@ -1025,8 +993,6 @@ border: 5px solid white;
 
   .prod li {
     list-style-type: none;
-    display: inline-block;
-
   }
 
   .product-page {
@@ -1073,6 +1039,66 @@ border: 5px solid white;
     -webkit-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.38);
     -moz-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.38);
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.45);
+  }
+  /*
+  Label the table data
+  */
+  td:nth-of-type(1):before { 
+    content: "Quantity";
+    text-align: left; 
+  }
+  td:nth-of-type(2):before { 
+    content: "Description";
+    text-align: left;
+  }
+  td:nth-of-type(3):before { 
+    content: "Price"; 
+    text-align: left;
+  }
+  td:nth-of-type(4):before { 
+    content: "Image"; 
+    text-align: left;
+  }
+
+  .adminTable1 td:nth-of-type(1):before  {
+    content: "Quantity";
+    text-align: left; 
+  }
+  .adminTable1 td:nth-of-type(2):before  {
+    content: "Name";
+    text-align: left; 
+  }
+  .adminTable1 td:nth-of-type(3):before  {
+    content: "Price ";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(1):before  {
+    content: "ID";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(2):before  {
+    content: "Quantity";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(3):before  {
+    content: "Name";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(4):before  {
+    content: "Price";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(5):before  {
+    content: "Image";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(6):before  {
+    content: "Image Alt Text";
+    text-align: left; 
+  }
+  .adminTable2 td:nth-of-type(7):before  {
+    content: " ";
+    text-align: left; 
   }
 }
 

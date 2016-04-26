@@ -9,7 +9,7 @@ include'../view/header.php';
 			<h2>Login error</h2>
 			<?php 
 				if(!empty($error)){
-					echo $error; 
+					echo htmlspecialchars($error); 
 				}else{
 					echo'Return to home.';
 				}

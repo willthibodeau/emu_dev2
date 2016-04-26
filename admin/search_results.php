@@ -7,11 +7,11 @@ include'../view/admin_header.php';
 <h2>search results.php</h2>
 
 <?php if(!empty($message)){
-	echo $message;
+	echo htmlspecialchars($message);
 } ?>
 
 <?php foreach($comment_text as $value) : ?>
-	<?php echo $value['com_commentText']; ?><br>
+	<?php echo htmlspecialchars($value['com_commentText']); ?><br>
 
 <?php endforeach; ?>
 </div><!-- end main content -->

@@ -4,7 +4,7 @@ include'../view/member_header.php';
 ?>
 <div class="main-content">
 	<h1>Member Menu</h1>
-	<h2>Welcome <?php echo $_SESSION['member_firstName']; ?></h2>
+	<h2>Welcome <?php echo htmlspecialchars($_SESSION['member_firstName']); ?></h2>
 	<div class="formInput">
 		<table>
 			<tr>	
@@ -16,7 +16,7 @@ include'../view/member_header.php';
 				<?php foreach($comments as $comment) : ?>
 			<tr>
 				<td>
-					<?php echo $comment['com_commentText']; ?>
+					<?php echo htmlspecialchars($comment['com_commentText']); ?>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -29,7 +29,7 @@ include'../view/member_header.php';
 				<?php endforeach; ?>
 		</table>
 			
-		<?php if(!empty($message)){ echo $message;} ?>
+		<?php if(!empty($message)){ echo htmlspecialchars($message);} ?>
    		<h2>Add Comments</h2>		
         <form action="." method="post">
 	        <input type="hidden" name="action" value="add_comment">

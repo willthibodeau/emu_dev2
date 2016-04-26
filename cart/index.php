@@ -31,8 +31,8 @@ switch ($action) {
 		break;
 	case'add_order':
 		$orders_userid = 1;
-		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
-		$orders_quantity = filter_input(INPUT_POST, 'quantity');
+		$orders_categoryid = filter_input(INPUT_POST, 'category_id',FILTER_VALIDATE_INT);
+		$orders_quantity = filter_input(INPUT_POST, 'quantity',FILTER_VALIDATE_INT);
 		$orders_orderNumber = 8;
 		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity);
 		

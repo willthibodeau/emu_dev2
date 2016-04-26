@@ -11,7 +11,7 @@ include'../view/admin_header.php';
 		<input class="button" type="submit" value="Search">
 	</form>
 	<h3>View comments menu:</h3>
-	<table>
+	<table class=" formInput">
 		<tr>
 			<th>User Name</th>		
 			<th>Comment</th>
@@ -20,13 +20,13 @@ include'../view/admin_header.php';
 			<?php foreach($comments as $comment=>$value) : ?>
 		<tr>
 			<td>
-				<?php echo $value['users_firstName']; ?>
+				<?php echo htmlspecialchars($value['users_firstName']); ?>
 			</td>
 			<td>
-				<?php echo $value['com_commentText']; ?>
+				<?php echo htmlspecialchars($value['com_commentText']); ?>
 			</td>
 			<td> 
-					<form action="" method="post" >
+					<form action="" method="post">
                     <input type="hidden" name="action" value="delete_comment" />
                     <input type="hidden" name="comment_id" value="<?php echo $value['com_commentID']; ?>">
                     <input class="button-delete" type="submit" value="Delete "/>

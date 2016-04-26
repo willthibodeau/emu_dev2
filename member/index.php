@@ -70,7 +70,7 @@ switch($action) {
 		include('cart.php');
 		break;
 	case'add_order':
-		$orders_userid = $_SESSION['member_id'];
+		$orders_userid = 1;
 		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
 		$orders_quantity = filter_input(INPUT_POST, 'quantity');
 		$orders_orderNumber = 8;

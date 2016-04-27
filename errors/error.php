@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])) {
 ?>
 
 <div class="main-content">
-			<h2>Error</h2>
+	<h2>Error</h2>
     <div class="formInput">
 		<!-- show errors if variable is passed -->
 		<?php 

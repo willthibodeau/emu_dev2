@@ -106,5 +106,18 @@ function delete_order($orderid) {
         $statement->closeCursor();
 }
 
+function search_categories($name) {
+    global $db;
+    $query =
+    "    SELECT * FROM  products
+        WHERE prod_description REGEXP :name";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
+    $statement->execute();
+    $searchNames = $statement->fetchAll();
+    $statement->closeCursor();
+    return $searchNames;
+    
+}
 
 ?>

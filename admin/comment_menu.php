@@ -4,14 +4,9 @@ include'../view/admin_header.php';
 ?>
 
 <div class="main-content">
-	<h3>Search Comments by User Name</h3>
-	<form action="" method="post" class="formInput">
-		<input type="hidden" name="action" value="search">
-		<input type="text" name="search_names" value=" " placeholder="search">
-		<input class="button" type="submit" value="Search">
-	</form>
-	<h3>View comments menu:</h3>
-	<table>
+	
+	<h2>Comments Manager</h2>
+	<table class="formInput">
 		<tr>
 			<th>User Name</th>		
 			<th>Comment</th>

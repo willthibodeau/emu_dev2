@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 require('../model/database_db.php');
 require('../model/member_db.php');

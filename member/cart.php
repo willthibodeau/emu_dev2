@@ -19,11 +19,14 @@ include'../view/member_header.php';
                     </option> 
                     <?php endforeach; ?>
                 </select>
-                <label for="count">Number of packages</label><br>
-                <select name="quantity">
-                	<option>1</option>
-                	<option>2</option>
-                </select>
+                <label>Quantity:</label>
+            <select name="quantity">
+            <?php for($i = 1; $i <= 10; $i++) : ?>
+                <option value="<?php echo $i; ?>">
+                    <?php echo $i; ?>
+                </option>
+            <?php endfor; ?>
+            </select><br>
                 <input class="button" type="submit" value="Submit Order">
             </form>
             <h2>Your Order:</h2>

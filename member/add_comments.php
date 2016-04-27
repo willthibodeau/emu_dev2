@@ -12,7 +12,7 @@ include'../view/member_header.php';
 				<h2>Add Comments</h2>
 		        <form action="." method="post">
 		          	<input type="hidden" name="action" value="add_comments">
-		          	<textarea  rows="5" cols="50" name="commentText"  value="" placeholder="Add Comments..."></textarea><br>
+		          	<textarea  rows="5" cols="50" name="commentText"  required="required" value="" placeholder="Add Comments..."></textarea><br>
 		          	<input type="submit" value="Submit Comments">
 		        </form>	
 			</main>

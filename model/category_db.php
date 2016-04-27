@@ -63,20 +63,6 @@ function delete_category($category_id) {
     return $testValue;
 }
 
-// update category not working
-function update_category($category_id, $category_name) {
-    global $db;
-    $query = 
-    ' UPDATE categories 
-      SET cat_categoryName = :category_name 
-      WHERE cat_categoryID = :category_id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':category_name', $category_name);
-    $statement->bindValue(':category_id', $category_id);
-    $statement->execute();
-    $statement->closeCursor();
-}
-
 function get_first_row(){
   global $db;
   $query = 

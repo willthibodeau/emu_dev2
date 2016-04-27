@@ -384,6 +384,7 @@ nav[role="custom-dropdown"] ul > li:hover > a {
 }
 
 
+
 /*start general styles/////////////////////////////////////*/
 
 @media screen and ( min-width: 769px )  {
@@ -446,7 +447,11 @@ nav[role="custom-dropdown"] ul > li:hover > a {
   }
   td {
     padding: 3px;
+    text-align: right;
   }
+  .admintable1  td {
+  text-align: right;
+}
   body::after {
     content: "";
     background: url(../img/wood.jpg);

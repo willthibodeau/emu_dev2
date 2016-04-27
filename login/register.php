@@ -4,6 +4,7 @@ include'../view/header.php';
 ?>
  <div class="main-content">
 	<h2>Register</h2>
+	<p>* required fields</p>
 	<div class="error">
 		<?php if(!empty($error)) { echo $error; } ?>
 	    <?php if(!empty($message)) { echo $message; } ?>
@@ -11,23 +12,23 @@ include'../view/header.php';
 	<form action="." method="post" class="formInput">
 		<input type="hidden" name="action" value="register">
 		
-		<label>Username</label>   
+		<label>* Username</label>   
 		    <input type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>" maxlength="60">    
 		    
-	 	<label>First Name</label>
+	 	<label>* First Name</label>
 		    <input type="text" required="required" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>">    
 		    
-		<label>Last Name</label>
+		<label>* Last Name</label>
 		    <input type="text" required="required" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>">    
 		     
-		<label>Password</label>   
+		<label>* Password</label>   
 		    <input type="password" required="required" name="password" value="">    
 		     
-	 	<label>Confirm Password</label>   
+	 	<label>* Confirm Password</label>   
 		    <input type="password" required="required" name="password2" value="">    
 		    
 		<label>Email</label>   
-		    <input type="text" required="required" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">    
+		    <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">    
 		    
 		<label>Phone</label>
 	    <input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>">    

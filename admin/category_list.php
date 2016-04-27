@@ -12,12 +12,13 @@ include'../view/admin_header.php';
     <h1>Administrator Home</h1>
     <!-- allow the administrator to add a category and price -->
     <h2>Add Category</h2>
+    <p>* required</p>
     <form class="formInput" id="add_category_form"action="index.php" method="post">
         <input type="hidden" name="action" value="add_category" >
-        <label for="name">Category Name:</label>
-        <input type="text"  name="name" id="name"><br>
-        <label for="price">Category Price:</label>
-        <input type="text" name="cat_catprice" id="price"><br>
+        <label for="name"> * Category Name:</label>
+        <input type="text"  name="name" id="name" required="required" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"><br>
+        <label for="price">* Category Price:</label>
+        <input type="text" name="cat_catprice" id="price" required="required" value="<?php if(isset($_POST['price'])) echo $_POST['price']; ?>"><br>
         <label for="discount">Discount Percent: </label>
         <input type="text" name="discount" id="discount"><br>
         <input class="button" type="submit" value="Add Category">
@@ -52,8 +53,8 @@ include'../view/admin_header.php';
         <!-- display the products in a table format -->
         <h2>Products</h2>
         <!-- <div class="formInput"> -->
-        <p> <?php echo $category_name; ?>:</p> 
-        <table class="adminTable2">
+        <p> <?php echo $category_name; ?></p> 
+        <table class="adminTable2 formInput">
             <thead>
                 <tr>
                     <th>Product Code</th>

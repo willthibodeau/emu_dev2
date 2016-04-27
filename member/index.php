@@ -85,6 +85,11 @@ switch($action) {
 		delete_order($orderid);
 		header('Location: .?action=view_cart');
 		break;
+	case'search_categories':
+		$name = filter_input(INPUT_POST, 'name');
+		$search_names = search_categories($name);
+		include('search_results.php');
+		break;
 
 	case 'logout':
         unset($_SESSION['member']);

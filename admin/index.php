@@ -56,27 +56,19 @@ switch($action) {
 
     } else if(detect_category_name($name) == false){
       add_category($name, $price, $discount);
-      header('Location: .?action=list_categories');  // display the Category List page
+      header('Location: .?action=list_categories'); 
     
     } else {
-      $error = 'name is already used';
+      $error = $name . ' is already used';
       include'category_list.php';
-
     }
  	    break;
 
  	case'delete_category':
  		$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
  	  delete_category($category_id);
-    header('Location: .?action=list_categories');      // display the Category List page
+    header('Location: .?action=list_categories');      
  	  break;
-
- 	case'update_category':
- 		$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
-    $category_name = filter_input(INPUT_POST, 'category_name');
-    update_category($category_id, $category_name);
-    header('Location: .?action=list_categories');
-    break;
 
   case'list_products':
    	$category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
@@ -123,11 +115,15 @@ switch($action) {
     $imagePath = filter_input(INPUT_POST, 'imagePath');
     $imagealt = filter_input(INPUT_POST, 'imagealt');
 
-    if ($category_id == NULL || $category_id == FALSE || $code == NULL || 
-            $name == NULL || $price == NULL || $price == FALSE) {
-      $error = "Invalid product data. Check all fields and try again.";
-      $categories = get_categories();
-      header('Location: .?action=show_add_form');
+    if ($category_id == NULL || $category_id == FALSE || 
+        $code == NULL || $code == FALSE ||
+        $name == NULL || $name == FALSE ||
+        $price == NULL || $price == FALSE ||
+        $imagePath == NULL || $imagePath == FALSE ||
+        $imagealt == NULL || $imagealt == FALSE ) {
+        $error = "Invalid product data. Check all fields and try again.";
+        $categories = get_categories();
+        header('Location: .?action=show_add_form');
 
   	} else { 
       add_product($category_id, $code, $name, $description, $price, $imagePath, $imagealt);
@@ -147,25 +143,16 @@ switch($action) {
  	  break;
 
  	case'add_comment':
- 		$com_userid = 2;
+ 		$com_userid = $_SESSION['member_id'];
  		$comment_text = filter_input(INPUT_POST, 'comment_text');
- 		add_comments($com_userid, $comment_text);
- 		header('Location: .?action=view_comments');
- 	  break;
-
-  case'search':
-    $name = filter_input(INPUT_POST, 'search_names');
-    print_r($name);
-    $ids = find_userID_by_name($name);
-    print_r($ids);
-    if(!empty($ids)){
-      $comment_text = search_comments($ids);
-      include'search_results.php';
+    if (empty($comment_text)) {
+      $error = "Please enter a comment";
+      include("comment_menu.php");
     } else {
-      $message = $name . " Name is not in the database";
-      include'search_results.php';
-    }
-    break;
+      add_comments($com_userid, $comment_text);
+      header('Location: .?action=view_comments');
+    }		
+ 	  break;
 
  	case'logout':
  		unset($_SESSION['admin']);

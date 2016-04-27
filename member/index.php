@@ -38,7 +38,7 @@ switch($action) {
 		break;
 
 	case'add_comment':
-		$comment_text = filter_input(INPUT_POST, 'comment_text');
+		$comment_text = filter_input(INPUT_POST, 'comment_text', FILTER_SANITIZE_SPECIAL_CHARS);
 		if($comment_text == NULl || $comment_text == FALSE) {
 			$error = "Please enter a review.";
 			include'../errors/error.php';
@@ -62,7 +62,7 @@ switch($action) {
 		$sum = 0;
 		$total = 0;
 		foreach ($carts as $cart ){
-			$sum = ($cart[3] * ($cart[1] - ($cart[1] * $cart[2])));
+			$sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ;
 			$total += $sum;
 		}
 
@@ -71,8 +71,8 @@ switch($action) {
 		break;
 	case'add_order':
 		$orders_userid = $_SESSION['member_id'];
-		$orders_categoryid = filter_input(INPUT_POST, 'category_id');
-		$orders_quantity = filter_input(INPUT_POST, 'quantity');
+		$orders_categoryid = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+		$orders_quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
 		$orders_orderNumber = 8;
 		add_to_cart($orders_userid, $orders_categoryid, $orders_quantity);
 		
@@ -86,7 +86,7 @@ switch($action) {
 		header('Location: .?action=view_cart');
 		break;
 	case'search_categories':
-		$name = filter_input(INPUT_POST, 'name');
+		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 		$search_names = search_categories($name);
 		include('search_results.php');
 		break;

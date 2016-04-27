@@ -31,7 +31,7 @@
 	<header class="publicHeader">
 		<h1>Elite Meats Utah</h1>
 		<div class="nav-admin-login">
-			<p>You are logged in as: <?php echo $_SESSION['member_firstName']; ?>.</p>
+			<p>You are logged in as: <?php echo htmlspecialchars($_SESSION['member_firstName']); ?>.</p>
 	        <form action="/elitemeatsutah/member/index.php" method="post">
 	            <input type="hidden" name="action" value="logout">
 	            <input class="button" type="submit" value="Logout">

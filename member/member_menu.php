@@ -20,7 +20,7 @@ include'../view/member_header.php';
 				<?php foreach($comments as $comment) : ?>
 			<tr>
 				<td>
-					<?php echo $comment['com_commentText']; ?>
+					<?php echo htmlspecialchars($comment['com_commentText']); ?>
 				</td>
 				<td>
 					<form action="" method="post">

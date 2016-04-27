@@ -6,20 +6,20 @@ include'../view/header.php';
 	<h2>Register</h2>
 	<p>* required fields</p>
 	<div class="error">
-		<?php if(!empty($error)) { echo $error; } ?>
-	    <?php if(!empty($message)) { echo $message; } ?>
+		<?php if(!empty($error)) { echo htmlspecialchars($error); } ?>
+	    <?php if(!empty($message)) { echo htmlspecialchars($message); } ?>
 	</div>
 	<form action="." method="post" class="formInput">
 		<input type="hidden" name="action" value="register">
 		
 		<label>* Username</label>   
-		    <input type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo $_POST['userName']; ?>" maxlength="60">    
+		    <input type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo htmlspecialchars($_POST['userName']); ?>" maxlength="60">    
 		    
 	 	<label>* First Name</label>
-		    <input type="text" required="required" name="firstName" value="<?php if(isset($_POST['firstName'])) echo $_POST['firstName']; ?>">    
+		    <input type="text" required="required" name="firstName" value="<?php if(isset($_POST['firstName'])) echo htmlspecialchars($_POST['firstName']); ?>">    
 		    
 		<label>* Last Name</label>
-		    <input type="text" required="required" name="lastName" value="<?php if(isset($_POST['lastName'])) echo $_POST['lastName']; ?>">    
+		    <input type="text" required="required" name="lastName" value="<?php if(isset($_POST['lastName'])) echo htmlspecialchars($_POST['lastName']); ?>">    
 		     
 		<label>* Password</label>   
 		    <input type="password" required="required" name="password" value="">    
@@ -28,10 +28,10 @@ include'../view/header.php';
 		    <input type="password" required="required" name="password2" value="">    
 		    
 		<label>Email</label>   
-		    <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">    
+		    <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>">    
 		    
 		<label>Phone</label>
-	    <input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>">    
+	    <input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']); ?>">    
 		<div class="g-recaptcha" data-sitekey="6LfiWR4TAAAAANiSruoNPf4-A2laqrasSujQ3vLC"></div>
 		<div>
 			<button class="button" type="submit"  value="Register" >Register</button>

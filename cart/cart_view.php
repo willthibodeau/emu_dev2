@@ -14,8 +14,8 @@ include'../view/header.php';
                 <select name="category_id">
                     <?php foreach ($categories as $category) : ?>
                     <option value="<?php echo $category['cat_categoryID']; ?>" name="category_id">
-                    	<?php echo $category['cat_categoryName']; ?><br>
-                    	<?php echo $category['cat_price']; ?>
+                    	<?php echo htmlspecialchars($category['cat_categoryName']); ?><br>
+                    	$<?php echo htmlspecialchars($category['cat_price']); ?>
                     </option> 
                     <?php endforeach; ?>
                 </select>
@@ -23,7 +23,7 @@ include'../view/header.php';
             <select name="quantity">
             <?php for($i = 1; $i <= 10; $i++) : ?>
                 <option value="<?php echo $i; ?>">
-                    <?php echo $i; ?>
+                    <?php echo htmlspecialchars($i); ?>
                 </option>
             <?php endfor; ?>
             </select><br>

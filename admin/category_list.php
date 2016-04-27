@@ -6,7 +6,7 @@ include'../view/admin_header.php';
     <!-- display any errors -->
     <div class="error">
         <?php if(!empty($error)){
-            echo $error;
+            echo htmlspecialchars($error);
         } ?>
     </div>
     <h1>Administrator Home</h1>
@@ -17,8 +17,8 @@ include'../view/admin_header.php';
         <input type="hidden" name="action" value="add_category" >
         <label for="name"> * Category Name:</label>
         <input type="text"  name="name" id="name" required="required" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"><br>
-        <label for="price">* Category Price:</label>
-        <input type="text" name="cat_catprice" id="price" required="required" value="<?php if(isset($_POST['price'])) echo $_POST['price']; ?>"><br>
+        <label for="price">* Category Price: (NOTE: Do not use $)</label>
+        <input type="text" name="cat_catprice" id="price" required="required" value="<?php if(isset($_POST['cat_catprice'])) echo $_POST['cat_catprice']; ?>"><br>
         <label for="discount">Discount Percent: </label>
         <input type="text" name="discount" id="discount"><br>
         <input class="button" type="submit" value="Add Category">
@@ -36,8 +36,8 @@ include'../view/admin_header.php';
                         <?php foreach ($categories as $category) : ?>
                 </thead>
                     <tr>
-                        <td><a class="button" href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
-                        <td><?php echo $category['cat_price']; ?></td>
+                        <td><a class="button" href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo htmlspecialchars($category['cat_categoryName']); ?></a></td>
+                        <td>$<?php echo htmlspecialchars($category['cat_price']); ?></td>
                         <td>
                             <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_category" />
@@ -53,7 +53,7 @@ include'../view/admin_header.php';
         <!-- display the products in a table format -->
         <h2>Products</h2>
         <!-- <div class="formInput"> -->
-        <p> <?php echo $category_name; ?></p> 
+        <p> <?php echo htmlspecialchars($category_name); ?></p> 
         <table class="adminTable2 formInput">
             <thead>
                 <tr>
@@ -69,12 +69,12 @@ include'../view/admin_header.php';
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $product['prod_prodCode']; ?></td>
-                    <td><?php echo $product['prod_productQuantity']; ?></td>
-                    <td><?php echo $product['prod_description']; ?></td>
-                    <td><?php echo $product['prod_price']; ?></td>
+                    <td><?php echo htmlspecialchars($product['prod_prodCode']); ?></td>
+                    <td><?php echo htmlspecialchars($product['prod_productQuantity']); ?></td>
+                    <td><?php echo htmlspecialchars($product['prod_description']); ?></td>
+                    <td>$<?php echo htmlspecialchars($product['prod_price']); ?></td>
                     <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
-                    <td><?php echo $product['imagealt']; ?></td>
+                    <td><?php echo htmlspecialchars($product['imagealt']); ?></td>
                     <td>
                         <form action="." method="post">
                             <input type="hidden" name="action"

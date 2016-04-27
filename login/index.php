@@ -80,30 +80,28 @@ switch($action){
 	case 'register':
 		$password_regex_patern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/';
 		$email_regex_pattern = '/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/';
-		$userName = filter_input(INPUT_POST, 'userName');
-		$firstName = filter_input(INPUT_POST, 'firstName');	
-		$lastName = filter_input(INPUT_POST, 'lastName');
+		$userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_SPECIAL_CHARS);
+		$firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHARS);	
+		$lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_SPECIAL_CHARS);
 		$password = filter_input(INPUT_POST, 'password');
 		$password2 = filter_input(INPUT_POST, 'password2');
-		$email = filter_input(INPUT_POST, 'email');
+		$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 		$phone = filter_input(INPUT_POST, 'phone');
 		$userlevel = "m";
 		$getUsers = get_users($userName);
 
-			var_dump($_POST);
-			$curl = curl_init();
-curl_setopt_array($curl, [
-	CURLOPT_RETURNTRANSFER => 1,
-	CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
-	CURLOPT_POST => 1,
-	CURLOPT_POSTFIELDS => [
-		'secret' => '6LfiWR4TAAAAAFQmcb8_rJUQzd-4CMGR7Dd681iT',
-		'response' => '$_POST["g-recaptcha-response"]',
-	],
-]);
-$response = json_decode(curl_exec($curl));
-
-$response = json_decode(curl_exec($curl));
+			
+		$curl = curl_init();
+		curl_setopt_array($curl, [
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
+			CURLOPT_POST => 1,
+			CURLOPT_POSTFIELDS => [
+				'secret' => '6LfiWR4TAAAAAFQmcb8_rJUQzd-4CMGR7Dd681iT',
+				'response' => '$_POST["g-recaptcha-response"]',
+			],
+		]);
+		$response = json_decode(curl_exec($curl));
 
 		if ($userName == NULL || $userName == FALSE) {
 		 	$error = "please enter a Username";

@@ -32,7 +32,7 @@
 	<header class="publicHeader">
 		<h1>Elite Meats Utah</h1>
 		<div class="nav-admin-login">
-			<p>You are <?php echo $_SESSION['admin_firstName'] ; ?> logged in as <?php echo $_SESSION['admin_userName']; ?>.</p>
+			<p>You are <?php echo $_SESSION['admin_firstName'] ; ?> logged in as <?php echo htmlspecialchars($_SESSION['admin_userName']); ?>.</p>
 	 		<form action="/elitemeatsutah/admin/index.php" method="post">
 	            <input type="hidden" name="action" value="logout">
 	            <input class="button" type="submit" value="Logout">

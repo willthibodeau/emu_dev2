@@ -16,7 +16,7 @@ if(isset($_SESSION['admin'])) {
 		<!-- show errors if variable is passed -->
 		<?php 
 			if(!empty($error)){
-				echo $error; 
+				echo htmlspecialchars($error); 
 			}else{
 				echo'Return to home.';
 			}

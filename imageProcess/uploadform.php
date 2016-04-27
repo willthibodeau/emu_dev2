@@ -33,7 +33,7 @@ include'../view/admin_header.php';
                         <a href="<?php echo $delete_url;?>" class="button-delete">
                             <!-- <img src="delete.png" alt="Delete">-->Delete</a> 
                         <a href="<?php echo $file_url; ?>" class="button">
-                            <?php echo $filename; ?></a>
+                            <?php echo htmlspecialchars($filename); ?></a>
                     </li>
                 <?php endforeach; ?>
                 </ul>

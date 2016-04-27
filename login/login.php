@@ -6,8 +6,8 @@
         <h2>Login Page</h2>
         <p>* required fields</p>
         <div class="error">
-          <?php if(!empty($error)) { echo $error; } ?>
-          <?php if(!empty($message)) { echo $message; } ?>
+          <?php if(!empty($error)) { echo htmlspecialchars($error); } ?>
+          <?php if(!empty($message)) { echo htmlspecialchars($message); } ?>
         </div> 
         <form action="." method="post" class="formInput">
           <input type="hidden" name="action" value="login">

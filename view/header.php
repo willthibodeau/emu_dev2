@@ -30,7 +30,7 @@
 			<li ><a  href="/elitemeatsutah/index.php">Home</a></li>
 			<li><a href="/elitemeatsutah/login/">Login</a></li>
 			<li><a href="/elitemeatsutah/product/">Products</a></li>
-			<li><a href="/elitemeatsutahcart/">Cart</a></li>
+			<li><a href="/elitemeatsutah/cart/">Cart</a></li>
 		</ul>
 	</nav>
 

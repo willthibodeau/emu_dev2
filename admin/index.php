@@ -33,10 +33,13 @@ switch($action) {
     break;
 
  	case'add_category':
- 		$name = filter_input(INPUT_POST, 'name');
- 		$price = filter_input(INPUT_POST, 'cat_catprice');
-    $discount = filter_input(INPUT_POST, 'discount');
-
+ 		$name = filter_input(INPUT_POST, 'name');// FILTER_SANITIZE_SPECIAL_CHARS
+    
+    $regex_name_pattern = '/>(?:(?<t>[^<]*))/';
+ 		$price = filter_input(INPUT_POST, 'cat_catprice', FILTER_SANITIZE_NUMBER_INT);
+    $discount = filter_input(INPUT_POST, 'discount', FILTER_SANITIZE_NUMBER_INT);
+    $regex_price_pattern = '/^\d{0,4}(\.\d{1,2})?$/';
+    $regex_discount_pattern ='/^\d*$/';
     $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
     if ($category_id == NULL || $category_id == FALSE) {
       $category_id = get_first_row();
@@ -50,8 +53,20 @@ switch($action) {
       $error = "Name cannot be empty, Please check name and try again.";
       include'category_list.php';
 
+    } else if (preg_match($regex_name_pattern, $name)){ 
+      $error = "<let us> not go </there>";
+      include'category_list.php';
+
     } else if ( $price == NULL) {
     	$error = "Price cannot be empty, Please check price and try again.";
+      include'category_list.php';
+
+    } else if (!preg_match($regex_price_pattern, $price)) {
+      $error = "Price must be a number like 100, 50, 99";
+      include'category_list.php';
+      
+    } else if (!preg_match($regex_discount_pattern, $discount)) {
+      $error = "Discount must be 10 for 10% or 5 for 5%";
       include'category_list.php';
 
     } else if(detect_category_name($name) == false){
@@ -108,12 +123,12 @@ switch($action) {
 
  	case'add_product':
  		$category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);    
-    $code = filter_input(INPUT_POST, 'code');
-    $name = filter_input(INPUT_POST, 'name');
-    $description = filter_input(INPUT_POST, 'description');
-    $price = filter_input(INPUT_POST, 'price');
+    $code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_NUMBER_INT);
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+    $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_INT);
     $imagePath = filter_input(INPUT_POST, 'imagePath');
-    $imagealt = filter_input(INPUT_POST, 'imagealt');
+    $imagealt = filter_input(INPUT_POST, 'imagealt', FILTER_SANITIZE_SPECIAL_CHARS);
 
     if ($category_id == NULL || $category_id == FALSE || 
         $code == NULL || $code == FALSE ||
@@ -144,7 +159,7 @@ switch($action) {
 
  	case'add_comment':
  		$com_userid = $_SESSION['member_id'];
- 		$comment_text = filter_input(INPUT_POST, 'comment_text');
+ 		$comment_text = filter_input(INPUT_POST, 'comment_text', FILTER_SANITIZE_SPECIAL_CHARS);
     if (empty($comment_text)) {
       $error = "Please enter a comment";
       include("comment_menu.php");

@@ -5,7 +5,7 @@ include'../view/member_header.php';
 <div class="main-content">
 	<h1>Member Cart</h1>
 				<h2>Welcome <?php echo $_SESSION['member_firstName']; ?></h2>
-				<h2 class="total">Your Total: $<?php  echo $total; ?></h2>
+				<h2 class="total">Your Total: $<?php  echo htmlspecialchars($total); ?></h2>
 
 				<form action="." method="post" class="formInput">
                     <input type="hidden" name="action" value="add_order">
@@ -14,8 +14,8 @@ include'../view/member_header.php';
                 <select name="category_id">
                     <?php foreach ($categories as $category) : ?>
                     <option value="<?php echo $category['cat_categoryID']; ?>" name="category_id">
-                    	<?php echo $category['cat_categoryName']; ?><br>
-                    	<?php echo $category['cat_price']; ?>
+                    	<?php echo htmlspecialchars($category['cat_categoryName']); ?><br>
+                    	$<?php echo htmlspecialchars($category['cat_price']); ?>
                     </option> 
                     <?php endforeach; ?>
                 </select>
@@ -23,7 +23,7 @@ include'../view/member_header.php';
             <select name="quantity">
             <?php for($i = 1; $i <= 10; $i++) : ?>
                 <option value="<?php echo $i; ?>">
-                    <?php echo $i; ?>
+                    <?php echo htmlspecialchars($i); ?>
                 </option>
             <?php endfor; ?>
             </select><br>
@@ -46,12 +46,12 @@ include'../view/member_header.php';
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $cart[0]; ?></td>
-                    <td><?php echo $cart[1]; ?></td>
-                    <td><?php echo ($cart[1] * $cart[2]); ?></td>
-                    <td><?php $sum = ($cart[1] - ($cart[1] * $cart[2])) ; echo $sum; ?></td>
-                    <td><?php echo $cart[3]; ?></td>
-                    <td><?php echo $sum * $cart[3]; ?></td>
+                    <td><?php echo htmlspecialchars($cart[0]); ?></td>
+                    <td>$<?php echo htmlspecialchars($cart[1]); ?></td>
+                    <td>$<?php echo htmlspecialchars(($cart[1] * ($cart[2] / 100 ))); ?></td>
+                    <td>$<?php $sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ; echo htmlspecialchars($sum); ?></td>
+                    <td><?php echo htmlspecialchars($cart[3]); ?></td>
+                    <td>$<?php echo htmlspecialchars($sum * $cart[3]); ?></td>
                     <td>
                         <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_order" />

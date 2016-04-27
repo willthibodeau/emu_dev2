@@ -15,10 +15,10 @@ include'../view/admin_header.php';
 			<?php foreach($comments as $comment=>$value) : ?>
 		<tr>
 			<td>
-				<?php echo $value['users_firstName']; ?>
+				<?php echo htmlspecialchars($value['users_firstName']); ?>
 			</td>
 			<td>
-				<?php echo $value['com_commentText']; ?>
+				<?php echo htmlspecialchars($value['com_commentText']); ?>
 			</td>
 			<td> 
 					<form action="" method="post" >

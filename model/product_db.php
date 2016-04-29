@@ -1,4 +1,22 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: product_db.php                                                                             /
+//   Description: Provides functions for use by products                                              /
+//   Function List:                                                                                   /
+//            get_products_by_category($category_id)                                                  /
+//            delete_product($product_id)                                                             /
+//            add_product($category_id, $code, $name, $description,  $price,  $imagePath, $imagealt)  /
+//            get_imagepath()                                                                         /
+//            get_images()                                                                            /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+// gets products by category id
 function get_products_by_category($category_id) {
   global $db;
   $query = 
@@ -13,19 +31,7 @@ function get_products_by_category($category_id) {
   return $products;
 }
 
-function get_product($product_id) {
-  global $db;
-  $query = 
-  ' SELECT * FROM products
-    WHERE prod_productID = :product_id';
-  $statement = $db->prepare($query);
-  $statement->bindValue(":product_id", $product_id);
-  $statement->execute();
-  $product = $statement->fetch();
-  $statement->closeCursor();
-  return $product;
-}
-
+// deletes a product from the database
 function delete_product($product_id) {
   global $db;
   $query = 
@@ -37,6 +43,7 @@ function delete_product($product_id) {
   $statement->closeCursor();
 }
 
+// adds a product to the database
 function add_product($category_id, $code, $name, $description,  $price,  $imagePath, $imagealt) {
   global $db;
   $query = 
@@ -56,6 +63,7 @@ function add_product($category_id, $code, $name, $description,  $price,  $imageP
   $statement->closeCursor();
 }
 
+// gets the image path
 function get_imagepath() {
   global $db;
   $query = 
@@ -68,6 +76,7 @@ function get_imagepath() {
   return $imagepaths;
 }
 
+// gets the images
 function get_images(){
   global $db;
   $path = '../imageProcess/images/';

@@ -1,6 +1,6 @@
 		
 
-	<footer class="footer">
+	<footer>
 	    <div class="footer1">
 			<h4>Corporate Info</h4>
 			<p>Elite Meats Utah</p>

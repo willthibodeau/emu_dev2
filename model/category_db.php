@@ -1,4 +1,23 @@
 <?php
+//////////////////////////////////////////////////////////////////////
+//                                                                   /
+//   Author: Will Thibodeau                                          /
+//   Project: Elitemeatsutah.com                                     /
+//   Final Project WEB 289 2016SP                                    /
+//   Date: April 28, 2016                                            /
+//   File: category_db.php                                           /
+//   Description: Provides functions for categories                  /
+//   Function List:                                                  /
+//          get_categories()                                         /
+//          get_category_name($category_id)                          /
+//          add_category($name, $price, $discount)                   /
+//          delete_category($category_id)                            /
+//          detect_category_name($name)                              /
+//          get_first_row()                                          /
+//                                                                   /
+////////////////////////////////////////////////////////////////////// 
+
+// gets the categories
 function get_categories() {
     global $db;
     $query = 
@@ -9,6 +28,7 @@ function get_categories() {
     return $statement;     
 }
 
+// returns the category name
 function get_category_name($category_id) {
     global $db;
     $query = 
@@ -23,6 +43,7 @@ function get_category_name($category_id) {
     return $category_name;
 }
 
+// adds a category to the categories table
 function add_category($name, $price, $discount){
 	global $db;
 	$query = 
@@ -38,6 +59,7 @@ function add_category($name, $price, $discount){
     $statement->closeCursor();
 }
 
+// deletes categories from the categories table
 function delete_category($category_id) {
     global $db;
     $query = 
@@ -49,7 +71,8 @@ function delete_category($category_id) {
     $statement->closeCursor();
 }
 
-  function detect_category_name($name){
+// checks to see if a category is already listed
+function detect_category_name($name){
   	global $db;
   	$query = 
     ' SELECT cat_categoryName 
@@ -63,6 +86,7 @@ function delete_category($category_id) {
     return $testValue;
 }
 
+// used when the category id of 1 is not the first row
 function get_first_row(){
   global $db;
   $query = 

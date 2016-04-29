@@ -21,7 +21,7 @@
 		<input type="checkbox" id="button">
 		<label for="button" onclick></label>
 		<ul >	
-			<li><a href="/elitemeatsutah/admin/">Admin Home</a></li>
+			<li><a href="../admin/">Admin Home</a></li>
 			<li><a href="/elitemeatsutah/product/">Products</a></li>
 			<li><a href="/elitemeatsutah/admin/.?action=show_add_form">Add Products</a></li>
 			<li><a href="/elitemeatsutah/imageProcess/">Image Manager</a></li>

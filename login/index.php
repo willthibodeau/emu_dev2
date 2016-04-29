@@ -83,14 +83,12 @@ switch($action){
 		$userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_SPECIAL_CHARS);
 		$firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHARS);	
 		$lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_SPECIAL_CHARS);
-		$password = filter_input(INPUT_POST, 'password');
-		$password2 = filter_input(INPUT_POST, 'password2');
+		$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+		$password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_SPECIAL_CHARS);
 		$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-		$phone = filter_input(INPUT_POST, 'phone');
+		$phone = filter_input(INPUT_POST, 'phone',FILTER_SANITIZE_SPECIAL_CHARS);
 		$userlevel = "m";
 		$getUsers = get_users($userName);
-
-			
 		$curl = curl_init();
 		curl_setopt_array($curl, [
 			CURLOPT_RETURNTRANSFER => 1,
@@ -98,7 +96,7 @@ switch($action){
 			CURLOPT_POST => 1,
 			CURLOPT_POSTFIELDS => [
 				'secret' => '6LfiWR4TAAAAAFQmcb8_rJUQzd-4CMGR7Dd681iT',
-				'response' => '$_POST["g-recaptcha-response"]',
+				'response' => $_POST['g-recaptcha-response']
 			],
 		]);
 		$response = json_decode(curl_exec($curl));

@@ -1,4 +1,28 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: product_db.php                                                                             /
+//   Description: Acts as the controller for the administrator pages                                  /
+//   Case List:                                                                                       /
+//            view_login                                                                              /
+//            list_categories                                                                         /
+//            add_category                                                                            /
+//            delete_category                                                                         /  
+//            list_products                                                                           /
+//            show_add_form                                                                           /
+//            add_product                                                                             /
+//            delete_product                                                                          /
+//            view_comments                                                                           /
+//            add_comments                                                                            /
+//            delete_comments                                                                         /  
+//            logout                                                                                  /
+//            default                                                                                 /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
 session_start();
 
 require('../model/database_db.php');
@@ -17,9 +41,10 @@ $action = filter_input(INPUT_POST, 'action');
 
 
 switch($action) {
- 	case 'view_login':
+ 	case'view_login':
  		include'../login/';
  		break;
+
  	case'list_categories':
  		$category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);    
     if ($category_id == NULL || $category_id == FALSE) {
@@ -34,7 +59,6 @@ switch($action) {
 
  	case'add_category':
  		$name = filter_input(INPUT_POST, 'name');// FILTER_SANITIZE_SPECIAL_CHARS
-    
     $regex_name_pattern = '/>(?:(?<t>[^<]*))/';
  		$price = filter_input(INPUT_POST, 'cat_catprice', FILTER_SANITIZE_NUMBER_INT);
     $discount = filter_input(INPUT_POST, 'discount', FILTER_SANITIZE_NUMBER_INT);
@@ -102,18 +126,6 @@ switch($action) {
     header('Location: .?action=list_categories');
     break;
 
- 	case'delete_product':
- 		$product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);   
- 	  $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
-            
-    if ($category_id == NULL || $category_id == FALSE || $product_id == NULL || $product_id == FALSE) {    
-      $error = "Missing or incorrect product id or category id.";
-    } else { 
-      delete_product($product_id);
-      header("Location: .?category_id=$category_id");
-    }
-    break;
-
  	case'show_add_form':
  		$imagepaths = get_imagepath();
     $categories = get_categories();
@@ -146,19 +158,25 @@ switch($action) {
     }
     break;
 
- 	case'view_comments':
+ 	case'delete_product':
+    $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);   
+    $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+            
+    if ($category_id == NULL || $category_id == FALSE || $product_id == NULL || $product_id == FALSE) {    
+      $error = "Missing or incorrect product id or category id.";
+    } else { 
+      delete_product($product_id);
+      header("Location: .?category_id=$category_id");
+    }
+    break;
+
+  case'view_comments':
  		$comments = comment_data();
  		include'comment_menu.php';
  		break;
 
- 	case'delete_comment':
- 		$comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
- 		delete_comments($comment_id);
- 		header('Location: .?action=view_comments');
- 	  break;
-
  	case'add_comment':
- 		$com_userid = $_SESSION['member_id'];
+ 		$com_userid = $_SESSION['admin_id'];
  		$comment_text = filter_input(INPUT_POST, 'comment_text', FILTER_SANITIZE_SPECIAL_CHARS);
     if (empty($comment_text)) {
       $error = "Please enter a comment";
@@ -169,7 +187,13 @@ switch($action) {
     }		
  	  break;
 
- 	case'logout':
+ 	case'delete_comment':
+    $comment_id = filter_input(INPUT_POST, 'comment_id', FILTER_VALIDATE_INT);
+    delete_comments($comment_id);
+    header('Location: .?action=view_comments');
+    break;
+
+  case'logout':
  		unset($_SESSION['admin']);
     header('Location: ../index.php');
     break;

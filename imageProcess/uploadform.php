@@ -6,7 +6,9 @@ include'../view/admin_header.php';
 <div class="main-content">
         <h2>Image Manager</h2>
         
-        
+        <div class="error">
+          <?php if(!empty($error)) { echo htmlspecialchars($error); } ?>
+        </div> 
             <!-- main content goes here -->
             <!-- content is straight from the book file -->
             <h3>Please select an image to upload.</h3>
@@ -32,7 +34,7 @@ include'../view/admin_header.php';
                     <li>
                         <a href="<?php echo $delete_url;?>" class="button-delete">
                             <!-- <img src="delete.png" alt="Delete">-->Delete</a> 
-                        <a href="<?php echo $file_url; ?>" class="button">
+                        <a href="<?php echo $file_url; ?>" class="button" target="_blank">
                             <?php echo htmlspecialchars($filename); ?></a>
                     </li>
                 <?php endforeach; ?>

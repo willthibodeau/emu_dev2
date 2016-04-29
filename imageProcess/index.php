@@ -39,6 +39,10 @@ switch ($action) {
             unlink($target);
         }
         break;
+    // case 'error':
+    //     $error = 'error';
+    //     include('image_error.php');
+    //     break;
 }
 
 $files = get_file_list($image_dir_path);

@@ -1,4 +1,24 @@
 <?php
+/////////////////////////////////////////////////////////////////////
+//                                                                  /
+//   Author: Will Thibodeau                                         /
+//   Project: Elitemeatsutah.com                                    /
+//   Final Project WEB 289 2016SP                                   /
+//   Date: April 28, 2016                                           /
+//   File: admin_db.php                                             /
+//   Description: Provides functions for use by the administrator   /    
+//   Function List:                                                 /
+//          is_valid_admin_login($username, $password)              /
+//          is_valid_member_login($userName, $password)             /
+//          get_users($userName)                                    /
+//          get_comment()                                           /
+//          delete_comments($comment_id)                            /
+//          get_user_info($userName)                                /
+//          comment_data()                                          /
+//                                                                  /
+///////////////////////////////////////////////////////////////////// 
+
+// checks for valid admin at login
 function is_valid_admin_login($username, $password) {
     global $db;
     $password = sha1($username . $password);
@@ -20,6 +40,7 @@ function is_valid_admin_login($username, $password) {
     return $valid; 
 }
 
+// checks for valid member at login
 function is_valid_member_login($userName, $password) {
     global $db;
     $password = sha1($userName . $password);
@@ -41,6 +62,7 @@ function is_valid_member_login($userName, $password) {
     return $valid; 
 }
 
+// checks for username at registration
 function get_users($userName) {
     global $db;
     $query = 
@@ -59,6 +81,7 @@ function get_users($userName) {
     }
 }
 
+// gets the comments at various times
 function get_comment() {
     global $db;
     $query = 
@@ -68,6 +91,7 @@ function get_comment() {
     return $statement;    
 }
 
+// deletes the comments
 function delete_comments($comment_id) {
     global $db;
     $query = 
@@ -79,36 +103,7 @@ function delete_comments($comment_id) {
     $statement->closeCursor();
 }
 
-function find_userID_by_name($name){
-    global $db;
-    $query = 
-    "   SELECT users_userID
-        FROM users 
-        WHERE users_username = :name";
-    $statement = $db->prepare($query);
-    $statement->bindValue(':name', $name);
-    $statement->execute();
-    $statement->closeCursor();
-    // foreach($id as $key=>$value){ 
-    //     return$value[0];
-    // }
-   
-}
-    
-function search_comments($id) {
-    global $db;
-    $query = 
-    '   SELECT com_commentText 
-        FROM comments
-        WHERE com_userID = :id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':id', $id);
-    $statement->execute();
-    $comment_text = $statement->fetchAll();
-    $statement->closeCursor();
-    return $comment_text;
-}
-
+// gets user information for superglobals
 function get_user_info($userName){
     global $db;
     $query = 
@@ -122,10 +117,13 @@ function get_user_info($userName){
     return $users_firstName;
 }
 
+// gets the comment data
 function comment_data() {
     global $db;
     $query = 
-    '   SELECT users.users_firstName, comments.com_commentText, comments.com_commentID 
+    '   SELECT  users.users_firstName, 
+                comments.com_commentText, 
+                comments.com_commentID 
         FROM users 
         INNER JOIN comments 
         ON users.users_userID = comments.com_userID 

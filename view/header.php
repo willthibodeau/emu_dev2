@@ -27,10 +27,10 @@
 		<input type="checkbox" id="button">
 		<label for="button" onclick></label>
 		<ul>
-			<li ><a  href="/elitemeatsutah/index.php">Home</a></li>
+			<li ><a  href="../index.php">Home</a></li>
 			<li><a href="/elitemeatsutah/login/">Login</a></li>
 			<li><a href="/elitemeatsutah/product/">Products</a></li>
-			<li><a href="/elitemeatsutah/cart/">Cart</a></li>
+			
 		</ul>
 	</nav>
 

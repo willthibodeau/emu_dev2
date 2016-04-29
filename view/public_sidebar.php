@@ -1,1 +1,0 @@
-<h2>Public Sidebar</h2>

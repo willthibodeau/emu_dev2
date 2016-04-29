@@ -15,44 +15,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 vertical-align: baseline;
 }
 /*end reset*/
+
 .g-recaptcha {
 margin-bottom: 10px;
 }
-.footer {
+footer {
   padding: 20px;
   vertical-align: text-top;
   width: 100%;
   overflow: auto;
-
 }
-.footer h4 {
+footer h4 {
   font-size: .75em;
 }
-.footer p {
-  font-size: .5em;
+footer p {
+  font-size: .8em;
 }
 .footer1 {
   float: left;
-  width: 30%;
+  width: 32%;
   vertical-align: text-top;
-  min-width: 200px;
 }
 .footer2 {
   float: left;
   display: inline-block;
-  width: 30%;
-  min-width: 200px;
+  width: 32%;
+  text-align: center;
 }
 .footer3 {
   float: left;
   display: inline-block;
-  width: 30%;
-  min-width: 200px;
+  width: 32%;
 }
 .main-content {
   padding: 10px;
-  margin-bottom: 100px;
-  }
+}
 .animation {
   display: inline-block;
   width: 32%;
@@ -63,16 +60,15 @@ margin-bottom: 10px;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
-  
 }
-.text1 {
+.text1, .text2, .text3 {
   animation-name: textMove;
   animation-duration: 1s;
   border: 1px solid black;
   border-radius: 8px;
 
 }
-.text2 {
+/*.text2 {
   animation-name: textMove;
   animation-duration: 2s;
   border: 1px solid black;
@@ -83,7 +79,7 @@ margin-bottom: 10px;
   animation-duration: 3s;
   border: 1px solid black;
   border-radius: 8px;
-}
+}*/
 @keyframes textMove {
   from{
     transform: scale(.05);
@@ -101,20 +97,6 @@ margin-bottom: 10px;
   border: 5px solid white;
   border-radius: 50%;
   box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  animation-name: fishMove;
-  animation-duration: .5s;
-  /*position: fixed;*/
-
-}
-@keyframes /*fishMove*/ {
-  from{ 
-    transform: rotate(0) scale(.5);
-    left: -100px;
-  }
-  to{ 
-    transform: rotate(-720deg) scale(1);
-    left: 0;
-  }
 }
 .fish2 {
   width: 175px;
@@ -125,8 +107,6 @@ margin-bottom: 10px;
   border: 5px solid white;
   border-radius: 50%;
   box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  animation-name: fishMove;
-  animation-duration: 2s;
 }
 .fish3 {
   width: 175px;
@@ -137,8 +117,6 @@ margin-bottom: 10px;
   border: 5px solid white;
   border-radius: 50%;
   box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  animation-name: fishMove;
-  animation-duration: 4s;
 }
 .noShow {
   display: none;
@@ -152,33 +130,21 @@ margin-bottom: 10px;
 .animation h2 {
   font-size: 1.3em;
 }
-
-.current {
-  border: 2px solid #000;
-  background: orange;
-}
 .slider1 {
   width: 100%;
-  background-color: rgba(156,155,122,.5);
   padding: 20px;
-  overflow: auto;
-
-}
-.slider h2 {
-  position: absolute;
-  top: 10px;
+  background-color: rgba(156,155,122,.5);
+  /*overflow: auto;*/
 }
 .slider2 {
   width: 100%;
-   padding: 20px;
+  padding: 20px;
   background-color: rgba(255,211,147,.5);
 }
 .slider3 {
   width: 100%;
   padding: 20px;
   background-color: rgba(255,151,79,.5);
-  
-
 }
 .slider3 a {
   pointer-events:none;
@@ -213,13 +179,8 @@ nav[role="custom-dropdown"] label {
   background-color: gray;
   padding: 5px;
   text-align: right;
-  
-
-  
 }
-.add-category-form {
-  padding: 3px;
-}
+/*F*/
 
 body {
   font-family: 'Oxygen Mono' ;
@@ -228,6 +189,7 @@ body {
   -webkit-box-shadow: 0px 0px 20px -4px rgba(0,0,0,1);
   -moz-box-shadow: 0px 0px 20px -4px rgba(0,0,0,1);
   box-shadow: 0px 0px 20px -4px rgba(0,0,0,1);
+
 }
 
 @-webkit-keyframes bugfix {
@@ -246,7 +208,7 @@ input[type=checkbox] {
 input[type=text], input[type=password] {
   margin: 3px;
 }
-.button {
+/*.footer-button {
     background-color: #e9c09d;
     border: none;
     color: white;
@@ -254,49 +216,53 @@ input[type=text], input[type=password] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
 }
-
+.footer-button:hover {
+  background-color: #ba5f16;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}*/
+.button {
+  background-color: #e9c09d;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 .button:hover {
   background-color: #ba5f16;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
-
 .button-delete {
-    background-color: #e9c09d;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    list-style-type: none;
-
+  background-color: #e9c09d;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  list-style-type: none;
 }
-
 .button-delete:hover {
   background-color: red;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
-
 label {
-  
   cursor: pointer;
   user-select: none;
 }
 
-/* background for li / select */
 /* custom-dropdown */
 nav[role="custom-dropdown"] {
   position: relative;
@@ -307,10 +273,10 @@ nav[role="custom-dropdown"] li:active {
 }
 nav[role="custom-dropdown"] a,
 nav[role="custom-dropdown"] label {
-  color: #ccc;
+  color: #fff;
 
   text-decoration: none;
-  font: 1.4em sans-serif;
+  font: 1rem "Oxygen Mono";
   transition: color .3s ease-in-out;
 }
 nav[role="custom-dropdown"] ul {
@@ -367,58 +333,41 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     border-radius: 4px;
     box-sizing: border-box;
   }
-
   .formInput {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 40px;
-}
-
-.main-content {
-    padding: 10px;
-    margin-bottom: 100px;
   }
-.total {
- display: inline-block;
- width: 150px;
-}
+ /* .main-content {
+      padding: 10px;
+  }*/
+  .total {
+   display: inline-block;
+   width: 150px;
+  }
 
-
-
-/*start general styles/////////////////////////////////////*/
-
+/*start large styles/////////////////////////////////////*/
 @media screen and ( min-width: 769px )  {
-  
-
-  .fish1 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) -10px 0 ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  body {
+    width: 80%;
+    margin: 0 auto;
   }
-  .fish2 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) 165px 0 ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  .wrapper {
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 0 0 15px 15px;
   }
-  .fish3 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) 165px 185px ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  body::after {
+    content: "";
+    background: url(../img/wood.jpg);
+    opacity: 0.05;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
   }
    input[type=text], select {
     width: 100%;
@@ -434,9 +383,14 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     background-color: #f2f2f2;
     padding: 40px;
   }
-  .main-content {
+  /*.main-content {
     padding: 10px;
-    margin-bottom: 100px;
+  }*/
+  .adminTable1 {
+    width: 100%;
+  } 
+  .admintable1  td {
+    text-align: right;
   }
   table img {
     margin: 3px;
@@ -448,34 +402,6 @@ nav[role="custom-dropdown"] ul > li:hover > a {
   td {
     padding: 3px;
     text-align: right;
-  }
-  .admintable1  td {
-  text-align: right;
-}
-  body::after {
-    content: "";
-    background: url(../img/wood.jpg);
-    opacity: 0.05;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-  }
-  .wrapper {
-    height: 100vh;
-    overflow: auto;
-    background-color: #fff;
-    border-radius: 0 0 15px 15px;
-  }
-  footer {
-    /*position: absolute;*/
-    bottom: 0;
-    background-color: tan;
-    width: 80%;
-    border-radius: 0 0 15px 15px;
-   
   }
   .publicHeader {
     display: inline-block;
@@ -490,9 +416,11 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     padding: 40px;
     display:inline-block;
   }
-  body {
-    width: 80%;
-    margin: 0 auto;
+  .prod {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 10px;   
   }
   .prod a {
     margin: 5px;
@@ -523,15 +451,6 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     float: right;
     width: 78%;
   }
-  footer {
-    clear: both;
-  }
-  .prod {
-      float: left;
-      width: 45%;
-      height: 100%;
-      margin: 10px;   
-  }
   .product-page {
     overflow: auto;
     padding: 15px;
@@ -541,106 +460,22 @@ nav[role="custom-dropdown"] ul > li:hover > a {
   .product-page h2 {
     margin-left: 15px;
   }
+  footer {
+    clear: both;
+    width: 100%;
+    background-color: tan;
+    border-radius: 0 0 15px 15px;
+  }
 }
 
 /*end general styles */
 /*////////////////////////////////////////////////////////////////////*/
 @media screen and ( min-width: 481px ) and ( max-width: 768px ) {
-
-    .fish1 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) -30px 20px ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  }
-  .fish2 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) 165px 0 ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  }
-  .fish3 {
-    width: 155px;
-    height: 155px;
-    background: url(../img/peeps.jpg) 165px 185px ;
-    margin: 10px;
-    display: inline-block;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-  }
-
-  .animation {
-    min-height: 300px;
-    max-height: 800px;
-  }
-  .slider1 {
-  width: 100%;
-  max-height: 1000px;
-  background-color: rgba(156,155,122,.5);
-  padding: 20px;
-  overflow: auto;
-}
-.fish1 {
-  width: 155px;
-  height: 155px;
-  background: url(../img/peeps.jpg) -10px 0 ;
-  margin: 10px;
-  display: inline-block;
-  border: 5px solid white;
-  border-radius: 50%;
-  box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-}
-.fish2 {
-  width: 155px;
-  height: 155px;
-  background: url(../img/peeps.jpg) 165px 0 ;
-  margin: 10px;
-  display: inline-block;
-  border: 5px solid white;
-  border-radius: 50%;
-  box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-}
-.fish3 {
-  width: 155px;
-  height: 155px;
-  background: url(../img/peeps.jpg) 165px 185px ;
-  margin: 10px;
-  display: inline-block;
-border: 5px solid white;
-  border-radius: 50%;
-  box-shadow: 8px 8px 18px rgba(0,0,0,.5);
-}
-  .animation {
-  display: inline-block;
-  width: 30%;
-  box-xizing: border-box;
-  text-align: center;
-  padding: 10px;
-  vertical-align: text-top;
-  /*border: 1px solid black;*/
-  
-}
-  .main-content {
-    padding: 10px;
-    margin-bottom: 100px;
-  }
-
-   html,
+  html,
   body {
     margin: 0;
-    
-
   }
-
+  
   .publicHeader {
     display: inline-block;
     background-image: url(../img/wood.jpg);
@@ -652,14 +487,12 @@ border: 5px solid white;
     font-size: 45px;
     color: white;
     padding: 20px;
-    
   }
-
   nav[role="custom-dropdown"] ul {
     display: none;
-    /*height: 100%;*/
   }
   nav[role="custom-dropdown"] label {
+    font: .8rem "Oxygen Mono";
     position: relative;
     display: block;
     width: 100%;
@@ -695,27 +528,53 @@ border: 5px solid white;
     content: "\203A";
     font: bold 1.4em sans-serif;
   }
-
-  footer {
-    /*position: absolute;*/
-    bottom: 0;
-    background-color: tan;
-    /*width: 80%;*/
-    border-radius: 0 0 15px 15px;
-    height: 100%;
+  .fish1 {
+    width: 155px;
+    height: 155px;
+    background: url(../img/peeps.jpg) -30px 20px ;
+    margin: 10px;
+    display: inline-block;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
   }
-
-  .prod {
-      
+  .fish2 {
+    width: 155px;
+    height: 155px;
+    background: url(../img/peeps.jpg) 165px 0 ;
+    margin: 10px;
+    display: inline-block;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  }
+  .fish3 {
+    width: 155px;
+    height: 155px;
+    background: url(../img/peeps.jpg) 165px 185px ;
+    margin: 10px;
+    display: inline-block;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 8px 8px 18px rgba(0,0,0,.5);
+  }
+  .animation {
+    display: inline-block;
+    width: 30%;
+    height: 300px;
+    box-xizing: border-box;
+    text-align: center;
+    padding: 10px;
+    vertical-align: text-top;
+  }
+ 
+  .prod {  
       width: 100%;
       height: 100%;
-      margin: 0 auto;
-       
+      margin: 0 auto;   
   }
-
   .prod a {
     margin: 5px;
-
   }
   .prod a:link, .prod a:visited {
     background-color: #e9c09d;
@@ -727,20 +586,15 @@ border: 5px solid white;
     list-style-type: none;
     min-width: 200px;
   }
-
   .prod a:hover, .prod a:active {
       background-color: #ba5f16;
   }
-
   .prod li {
     list-style-type: none;
   }
-
-    .product-page {
+  .product-page {
     overflow: auto;
-    
-    background-color: #fff;
-    
+    background-color: #fff; 
   }
   .product-page h2 {
     margin-left: 15px;
@@ -749,8 +603,6 @@ border: 5px solid white;
   /*start table */
   table, thead, tbody, th, td, tr { 
     display: block; 
-    
-   
   }
   thead tr {
     position: absolute;
@@ -800,7 +652,6 @@ border: 5px solid white;
     content: "Image"; 
     text-align: left;
   }
-
   .adminTable1 td:nth-of-type(1):before  {
     content: "Quantity";
     text-align: left; 
@@ -842,64 +693,23 @@ border: 5px solid white;
     text-align: left; 
   }
 } 
+.footer3 a {
+    font-size: 10px;
+  }
 
-/*end medium*/
+ footer {
+    bottom: 0;
+    background-color: tan;
+    border-radius: 0 0 15px 15px;
+    height: 100%;
+  }
 
 /*////////////////////////////////////////////////*/
 /* small screens */
 @media screen and (max-width: 480px) {
-  .slider3 a {
-    pointer-events: visible;
-    text-decoration: none;
-
-  }
-  .slider3 a:link, .slider3 a:visited {
-    background-color: #e9c09d;
-    color: white;
-    padding: 14px 25px;
-    text-align: center; 
-    text-decoration: none;
-    display: inline-block;
-    list-style-type: none;
-    margin: 10px;
-  }
-
-  .slider3 a:hover, .slider3 a:active {
-      background-color: #ba5f16;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-  .noShow {
-    display: initial;
-  }
-  .animation {
-  display: inline-block;
-  width: 100%;
-  box-xizing: border-box;
-  text-align: center;
-  padding: 10px;
-  vertical-align: text-top;
-  /*border: 1px solid black;*/
-  
-}
-  .main-content {
-    padding: 10px;
-    margin-bottom: 100px;
-  }
-  .add-form {
-    padding: 5px;
-  }
-  .main-content h2 {
-    margin: 5px;
-  }
-  #add-category-form {
-    padding: 3px;
-  }
-  
-  .publicHeader {
-    
+  .publicHeader { 
     background-image: url(../img/wood.jpg);
     height: 75px;
-
   }
   .publicHeader h1 {
     font-family: 'Vidaloka', serif;
@@ -912,14 +722,59 @@ border: 5px solid white;
     padding: 15px 0px;
     background-color: #fff;
   }
-  html,
+  .slider3 a {
+    pointer-events: visible;
+    text-decoration: none;
+  }
+  .slider3 a:link, .slider3 a:visited {
+    background-color: #e9c09d;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    list-style-type: none;
+    margin: 10px;
+  }
+  .slider3 a:hover, .slider3 a:active {
+    background-color: #ba5f16;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  .noShow {
+    display: initial;
+  }
+  .animation {
+    /*display: inline-block;*/
+    width: 100%;
+    box-xizing: border-box;
+    text-align: center;
+    padding: 10px;
+    vertical-align: text-top;
+    /*border: 1px solid black;*/
+  
+}
+  /*.main-content {
+    padding: 10px;
+    margin-bottom: 100px;
+  }*/
+  .add-form {
+    padding: 5px;
+  }
+  .main-content h2 {
+    margin: 5px;
+  }
+  #add-category-form {
+    padding: 3px;
+  }
+  
+  /*html,
   body {
     margin: 0;
     
-  }
-  body {
+  }*/
+  /*body {
     width: 100%;
-  }
+  }*/
 
   nav[role="custom-dropdown"] ul {
     display: none;
@@ -962,15 +817,8 @@ border: 5px solid white;
     font: bold 1.4em sans-serif;
   }
 
-  footer {
-    /*position: absolute;*/
-    bottom: 0;
-    background-color: tan;
-    /*width: 80%;*/
-    border-radius: 0 0 15px 15px;
-    height: 100px;
-  }
-
+ 
+/*
   .prod {
     float: left;
     width: 100%;
@@ -990,9 +838,9 @@ border: 5px solid white;
     display: inline-block;
     list-style-type: none;
     min-width: 100%;
-  }
+  }*/
 
-  .prod a:hover, .prod a:active {
+/*  .prod a:hover, .prod a:active {
       background-color: #ba5f16;
   }
 
@@ -1009,12 +857,10 @@ border: 5px solid white;
   .product-page h2 {
     margin-left: 15px;
   }
-
+*/
   /*start table */
   table, thead, tbody, th, td, tr { 
     display: block; 
-    
-   
   }
   thead tr {
     position: absolute;
@@ -1105,8 +951,24 @@ border: 5px solid white;
     content: " ";
     text-align: left; 
   }
-}
 
+.footer1, .footer3 {
+    width: 32%;
+    vertical-align: text-top;
+  }
+  .footer2 {
+    width: 32%;
+    text-align: center;
+  }
+  .footer3 a {
+    font-size: 10px;
+  }
+  footer {
+    bottom: 0;
+    background-color: tan;
+    border-radius: 0 0 15px 15px;
+  }
+}
 /*end navbar styles*/
 
 

@@ -1,4 +1,15 @@
 <?php
+//////////////////////////////////////////////////////////////////////
+//                                                                   /
+//   Author: Will Thibodeau                                          /
+//   Project: Elitemeatsutah.com                                     /
+//   Final Project WEB 289 2016SP                                    /
+//   Date: April 28, 2016                                            /
+//   File: database_db.php                                           /
+//   Description: connects to the database 						     /
+//                                                                   /
+////////////////////////////////////////////////////////////////////// 
+
 global $db;
 $debug = true;
 	if ($_SERVER['HTTP_HOST'] == "localhost" OR $_SERVER['HTTP_HOST'] == "127.0.0.1") {

@@ -47,7 +47,9 @@ function resize_image($old_image_path, $new_image_path,
             $image_to_file = 'imagepng';
             break;
         default:
-            echo 'File must be a JPEG, GIF, or PNG image.';
+            $error = 'File must be a JPEG, GIF, or PNG image.';
+            include'uploadform.php';
+            // header('Location: .?imageProcess/.?action=error');
             exit;
     }
 

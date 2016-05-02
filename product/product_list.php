@@ -9,13 +9,14 @@ if(isset($_SESSION['admin'])) {
 }
 ?>
 <div class="product-page">
-    <h1>Products Page</h1>
-                <h2>Packages</h2>
+    <h2>Products Page</h2>
+                
                     <nav class="prod">
+                        <h2>Packages</h2>
                         <ul class="formInput"> 
                             <?php foreach ($categories as $category) : ?>
                             
-                            <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br><?php echo $category['cat_price']; ?></a>  
+                            <li><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?><br>$<?php echo $category['cat_price']; ?></a>  
                             </li>
                                               
                             <?php endforeach; ?>
@@ -39,7 +40,7 @@ if(isset($_SESSION['admin'])) {
                                 <tr class="prod-list">
                                     <td ><?php echo $product['prod_productQuantity']; ?></td>
                                     <td><?php echo $product['prod_description']; ?></td>
-                                    <td><?php echo $product['prod_price']; ?></td>
+                                    <td>$<?php echo $product['prod_price']; ?></td>
                                     <td ><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>" class="productImage"></td>
                                 </tr>
                                     <?php endforeach; ?>

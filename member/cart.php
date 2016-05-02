@@ -46,12 +46,12 @@ include'../view/member_header.php';
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo htmlspecialchars($cart[0]); ?></td>
-                    <td>$<?php echo htmlspecialchars($cart[1]); ?></td>
-                    <td>$<?php echo htmlspecialchars(($cart[1] * ($cart[2] / 100 ))); ?></td>
-                    <td>$<?php $sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ; echo htmlspecialchars($sum); ?></td>
-                    <td><?php echo htmlspecialchars($cart[3]); ?></td>
-                    <td>$<?php echo htmlspecialchars($sum * $cart[3]); ?></td>
+                    <td class="mediumPackage"><?php echo htmlspecialchars($cart[0]); ?></td>
+                    <td class="mediumPrice">$<?php echo htmlspecialchars($cart[1]); ?></td>
+                    <td class="mediumDiscount">$<?php echo htmlspecialchars(($cart[1] * ($cart[2] / 100 ))); ?></td>
+                    <td class="mediumYourP">$<?php $sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ; echo htmlspecialchars($sum); ?></td>
+                    <td class="mediumQuantity"><?php echo htmlspecialchars($cart[3]); ?></td>
+                    <td class="mediumSubtotal">$<?php echo htmlspecialchars($sum * $cart[3]); ?></td>
                     <td>
                         <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_order" />

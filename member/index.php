@@ -1,4 +1,26 @@
-<?php 
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: member/index.php                                                                           /
+//   Description: Acts as the controller for the member pages                                         /
+//   Case List:                                                                                       /
+// 				member_menu																			  /
+//				admin_menu 																			  /
+//				add_comment  																		  /
+//				delete_comment 																		  /
+//				view_cart  																			  /
+//				add_order  																			  /
+//				delete_order 																		  /
+//				search_categories 																	  /
+//				logout  																			  /	
+//				default                                                                               /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
+ 
 session_start();
 require('../model/database_db.php');
 require('../model/member_db.php');
@@ -62,13 +84,14 @@ switch($action) {
 		$sum = 0;
 		$total = 0;
 		foreach ($carts as $cart ){
-			$sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ;
+			$sum = $cart[3] * ($cart[1] - ($cart[1] * ($cart[2] / 100)));
 			$total += $sum;
 		}
 
 		$categories = get_categories();
 		include('cart.php');
 		break;
+
 	case'add_order':
 		$orders_userid = $_SESSION['member_id'];
 		$orders_categoryid = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
@@ -85,6 +108,7 @@ switch($action) {
 		delete_order($orderid);
 		header('Location: .?action=view_cart');
 		break;
+
 	case'search_categories':
 		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 		$search_names = search_categories($name);

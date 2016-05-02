@@ -14,13 +14,13 @@ include'../view/admin_header.php';
 		</tr>
 			<?php foreach($comments as $comment=>$value) : ?>
 		<tr>
-			<td>
+			<td class="comFirst">
 				<?php echo htmlspecialchars($value['users_firstName']); ?>
 			</td>
-			<td>
+			<td class="comText">
 				<?php echo htmlspecialchars($value['com_commentText']); ?>
 			</td>
-			<td> 
+			<td class="blank"> 
 					<form action="" method="post" >
                     <input type="hidden" name="action" value="delete_comment" />
                     <input type="hidden" name="comment_id" value="<?php echo $value['com_commentID']; ?>">

@@ -1,4 +1,20 @@
- <?php
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: cart/index.php                                                                             /
+//   Description: Acts as the controller for the member cart pages                                    /
+//   Case List:                                                                                       /
+//            view_cart																				  /	
+//            add_order																				  /
+//            delete_order								                                              /
+//            default                                                                                 /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
 session_start();
 require('../model/database_db.php');
 require('../model/member_db.php');

@@ -460,6 +460,8 @@ nav[role="custom-dropdown"] ul > li:hover > a {
     margin-left: 15px;
     text-transform: capitalize;
   }
+
+  
   footer {
     clear: both;
     width: 100%;

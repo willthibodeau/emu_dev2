@@ -20,7 +20,7 @@ include'../view/admin_header.php';
                 <input class="button" id="upload_button" type="submit" value="Upload">
             </form>
             <h3>Images in the directory</h3>
-            <div class="formInput">
+            <div class="formInput images">
             <?php if (count($files) == 0) : ?>
                 <p>No images uploaded.</p>
             <?php else: ?>

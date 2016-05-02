@@ -1,4 +1,20 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: login/index.php                                                                            /
+//   Description: Acts as the controller for the product page                                         /
+//   Case List:                                                                                       /
+//              list_categories                                                                       /
+//              default                                                                               /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+
+
 session_start();
 require('../model/database_db.php');
 require('../model/product_db.php');

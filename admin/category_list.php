@@ -13,7 +13,7 @@ include'../view/admin_header.php';
     <!-- allow the administrator to add a category and price -->
     <h2>Add Category</h2>
     <p>* required</p>
-    <form class="formInput" id="add_category_form"action="index.php" method="post">
+    <form class="formInput mediumAddCategory" id="add_category_form" action="index.php" method="post">
         <input type="hidden" name="action" value="add_category" >
         <label for="name"> * Category Name:</label>
         <input type="text"  name="name" id="name" required="required" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"><br>
@@ -33,12 +33,13 @@ include'../view/admin_header.php';
                         <th>Price</th>
                         <th>&nbsp;</th>
                     </tr>
+                 </thead>       
                         <?php foreach ($categories as $category) : ?>
-                </thead>
+                
                     <tr>
-                        <td><a class="button" href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo htmlspecialchars($category['cat_categoryName']); ?></a></td>
-                        <td>$<?php echo htmlspecialchars($category['cat_price']); ?></td>
-                        <td>
+                        <td class="mediumAddCategory"><a class="button" href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo htmlspecialchars($category['cat_categoryName']); ?></a></td>
+                        <td class="mediumPrice">$<?php echo htmlspecialchars($category['cat_price']); ?></td>
+                        <td class="mediumDelete">
                             <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_category" />
                                 <input type="hidden" name="category_id" value="<?php echo $category['cat_categoryID']; ?>"/>
@@ -65,16 +66,16 @@ include'../view/admin_header.php';
                     <th>Product Image Alt Text</th>
                     <th>&nbsp;</th> 
                 </tr>
-                    <?php foreach ($products as $product) : ?>
-            </thead>
+            </thead>    
+                <?php foreach ($products as $product) : ?>
             <tbody>
                 <tr>
-                    <td><?php echo htmlspecialchars($product['prod_prodCode']); ?></td>
-                    <td><?php echo htmlspecialchars($product['prod_productQuantity']); ?></td>
-                    <td><?php echo htmlspecialchars($product['prod_description']); ?></td>
-                    <td>$<?php echo htmlspecialchars($product['prod_price']); ?></td>
-                    <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
-                    <td><?php echo htmlspecialchars($product['imagealt']); ?></td>
+                    <td class="mediumCode"><?php echo htmlspecialchars($product['prod_prodCode']); ?></td>
+                    <td class="mediumQuantity"><?php echo htmlspecialchars($product['prod_productQuantity']); ?></td>
+                    <td class="mediumDescription"><?php echo htmlspecialchars($product['prod_description']); ?></td>
+                    <td class="mediumPrice">$<?php echo htmlspecialchars($product['prod_price']); ?></td>
+                    <td class="mediumImage"><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
+                    <td class="mediumAltText"><?php echo htmlspecialchars($product['imagealt']); ?></td>
                     <td>
                         <form action="." method="post">
                             <input type="hidden" name="action"
@@ -90,6 +91,6 @@ include'../view/admin_header.php';
             </tbody>
                 <?php endforeach; ?>
         </table>
-    </div><!-- end formInput div -->
+    
 </div><!-- end main content -->
 <?php include'../view/footer.php'; ?>

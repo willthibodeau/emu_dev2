@@ -1,4 +1,24 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: login/index.php                                                                            /
+//   Description: Acts as the controller for the login pages                                          /
+//   Case List:                                                                                       /
+//            	view_login																			  /	
+//            	login 																				  /	
+//				member_menu 																		  /
+//				admin_menu 																			  /
+//				register_form 																		  /
+//				register 																			  /
+//				logout  																			  /
+//				default                                                                               /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
 session_start();
    require('../model/database_db.php');
    require('../model/admin_db.php');

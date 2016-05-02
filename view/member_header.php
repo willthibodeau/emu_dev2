@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elite Meats Utah</title>
-<link href="/elitemeatsutah/css/styles.css" rel="stylesheet">
+<!-- <link href="/elitemeatsutah/css/styles.css" rel="stylesheet"> -->
+<link rel="stylesheet" media="(min-width: 769px)" href="/elitemeatsutah/css/large.css" />
+<link rel="stylesheet" media ="screen and ( min-width: 481px ) and ( max-width: 768px )" href="/elitemeatsutah/css/medium.css" />
+<link rel="stylesheet" media="(max-width: 480px)" href="/elitemeatsutah/css/small.css" />
 <link href="/elitemeatsutah/img/favicon.png" rel="icon" type="image/png" />
 <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css'>

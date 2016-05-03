@@ -25,8 +25,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   }
 
 body {
-   width: 80%;
-   margin: 0 auto;
+  
   font-family: 'Oxygen Mono' ;
   border-radius: 0 0 15px 15px;
   -webkit-animation: bugfix infinite 1s;/* Advanced Checkbox Hack */
@@ -74,10 +73,10 @@ nav[role="custom-dropdown"] ul {
   nav[role="custom-dropdown"] a,
 nav[role="custom-dropdown"] label {
   color: #fff;
-
+display: block;
 padding: 8px;
   text-decoration: none;
-  font: 1rem "Oxygen Mono";
+  font: 20px "Oxygen Mono";
   transition: color .3s ease-in-out;
 }
   nav[role="custom-dropdown"] input[type=checkbox]:checked ~ label:after {
@@ -95,7 +94,7 @@ padding: 8px;
   nav[role="custom-dropdown"] input[type=checkbox]:checked ~ ul > li:after {
     position: absolute;
     right: .25em;
-    content: "\203A";
+    content: " ";
     font: bold 1.4em sans-serif;
   }
   @-webkit-keyframes bugfix {
@@ -144,7 +143,7 @@ input[type=checkbox] {
 
 /*main content*/
 .error {
-    color: red;
+    color: #FF0000;
     margin: 5px;
   }
 .main-content {
@@ -310,7 +309,7 @@ input[type=checkbox] {
   .formInput {
     border-radius: 5px;
     background-color: rgba(237,245,238,.8);
-    padding: 40px;
+   
     width: 100%;
   }
 .formInput li {
@@ -522,10 +521,17 @@ input[type=text],  input[type=password], select, textarea {
     text-align: left;
   }
   .comText:nth-of-type(2):before {
-    content: "Comment";
+    content: "Review";
     text-align: left;
   }
   .blank:nth-of-type(3):before {
+    content: " ";
+  }
+  .mediumCom:nth-of-type(1):before {
+    content: "Review";
+    text-align: left;
+  }
+  .mediumDelete:nth-of-type(2):before {
     content: " ";
   }
 
@@ -535,7 +541,7 @@ footer {
   vertical-align: text-top;
   width: 100%;
   overflow: auto;
-  background-color: rgba(217,183,146,.8);
+  background-color: rgba(232,155,93,.6);
 }
 footer h4 {
   font-size: .75em;

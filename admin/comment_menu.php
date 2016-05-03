@@ -35,7 +35,7 @@ include'../view/admin_header.php';
     <form action="." method="post">
         <input type="hidden" name="action" value="add_comment">
         <input type="hidden" name="com_userid" value="2">
-        <textarea  rows="5" cols="50" name="comment_text" placeholder="Add Comments..."></textarea><br> 
+        <textarea  autofocus rows="5" cols="50" name="comment_text" placeholder="Add Comments..."></textarea><br> 
         <input class="button" type="submit" value="Submit Comments">
     </form>	    		    
 </div><!-- end main content -->

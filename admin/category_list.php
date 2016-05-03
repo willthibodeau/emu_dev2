@@ -16,7 +16,7 @@ include'../view/admin_header.php';
     <form class="formInput mediumAddCategory" id="add_category_form" action="index.php" method="post">
         <input type="hidden" name="action" value="add_category" >
         <label for="name"> * Category Name:</label>
-        <input type="text"  name="name" id="name" required="required" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"><br>
+        <input autofocus type="text"  name="name" id="name" required="required" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"><br>
         <label for="price">* Category Price: (NOTE: Do not use $)</label>
         <input type="text" name="cat_catprice" id="price" required="required" value="<?php if(isset($_POST['cat_catprice'])) echo $_POST['cat_catprice']; ?>"><br>
         <label for="discount">Discount Percent: </label>

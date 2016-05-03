@@ -13,7 +13,7 @@ include'../view/header.php';
 		<input type="hidden" name="action" value="register">
 		
 		<label>* Username</label>   
-		    <input type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo htmlspecialchars($_POST['userName']); ?>" maxlength="60">    
+		    <input autofocus type="text" required="required" name="userName" value="<?php if(isset($_POST['userName'])) echo htmlspecialchars($_POST['userName']); ?>" maxlength="60">    
 		    
 	 	<label>* First Name</label>
 		    <input type="text" required="required" name="firstName" value="<?php if(isset($_POST['firstName'])) echo htmlspecialchars($_POST['firstName']); ?>">    

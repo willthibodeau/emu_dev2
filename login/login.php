@@ -13,7 +13,7 @@
           <input type="hidden" name="action" value="login">
           
           <label for="username">* Username:</label>
-          <input type="text"  name="username" id="username"  size="30" placeholder="Please enter a username" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>">
+          <input autofocus type="text"  name="username" id="username"  size="30" placeholder="Please enter a username" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>">
           <br>
           <label for="password">* Password:</label>
           <input type="password"  name="password" id="password"  size="30" placeholder="Please enter a password">

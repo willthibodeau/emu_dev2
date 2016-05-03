@@ -21,7 +21,7 @@ include'../view/admin_header.php';
                     <?php endforeach; ?>
                 </select><br>
                     <label for="code">* Product Code:</label>
-                    <input type="text" name="code" id="code" required="required" value="<?php if(isset($_POST['code'])) echo $_POST['code']; ?>"><br>
+                    <input autofocus type="text" name="code" id="code" required="required" value="<?php if(isset($_POST['code'])) echo $_POST['code']; ?>"><br>
 
                     <label for="quantity">* Product Quantity:</label>
                     <input type="text" name="name" id="quantity" required="required" value="<?php if(isset($_POST['quantity'])) echo $_POST['quantity']; ?>"><br>

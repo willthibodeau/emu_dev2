@@ -48,10 +48,10 @@ include'../view/member_header.php';
                 <tr>
                     <td class="mediumPackage"><?php echo htmlspecialchars($cart[0]); ?></td>
                     <td class="mediumPrice">$<?php echo htmlspecialchars($cart[1]); ?></td>
-                    <td class="mediumDiscount">$<?php echo htmlspecialchars(($cart[1] * ($cart[2] / 100 ))); ?></td>
-                    <td class="mediumYourP">$<?php $sum = ($cart[1] - ($cart[1] * ($cart[2] / 100))) ; echo htmlspecialchars($sum); ?></td>
-                    <td class="mediumQuantity"><?php echo htmlspecialchars($cart[3]); ?></td>
-                    <td class="mediumSubtotal">$<?php echo htmlspecialchars($sum * $cart[3]); ?></td>
+                    <td class="mediumDiscount">$<?php echo htmlspecialchars(round(($cart[1] * ($cart[2] / 100 ))),0); ?></td>
+                    <td class="mediumYourP">$<?php $sum = round(($cart[1] - ($cart[1] * ($cart[2] / 100))),0) ; echo htmlspecialchars($sum); ?></td>
+                    <td class="mediumQuantity"><?php echo htmlspecialchars(round($cart[3]),0); ?></td>
+                    <td class="mediumSubtotal">$<?php echo htmlspecialchars(round($sum * $cart[3]),0); ?></td>
                     <td>
                         <form action="index.php" method="post">
                                 <input type="hidden" name="action" value="delete_order" />

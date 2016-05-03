@@ -60,10 +60,11 @@ switch($action) {
 		break;
 
 	case'add_comment':
+		$comments = get_comments($member_id);
 		$comment_text = filter_input(INPUT_POST, 'comment_text', FILTER_SANITIZE_SPECIAL_CHARS);
-		if($comment_text == NULl || $comment_text == FALSE) {
+		if(empty($comment_text)) {
 			$error = "Please enter a review.";
-			include'../errors/error.php';
+			include'member_menu.php';
 		} else {
 			add_comments($member_id, $comment_text);
 		}
@@ -84,8 +85,8 @@ switch($action) {
 		$sum = 0;
 		$total = 0;
 		foreach ($carts as $cart ){
-			$sum = $cart[3] * ($cart[1] - ($cart[1] * ($cart[2] / 100)));
-			$total += $sum;
+			$sum = round($cart[3] * ($cart[1] - ($cart[1] * ($cart[2] / 100))),0);
+			$total += round($sum,0);
 		}
 
 		$categories = get_categories();
@@ -112,7 +113,16 @@ switch($action) {
 	case'search_categories':
 		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 		$search_names = search_categories($name);
-		include('search_results.php');
+		$comments = get_comments($member_id);
+		if(empty($name)) {
+			$error = "Please enter search criteria in the text box ";
+			include('member_menu.php');
+		} else if (empty($search_names)) { 
+			$error = "No names matched " ;
+			include('member_menu.php');
+		} else {
+			include('search_results.php');
+		}
 		break;
 
 	case 'logout':

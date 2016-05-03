@@ -117,7 +117,8 @@ input[type=checkbox] {
     background-size: 100% 100%;
   }
   .publicHeader h1 {
-    font-family: 'Vidaloka', serif;
+    font-family: '
+    ', serif;
     font-size: 45px;
     color: white;
     padding: 40px;
@@ -141,7 +142,7 @@ input[type=checkbox] {
 
 /*main content*/
 .error {
-    color: red;
+    color: #FF0000;
     margin: 5px;
   }
 .main-content {
@@ -396,7 +397,7 @@ footer {
   vertical-align: text-top;
   width: 100%;
   overflow: auto;
-  background-color: rgba(217,183,146,.8);
+  background-color: rgba(232,155,93,.6);
 }
 footer h4 {
   font-size: .75em;

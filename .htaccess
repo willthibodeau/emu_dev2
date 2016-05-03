@@ -1,4 +1,4 @@
-ErrorDocument 401 errors/error.php
-ErrorDocument 404 errors/error.php
+ErrorDocument 401 http://www.elitemeatsutah.com/error.php
+ErrorDocument 404 http://www.elitemeatsutah.com/error.php
 
 

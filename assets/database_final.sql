@@ -1,3 +1,24 @@
+-- --------------------------------------------------------------
+-- Author: Will Thibodeau                                       -
+-- Project: Elitemeatsutah.com                                  -
+-- Final Project WEB 289 2016SP                                 -
+-- Date: May 3, 2016                                            -
+-- File: elitemeats_dev1.sql                                    -
+-- Description: Sets up the database tables and inserts data    -
+-- Table List:                                                  -
+--          categories                                          -
+--          comments                                            -
+--          orders                                              -
+--          products                                            -
+--          users                                               -
+--                                                              -
+-- *Comment at top indicating logon credentials for guests      -
+--          Member Logon Username: wtmem                        -
+--          Member Logon Password: 1234                         -
+--          Admin Logon Username: wtadmin                       -
+--          Admin Logon Password: 1234                          -
+-- --------------------------------------------------------------     
+
 -- phpMyAdmin SQL Dump
 -- version 2.8.0.1
 -- http://www.phpmyadmin.net
@@ -52,9 +73,9 @@ CREATE TABLE `comments` (
 -- 
 
 INSERT INTO `comments` VALUES (30, 4, 'The chicken package was a real good deal! Fresh, delicious and tender....');
-INSERT INTO `comments` VALUES (34, 1, 'The Jr. Beef Package is full of tasty beef steaks that last a long time. Get this great deal while it lasts.');
-INSERT INTO `comments` VALUES (35, 2, 'these are the reviews');
-INSERT INTO `comments` VALUES (36, 2, 'These are my reviews');
+INSERT INTO `comments` VALUES (34, 3, 'The Jr. Beef Package is full of tasty beef steaks that last a long time. Get this great deal while it lasts.');
+INSERT INTO `comments` VALUES (35, 4, 'The Jr. Beef Package is full of tasty beef steaks that last a long time. Get this great deal while it lasts.');
+INSERT INTO `comments` VALUES (36, 3, 'The chicken package was a real good deal! Fresh, delicious and tender....');
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,151 @@
+Folder PATH listing
+Volume serial number is E2B1-897D
+C:.
+|   .DS_Store
+|   .htaccess
+|   attr.php
+|   contact.php
+|   employment.php
+|   index.php
+|   Vidaloka.ttf
+|   wireframe.txt
+|   
++---admin
+|       category_list.php
+|       comment_menu.php
+|       index.php
+|       loginError.php
+|       product_add.php
+|       
++---assets
+|   |   database_final.sql
+|   |   erd.jpg
+|   |   index.php
+|   |   wireframe.txt
+|   |   
+|   +---artwork
+|   |       breakfast.jpg
+|   |       chicken.jpg
+|   |       Chickenparm.jpg
+|   |       chicstrip.jpg
+|   |       chopped.jpg
+|   |       fillet.jpg
+|   |       header.png
+|   |       herb.jpg
+|   |       index.php
+|   |       nystrip.jpg
+|   |       peeps.jpg
+|   |       plumteriyaki.JPG
+|   |       southwestern.jpg
+|   |       strip.jpg
+|   |       tbone.jpg
+|   |       
+|   \---images
+|           breakfast.jpg
+|           chicken.jpg
+|           Chickenparm.jpg
+|           chicstrip.jpg
+|           chopped.jpg
+|           fillet.jpg
+|           header.png
+|           herb.jpg
+|           nystrip.jpg
+|           peeps.jpg
+|           plumteriyaki.JPG
+|           southwestern.jpg
+|           strip.jpg
+|           tbone.jpg
+|           
++---css
+|       large.css
+|       medium.css
+|       small.css
+|       
++---errors
+|       error.php
+|       
++---imageProcess
+|   |   file_util.php
+|   |   image_util.php
+|   |   index.php
+|   |   main.css
+|   |   uploadform.php
+|   |   
+|   \---images
+|           breakfast_100.jpg
+|           Chickenparm_100.jpg
+|           chicken_100.jpg
+|           chicstrip_100.jpg
+|           chopped_100.jpg
+|           fillet_100.jpg
+|           herb_100.jpg
+|           image.jpeg
+|           image_100.jpeg
+|           image_400.jpeg
+|           nystrip_100.jpg
+|           plumteriyaki_100.JPG
+|           southwestern_100.jpg
+|           strip_100.jpg
+|           tbone_100.jpg
+|           
++---img
+|       chicken.jpg
+|       favicon.png
+|       fish.jpg
+|       header.jpg
+|       header1.jpg
+|       peeps.jpg
+|       pixel_art_avatar_icon_generator_by_h071019-d64ddai.png
+|       SteakHome.jpg
+|       SteakHome2.jpg
+|       SteakHome2a.jpg
+|       transparent.jpg
+|       transparent.png
+|       wood.jpg
+|       
++---js
+|       jquery.gomap-1.3.2.min.js
+|       jquery.js
+|       main.js
+|       
++---login
+|       admin_success.php
+|       index.php
+|       login.php
+|       member_success.php
+|       register.php
+|       success.php
+|       
++---member
+|       add_comments.php
+|       cart.php
+|       index.php
+|       member_menu.php
+|       search_results.php
+|       
++---model
+|       admin_db.php
+|       category_db.php
+|       database_db.php
+|       member_db.php
+|       product_db.php
+|       
++---product
+|       index.php
+|       product_list.php
+|       
++---util
+|       valid_admin.php
+|       valid_login.php
+|       valid_member.php
+|       
++---Vidaloka
+|       OFL.txt
+|       Vidaloka-Regular.ttf
+|       
+\---view
+        admin_header.php
+        footer.php
+        header.php
+        member_header.php
+        

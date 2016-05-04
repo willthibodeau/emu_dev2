@@ -1,3 +1,0 @@
-# the database connection file is not to be located on github
-/model/database.php
-/nbproject/private/

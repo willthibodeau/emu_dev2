@@ -5,6 +5,9 @@
 	<title>Original Unedited Artwork</title>
 </head>
 <body>
+<div>
+	<a href="../index.php">Back</a>
+	</div>
 	<h1>Original Unedited Artwork (Images)</h1>
 		<h1>Header Image</h1>
 		<span about="https://www.flickr.com/photos/mypubliclands/24936183702">Work found at <a href="https://www.flickr.com/photos/mypubliclands/24936183702">https://www.flickr.com/photos/mypubliclands/24936183702</a>  / <a rel="license" href="https://creativecommons.org/licenses/by/2.0/">undefined</a></span>

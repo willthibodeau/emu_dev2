@@ -176,6 +176,7 @@ switch($action) {
  		break;
 
  	case'add_comment':
+    $comments = comment_data();
  		$com_userid = $_SESSION['admin_id'];
  		$comment_text = filter_input(INPUT_POST, 'comment_text', FILTER_SANITIZE_SPECIAL_CHARS);
     if (empty($comment_text)) {

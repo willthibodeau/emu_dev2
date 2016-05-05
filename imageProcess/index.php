@@ -1,4 +1,14 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: index.php                                                                                  /
+//   Description: file is straight out of murachs for processing images  "controller"                 /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 /* This file is straight out of Murachs */
 
 require_once 'file_util.php';  // the get_file_list function

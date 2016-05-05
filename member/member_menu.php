@@ -1,4 +1,14 @@
 <?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: member_menu.php                                                                            /
+//   Description: member can search the menu or add and see his comments                              /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 require_once('../util/valid_member.php');
 include'../view/member_header.php';
 ?>

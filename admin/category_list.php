@@ -1,4 +1,14 @@
-<?php 
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: category_list.php                                                                          /
+//   Description: First page opened, allows create/delete categories and view products                /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>
@@ -10,6 +20,7 @@ include'../view/admin_header.php';
         } ?>
     </div>
     <h1>Administrator Home</h1>
+
     <!-- allow the administrator to add a category and price -->
     <h2>Add Category</h2>
     <p>* required</p>
@@ -23,6 +34,7 @@ include'../view/admin_header.php';
         <input type="text" name="discount" id="discount"><br>
         <input class="button" type="submit" value="Add Category">
     </form>
+
     <!-- display the category list in a table format-->
     <h2>Category List</h2>
         <div class="formInput">
@@ -51,9 +63,9 @@ include'../view/admin_header.php';
             </table>
             <p>NOTE: You cannot delete a category with products in it.</p>
         </div>
+
         <!-- display the products in a table format -->
         <h2>Products</h2>
-        <!-- <div class="formInput"> -->
         <p> <?php echo htmlspecialchars($category_name); ?></p> 
         <table class="adminTable2 formInput">
             <thead>
@@ -91,6 +103,5 @@ include'../view/admin_header.php';
             </tbody>
                 <?php endforeach; ?>
         </table>
-    
-</div><!-- end main content -->
+    </div><!-- end main content -->
 <?php include'../view/footer.php'; ?>

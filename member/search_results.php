@@ -1,4 +1,14 @@
 <?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: search_results.php                                                                         /
+//   Description: shows the search results for members                                                /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 require_once('../util/valid_member.php');
 include'../view/member_header.php';
 ?>
@@ -30,7 +40,7 @@ include'../view/member_header.php';
             
 		</tr>
 	</tbody>
-<?php endforeach; ?>
+            <?php endforeach; ?>
 </table>
 </div>
 </div><!-- end main content -->

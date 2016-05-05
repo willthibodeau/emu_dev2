@@ -1,4 +1,16 @@
-<?php include 'view/header.php'; ?>
+<?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: attr.php                                                                                   /
+//   Description: attribution page for all the images on the site                                     /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+include 'view/header.php'; ?>
 <div class="main-content">
 	<div class="formInput">
 		<h2>Image Attribution</h2>

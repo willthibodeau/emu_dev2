@@ -1,5 +1,14 @@
 <?php 
- 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: error.php                                                                                  /
+//   Description: handles general errors                                                              /
+//                                                                                                    /
+/////////////////////////////////////////////////////////////////////////////////////////////////////// 
 if(isset($_SESSION['admin'])) { 
     require_once('../util/valid_admin.php');
     include'../view/admin_header.php';

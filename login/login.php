@@ -1,4 +1,15 @@
-<?php include '../view/header.php'; ?>
+<?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: login.php                                                                                  /
+//   Description: displays for a member or admin to login                                             /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+include '../view/header.php'; ?>
 <div class="main-content">
 
      
@@ -26,7 +37,7 @@
             <input type="hidden" name="action" value="register_form">
             <button class="button" type="submit" value="Resister Here">Register</button>
         </form> 
-        <p>Abc1234#</p>
+        <!-- <p>Abc1234#</p> -->
 </div><!-- end main content --> 
 
 <?php include '../view/footer.php'; ?>

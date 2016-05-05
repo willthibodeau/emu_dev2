@@ -1,4 +1,14 @@
 <?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: success.php                                                                                /
+//   Description: Displays registration information to the user after they register                   /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 include'../view/header.php'; 
 ?>
 <div class="main-content">

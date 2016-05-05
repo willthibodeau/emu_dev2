@@ -1,4 +1,14 @@
 <?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: image_util.php                                                                             /
+//   Description: file is straight out of murachs for processing images                               /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // this file is straight from the book
 function process_image($dir, $filename) {

@@ -1,4 +1,14 @@
-<?php 
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: uploadform.php                                                                             /
+//   Description: file is straight out of murachs for processing images                               /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>

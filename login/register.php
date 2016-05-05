@@ -1,4 +1,14 @@
 <?php 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: register.php                                                                               /
+//   Description: provides a form for a user to register as a member                                  /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 include'../view/header.php';
 
 ?>

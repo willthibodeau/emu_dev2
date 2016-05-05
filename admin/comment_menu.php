@@ -1,10 +1,19 @@
-<?php 
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                    /
+//   Author: Will Thibodeau                                                                           /
+//   Project: Elitemeatsutah.com                                                                      /
+//   Final Project WEB 289 2016SP                                                                     /
+//   Date: April 28, 2016                                                                             /
+//   File: comment_menu.php                                                                           /
+//   Description: Allows the admin to delete or add comments                                          /
+//                                                                                                    /
+///////////////////////////////////////////////////////////////////////////////////////////////////////  
 require_once('../util/valid_admin.php');
 include'../view/admin_header.php';
 ?>
 
 <div class="main-content">
-	
 	<h2>Comments Manager</h2>
 	<table class="formInput">
 		<tr>
@@ -30,7 +39,6 @@ include'../view/admin_header.php';
 		</tr>
 			<?php endforeach; ?>  
 	</table>  
-	
 	<h2>Add Comments</h2>
     <form action="." method="post">
         <input type="hidden" name="action" value="add_comment">
